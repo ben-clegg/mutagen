@@ -1,6 +1,11 @@
 package mutagen;
 
 import mutagen.cli.*;
+import mutagen.mutation.Mutant;
+import mutagen.mutation.strategy.EqualityConfusion;
+import mutagen.mutation.strategy.MutationStrategy;
+
+import java.util.List;
 
 public class MutaGen
 {
@@ -23,6 +28,14 @@ public class MutaGen
         }
 
         System.out.println(target.getLines());
+
+        MutationStrategy eqMut = new EqualityConfusion(target.getLines());
+        List<Mutant> eqMutants = eqMut.createMutants();
+
+        for (Mutant m : eqMutants)
+        {
+            System.out.println(m.getModifiedLines(target));
+        }
 
     }
 
