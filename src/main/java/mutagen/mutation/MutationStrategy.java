@@ -3,6 +3,7 @@ package mutagen.mutation;
 import mutagen.JavaSource;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class MutationStrategy
 {
@@ -13,7 +14,18 @@ public abstract class MutationStrategy
         original = originalLines;
     }
 
-    abstract int[] getMutatableIndexes();
+    public List<Integer> getMutatableIndexes()
+    {
+        List<Integer> indexes = new ArrayList<Integer>();
+        for (int i = 0; i < original.size(); i++)
+        {
+            if(isMutatable(original.get(i)))
+                indexes.add(i);
+        }
+        return indexes;
+    }
 
+    abstract boolean isMutatable(String line);
 
+    abstract ArrayList<Mutant> createMutants();
 }

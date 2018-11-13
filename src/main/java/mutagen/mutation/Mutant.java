@@ -5,12 +5,13 @@ import mutagen.TargetSource;
 
 public class Mutant
 {
-    private int index;
     private String patched;
+    private int index;
 
-    public Mutant()
+    public Mutant(String mutatedLine, int lineIndex)
     {
-
+        patched = mutatedLine;
+        index = lineIndex;
     }
 
     public JavaSource getModifiedLines(TargetSource original)
