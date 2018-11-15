@@ -22,4 +22,16 @@ public class Mutant
         return modified;
     }
 
+    private int getLineNumber()
+    {
+        return index + 1;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Mutant @ Line " +
+                String.format("%04d", getLineNumber()) +
+                " : " + patched;
+    }
 }

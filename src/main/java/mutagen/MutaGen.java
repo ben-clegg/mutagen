@@ -4,6 +4,7 @@ import mutagen.cli.*;
 import mutagen.mutation.Mutant;
 import mutagen.mutation.strategy.EqualityConfusion;
 import mutagen.mutation.strategy.MutationStrategy;
+import mutagen.mutation.strategy.UnbalancedBrackets;
 
 import java.util.List;
 
@@ -30,11 +31,19 @@ public class MutaGen
         System.out.println(target.getLines());
 
         MutationStrategy eqMut = new EqualityConfusion(target.getLines());
-        List<Mutant> eqMutants = eqMut.createMutants();
+        List<Mutant> eqMutants = eqMut.createAllMutants();
 
         for (Mutant m : eqMutants)
         {
-            System.out.println(m.getModifiedLines(target));
+            System.out.println(m.toString());
+        }
+
+        MutationStrategy brktMut = new UnbalancedBrackets(target.getLines());
+        List<Mutant> brktMutants = brktMut.createAllMutants();
+
+        for (Mutant m : brktMutants)
+        {
+            System.out.println(m.toString());
         }
 
     }

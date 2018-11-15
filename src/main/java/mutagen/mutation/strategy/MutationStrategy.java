@@ -26,12 +26,12 @@ public abstract class MutationStrategy
         return indexes;
     }
 
-    public List<Mutant> createMutants()
+    public List<Mutant> createAllMutants()
     {
         List<Mutant> mutants = new ArrayList();
         for (int i : getMutatableIndexes())
         {
-            mutants.add(createMutant(i));
+            mutants.addAll(createLineMutants(i));
         }
         return mutants;
     }
@@ -43,5 +43,5 @@ public abstract class MutationStrategy
 
     abstract boolean isMutatable(String line);
 
-    abstract Mutant createMutant(int lineIndex);
+    abstract List<Mutant> createLineMutants(int lineIndex);
 }

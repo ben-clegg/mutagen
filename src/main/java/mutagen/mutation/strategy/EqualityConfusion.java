@@ -3,6 +3,9 @@ package mutagen.mutation.strategy;
 import mutagen.JavaSource;
 import mutagen.mutation.Mutant;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EqualityConfusion extends MutationStrategy
 {
     public EqualityConfusion(JavaSource originalLines)
@@ -10,6 +13,7 @@ public class EqualityConfusion extends MutationStrategy
         super(originalLines);
     }
 
+    @Override
     boolean isMutatable(String line)
     {
         if(line.contains("="))
@@ -17,8 +21,10 @@ public class EqualityConfusion extends MutationStrategy
         return false;
     }
 
-    Mutant createMutant(int lineIndex)
+    @Override
+    List<Mutant> createLineMutants(int lineIndex)
     {
+        List<Mutant> mutants = new ArrayList<Mutant>();
         String original = getOriginalLines().get(lineIndex);
 
         String mutated = original;
@@ -34,6 +40,9 @@ public class EqualityConfusion extends MutationStrategy
         }
 
         Mutant m = new Mutant(mutated, lineIndex);
-        return m;
+        mutants.add(m);
+
+        return mutants;
     }
+
 }

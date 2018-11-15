@@ -1,5 +1,4 @@
-public class Assignment1
-{
+public class Assignment1 {
   private static int galleons;
   private static int sickles;
   private static int knuts;
@@ -14,20 +13,16 @@ public class Assignment1
   private static final String SPACES = "                  ";
   private static final int ITEM_COLUMN_WIDTH = 19; //only worth including because no loop
 
-  public static void main(String[] args)
-  {
+  public static void main(String[] args) {
 
     // Calculate change from whole galleons
-    if ((knuts > 0)||(sickles > 0))
-    {
+    if ((knuts > 0)||(sickles > 0)) {
       galleons ++;
-      if (knuts > 0)
-      {
+      if (knuts > 0) {
         knuts = KNUTS_IN_SICKLES - knuts;
         sickles = SICKLES_IN_GALLEONS - sickles - 1;
       }
-      else
-      {
+      else {
         sickles = SICKLES_IN_GALLEONS - sickles;
       }
     }
@@ -36,8 +31,7 @@ public class Assignment1
 			(sickles)+" Sickles and "+
 			(knuts)+" Knuts");
 
-    for (int i = 0; i < 3; i++)
-    {
+    for (int i = 0; i < 3; i++) {
       readItem();
     }
 
