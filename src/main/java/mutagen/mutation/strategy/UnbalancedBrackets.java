@@ -13,6 +13,8 @@ public class UnbalancedBrackets extends MutationStrategy
     private static final String BRACKET_MATCH = "(.*)([\\{\\[\\(\\)\\]\\}]+)(.*)";
     //private static final Character[] POSSIBLE_BRACKETS = {'{', '[', '(', ')', ']', '}'};
     private static final String POSSIBLE_BRACKETS = "{[()]}";
+    private static final String OPENING_BRACKETS = "{[(";
+    private static final String CLOSING_BRACKETS = ")]}";
 
     public UnbalancedBrackets(JavaSource originalLines)
     {
@@ -86,8 +88,14 @@ public class UnbalancedBrackets extends MutationStrategy
     {
         List<String> replacedLines = new ArrayList<String>();
 
-        char existingBracket = originalLine.charAt(charIndex);
-        String replacements = POSSIBLE_BRACKETS.replace(String.valueOf(existingBracket), "");
+        String existingBracket = String.valueOf(originalLine.charAt(charIndex));
+
+        String replacements = "";
+
+        if (OPENING_BRACKETS.contains(existingBracket))
+            replacements = OPENING_BRACKETS.replace(existingBracket, "");
+        else if (CLOSING_BRACKETS.contains(existingBracket))
+            replacements = CLOSING_BRACKETS.replace(existingBracket, "");
 
         for (char replace : replacements.toCharArray())
         {
