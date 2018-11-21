@@ -11,6 +11,7 @@ public class TargetSource
 {
     private File location;
     private JavaSource lines;
+    private String filename;
 
     private void loadContents()
     {
@@ -28,11 +29,17 @@ public class TargetSource
     public TargetSource(String path)
     {
         location = new File(path);
+        filename = location.getName();
         loadContents();
     }
 
     public JavaSource getLines()
     {
         return lines;
+    }
+
+    public String getFilename()
+    {
+        return filename;
     }
 }

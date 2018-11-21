@@ -9,10 +9,24 @@ import java.util.List;
 public abstract class MutationStrategy
 {
     private JavaSource originalLines;
+    protected String type;
+    private final int TYPE_LENGTH = 20;
 
     public MutationStrategy(JavaSource targetLines)
     {
         originalLines = targetLines;
+        setType("UnspecifiedType");
+    }
+
+    protected void setType(String typeName)
+    {
+        StringBuffer str = new StringBuffer(TYPE_LENGTH);
+        str.append(typeName);
+        while(str.length() < TYPE_LENGTH) {
+            str.append(" ");
+        }
+
+        type = str.toString();
     }
 
     public List<Integer> getMutatableIndexes()

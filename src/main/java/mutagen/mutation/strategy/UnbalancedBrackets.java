@@ -19,6 +19,7 @@ public class UnbalancedBrackets extends MutationStrategy
     public UnbalancedBrackets(JavaSource originalLines)
     {
         super(originalLines);
+        setType("UnbalancedBrackets");
     }
 
     @Override
@@ -61,13 +62,13 @@ public class UnbalancedBrackets extends MutationStrategy
         for (int bIndex : bracketIndexes)
         {
             // Bracket deletion
-            Mutant deletionMutant = new Mutant(deleteBracket(original, bIndex), lineIndex);
+            Mutant deletionMutant = new Mutant(type, deleteBracket(original, bIndex), lineIndex);
             mutants.add(deletionMutant);
 
             // Bracket replacement
             for (String replaced : replaceBrackets(original, bIndex))
             {
-                Mutant replacementMutant = new Mutant(replaced, lineIndex);
+                Mutant replacementMutant = new Mutant(type, replaced, lineIndex);
                 mutants.add(replacementMutant);
             }
         }

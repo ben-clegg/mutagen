@@ -7,9 +7,12 @@ public class Mutant
 {
     private String patched;
     private int index;
+    private String type;
+    private int id;
 
-    public Mutant(String mutatedLine, int lineIndex)
+    public Mutant(String mutantType, String mutatedLine, int lineIndex)
     {
+        type = mutantType;
         patched = mutatedLine;
         index = lineIndex;
     }
@@ -30,8 +33,23 @@ public class Mutant
     @Override
     public String toString()
     {
-        return "Mutant @ Line " +
+        return  type +
+                "[" + getIdString() + "] @ Line " +
                 String.format("%04d", getLineNumber()) +
                 " : " + patched;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+    public String getIdString()
+    {
+        return String.format("%06d", getId());
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
     }
 }

@@ -11,6 +11,7 @@ public class EqualityConfusion extends MutationStrategy
     public EqualityConfusion(JavaSource originalLines)
     {
         super(originalLines);
+        setType("EqualityConfusion");
     }
 
     @Override
@@ -39,7 +40,7 @@ public class EqualityConfusion extends MutationStrategy
             mutated = mutated.replace("=", "==");
         }
 
-        Mutant m = new Mutant(mutated, lineIndex);
+        Mutant m = new Mutant(type, mutated, lineIndex);
         mutants.add(m);
 
         return mutants;

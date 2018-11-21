@@ -1,18 +1,15 @@
 package mutagen;
 
 import mutagen.cli.*;
-import mutagen.mutation.Mutant;
-import mutagen.mutation.strategy.EqualityConfusion;
-import mutagen.mutation.strategy.MutationStrategy;
-import mutagen.mutation.strategy.UnbalancedBrackets;
-
-import java.util.List;
+import mutagen.mutation.MutationEngine;
+import mutagen.output.FileOutput;
 
 public class MutaGen
 {
     private Configuration config;
 
     private TargetSource target;
+    private FileOutput fileOutput;
 
     public MutaGen(String[] args)
     {
@@ -20,7 +17,12 @@ public class MutaGen
 
         try
         {
-            target = new TargetSource(config.getInputValue(OptionNames.TARGET));
+            target = new TargetSource(
+                        config.getInputValue(OptionNames.TARGET));
+            fileOutput = new FileOutput(
+                        config.getInputValue(OptionNames.OUTPUT_DIR),
+                        target.getFilename());
+
         }
         catch (OptionNotSetException optEx)
         {
@@ -28,24 +30,11 @@ public class MutaGen
             System.exit(ErrorCodes.NO_TARGET.ordinal());
         }
 
-        System.out.println(target.getLines());
+        MutationEngine mutate = new MutationEngine(target);
+        mutate.generateMutants();
+        mutate.printAllMutants();
 
-        MutationStrategy eqMut = new EqualityConfusion(target.getLines());
-        List<Mutant> eqMutants = eqMut.createAllMutants();
-
-        for (Mutant m : eqMutants)
-        {
-            System.out.println(m.toString());
-        }
-
-        MutationStrategy brktMut = new UnbalancedBrackets(target.getLines());
-        List<Mutant> brktMutants = brktMut.createAllMutants();
-
-        for (Mutant m : brktMutants)
-        {
-            System.out.println(m.toString());
-        }
-
+        fileOutput.writeMutants(mutate.getMutants());
     }
 
     public static void main(String[] args)
