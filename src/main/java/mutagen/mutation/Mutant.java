@@ -3,21 +3,29 @@ package mutagen.mutation;
 import mutagen.JavaSource;
 import mutagen.TargetSource;
 
+import java.io.File;
+
 public class Mutant
 {
     private String patched;
     private int index;
     private String type;
     private int id;
+    private File location;
+    private TargetSource original;
 
-    public Mutant(String mutantType, String mutatedLine, int lineIndex)
+    public Mutant(String mutatedLine,
+                  int lineIndex,
+                  String mutantType,
+                  TargetSource originalFile)
     {
         type = mutantType;
         patched = mutatedLine;
         index = lineIndex;
+        original = originalFile;
     }
 
-    public JavaSource getModifiedLines(TargetSource original)
+    public JavaSource getModifiedLines()
     {
         JavaSource modified = original.getLines().copy();
         modified.remove(index);
@@ -51,5 +59,15 @@ public class Mutant
     public void setId(int id)
     {
         this.id = id;
+    }
+
+    public File getLocation()
+    {
+        return location;
+    }
+
+    public void setLocation(File location)
+    {
+        this.location = location;
     }
 }

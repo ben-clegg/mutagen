@@ -1,6 +1,5 @@
 package mutagen.mutation;
 
-import mutagen.JavaSource;
 import mutagen.TargetSource;
 import mutagen.mutation.strategy.EqualityConfusion;
 import mutagen.mutation.strategy.MutationStrategy;
@@ -16,11 +15,11 @@ public class MutationEngine
 {
     private List<Mutant> mutants;
     private List<MutationStrategy> strategies;
-    private JavaSource targetLines;
+    private TargetSource target;
 
     public MutationEngine(TargetSource targetSource)
     {
-        targetLines = targetSource.getLines();
+        target = targetSource;
         mutants = new ArrayList<Mutant>();
         initialiseStrategies();
     }
@@ -28,8 +27,8 @@ public class MutationEngine
     private void initialiseStrategies()
     {
         strategies = new ArrayList<MutationStrategy>();
-        strategies.add(new EqualityConfusion(targetLines));
-        strategies.add(new UnbalancedBrackets(targetLines));
+        strategies.add(new EqualityConfusion(target));
+        strategies.add(new UnbalancedBrackets(target));
     }
 
     public void generateMutants()

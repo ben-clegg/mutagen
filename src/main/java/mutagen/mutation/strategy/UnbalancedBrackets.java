@@ -1,10 +1,9 @@
 package mutagen.mutation.strategy;
 
-import mutagen.JavaSource;
+import mutagen.TargetSource;
 import mutagen.mutation.Mutant;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -16,9 +15,9 @@ public class UnbalancedBrackets extends MutationStrategy
     private static final String OPENING_BRACKETS = "{[(";
     private static final String CLOSING_BRACKETS = ")]}";
 
-    public UnbalancedBrackets(JavaSource originalLines)
+    public UnbalancedBrackets(TargetSource original)
     {
-        super(originalLines);
+        super(original);
         setType("UnbalancedBrackets");
     }
 
@@ -62,14 +61,12 @@ public class UnbalancedBrackets extends MutationStrategy
         for (int bIndex : bracketIndexes)
         {
             // Bracket deletion
-            Mutant deletionMutant = new Mutant(type, deleteBracket(original, bIndex), lineIndex);
-            mutants.add(deletionMutant);
+            mutants.add(createMutant(deleteBracket(original, bIndex), lineIndex));
 
             // Bracket replacement
             for (String replaced : replaceBrackets(original, bIndex))
             {
-                Mutant replacementMutant = new Mutant(type, replaced, lineIndex);
-                mutants.add(replacementMutant);
+                mutants.add(createMutant(replaced, lineIndex));
             }
         }
 

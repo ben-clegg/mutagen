@@ -1,6 +1,7 @@
 package mutagen.mutation.strategy;
 
 import mutagen.JavaSource;
+import mutagen.TargetSource;
 import mutagen.mutation.Mutant;
 
 import java.util.ArrayList;
@@ -8,13 +9,13 @@ import java.util.List;
 
 public abstract class MutationStrategy
 {
-    private JavaSource originalLines;
+    private TargetSource original;
     protected String type;
     private final int TYPE_LENGTH = 20;
 
-    public MutationStrategy(JavaSource targetLines)
+    public MutationStrategy(TargetSource target)
     {
-        originalLines = targetLines;
+        original = target;
         setType("UnspecifiedType");
     }
 
@@ -32,6 +33,7 @@ public abstract class MutationStrategy
     public List<Integer> getMutatableIndexes()
     {
         List<Integer> indexes = new ArrayList<Integer>();
+        JavaSource originalLines = original.getLines();
         for (int i = 0; i < originalLines.size(); i++)
         {
             if(isMutatable(originalLines.get(i)))
@@ -52,10 +54,19 @@ public abstract class MutationStrategy
 
     public JavaSource getOriginalLines()
     {
-        return originalLines;
+        return original.getLines();
     }
 
     abstract boolean isMutatable(String line);
 
     abstract List<Mutant> createLineMutants(int lineIndex);
+
+    protected Mutant createMutant(String mutatedLine, int lineIndex)
+    {
+        Mutant m = new Mutant(mutatedLine,
+                                lineIndex,
+                                type,
+                                original);
+        return m;
+    }
 }

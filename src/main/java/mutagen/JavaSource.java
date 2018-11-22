@@ -18,6 +18,18 @@ public class JavaSource extends ArrayList<String>
         return copied;
     }
 
+    @Override
+    public String toString()
+    {
+        StringBuilder s = new StringBuilder();
+        for(String l : this)
+        {
+            s.append(l);
+            s.append('\n');
+        }
+        return s.toString();
+    }
+
     /*
     public String getLine(int lineNumber)
     {

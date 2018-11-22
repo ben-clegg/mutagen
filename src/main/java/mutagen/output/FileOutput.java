@@ -4,6 +4,8 @@ import mutagen.mutation.Mutant;
 import org.testng.reporters.Files;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 public class FileOutput
@@ -21,12 +23,25 @@ public class FileOutput
     {
         for (Mutant m : mutants)
         {
-            File f = new File(directory.getPath() +
-                    File.pathSeparator +
+            // Set mutant's location to a subdirectory of its ID.
+            m.setLocation(new File(directory.getPath() +
+                    File.separatorChar +
                     m.getIdString() +
-                    File.pathSeparator + filename);
+                    File.separatorChar + filename));
 
-            // TODO write m
+            // Write the mutant to a file
+            m.getLocation().getParentFile().mkdirs();
+            try
+            {
+                Files.writeFile(m.getModifiedLines().toString(),
+                        m.getLocation());
+            }
+            catch (IOException ioEx)
+            {
+                ioEx.printStackTrace();
+                System.err.println("Failed to save mutant to " +
+                                    m.getLocation());
+            }
         }
     }
 }

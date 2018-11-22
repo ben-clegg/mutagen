@@ -1,6 +1,6 @@
 package mutagen.mutation.strategy;
 
-import mutagen.JavaSource;
+import mutagen.TargetSource;
 import mutagen.mutation.Mutant;
 
 import java.util.ArrayList;
@@ -8,9 +8,9 @@ import java.util.List;
 
 public class EqualityConfusion extends MutationStrategy
 {
-    public EqualityConfusion(JavaSource originalLines)
+    public EqualityConfusion(TargetSource original)
     {
-        super(originalLines);
+        super(original);
         setType("EqualityConfusion");
     }
 
@@ -40,8 +40,7 @@ public class EqualityConfusion extends MutationStrategy
             mutated = mutated.replace("=", "==");
         }
 
-        Mutant m = new Mutant(type, mutated, lineIndex);
-        mutants.add(m);
+        mutants.add(createMutant(mutated, lineIndex));
 
         return mutants;
     }
