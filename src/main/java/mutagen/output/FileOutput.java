@@ -44,4 +44,21 @@ public class FileOutput
             }
         }
     }
+
+    public void writeSummary(List<Mutant> mutants)
+    {
+        Summary summary = new Summary(mutants);
+        File csvLocation = new File(directory.getPath() + File.separatorChar +
+                                    "mutantIndex.csv");
+        try
+        {
+            Files.writeFile(summary.makeCSV(),csvLocation);
+        }
+        catch (IOException ioEx)
+        {
+            ioEx.printStackTrace();
+            System.err.println("Failed to write mutant index CSV to " +
+                                csvLocation);
+        }
+    }
 }

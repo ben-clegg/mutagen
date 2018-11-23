@@ -35,6 +35,7 @@ public class MutaGen
         mutate.printAllMutants();
 
         fileOutput.writeMutants(mutate.getMutants());
+        fileOutput.writeSummary(mutate.getMutants());
     }
 
     public static void main(String[] args)

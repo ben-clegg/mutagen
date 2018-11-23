@@ -33,7 +33,7 @@ public class Mutant
         return modified;
     }
 
-    private int getLineNumber()
+    public int getLineNumber()
     {
         return index + 1;
     }
@@ -69,5 +69,10 @@ public class Mutant
     public void setLocation(File location)
     {
         this.location = location;
+    }
+
+    public String getReplacement()
+    {
+        return patched;
     }
 }
