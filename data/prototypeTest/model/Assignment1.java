@@ -31,7 +31,7 @@ public class Assignment1 {
 			(sickles)+" Sickles and "+
 			(knuts)+" Knuts");
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 1; i <= 3; i++) {
       readItem();
     }
 

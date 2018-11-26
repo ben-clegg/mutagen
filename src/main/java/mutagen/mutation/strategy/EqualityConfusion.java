@@ -17,9 +17,7 @@ public class EqualityConfusion extends MutationStrategy
     @Override
     boolean isMutatable(String line)
     {
-        if(line.contains("="))
-            return true;
-        return false;
+        return line.contains("=");
     }
 
     @Override
@@ -33,11 +31,11 @@ public class EqualityConfusion extends MutationStrategy
         // TODO does not consider each occurrence of possible mutant, only first - may need fixing
         if(mutated.contains("=="))
         {
-            mutated = mutated.replace("==", "=");
+            mutated = mutated.replaceFirst("==", "=");
         }
         else
         {
-            mutated = mutated.replace("=", "==");
+            mutated = mutated.replaceFirst("=", "==");
         }
 
         mutants.add(createMutant(mutated, lineIndex));
