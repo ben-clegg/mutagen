@@ -1,6 +1,7 @@
 package mutagen.mutation;
 
 import mutagen.TargetSource;
+import mutagen.mutation.strategy.ConstantToVariable;
 import mutagen.mutation.strategy.EqualityConfusion;
 import mutagen.mutation.strategy.MutationStrategy;
 import mutagen.mutation.strategy.UnbalancedBrackets;
@@ -29,6 +30,7 @@ public class MutationEngine
         strategies = new ArrayList<MutationStrategy>();
         strategies.add(new EqualityConfusion(target));
         strategies.add(new UnbalancedBrackets(target));
+        strategies.add(new ConstantToVariable(target));
     }
 
     public void generateMutants()
