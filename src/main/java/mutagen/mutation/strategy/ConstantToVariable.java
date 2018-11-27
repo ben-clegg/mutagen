@@ -16,9 +16,9 @@ public class ConstantToVariable extends MutationStrategy
     }
 
     @Override
-    boolean isMutatable(String line)
+    boolean isMutatable(String cleanedLine)
     {
-        String[] elems = line.split(" ");
+        String[] elems = cleanedLine.split(" ");
         for (String e : elems)
         {
             if(e.equals("final"))

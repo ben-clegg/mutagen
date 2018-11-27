@@ -15,9 +15,9 @@ public class ComparatorConfusion extends MutationStrategy
     }
 
     @Override
-    boolean isMutatable(String line)
+    boolean isMutatable(String cleanedLine)
     {
-        if(line.contains(">=") || line.contains("<="))
+        if(cleanedLine.contains(">=") || cleanedLine.contains("<="))
             return true;
         return false;
     }

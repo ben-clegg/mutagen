@@ -29,6 +29,7 @@ public class MutationEngine
         strategies.add(new UnbalancedBrackets(target));
         strategies.add(new ConstantToVariable(target));
         strategies.add(new ComparatorConfusion(target));
+        strategies.add(new ShortCircuitConfusion(target));
     }
 
     public void generateMutants()

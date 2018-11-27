@@ -15,9 +15,9 @@ public class EqualityConfusion extends MutationStrategy
     }
 
     @Override
-    boolean isMutatable(String line)
+    boolean isMutatable(String cleanedLine)
     {
-        return line.contains("=");
+        return cleanedLine.contains("=");
     }
 
     @Override

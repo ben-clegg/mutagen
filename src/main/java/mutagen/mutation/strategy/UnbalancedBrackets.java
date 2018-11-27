@@ -22,11 +22,11 @@ public class UnbalancedBrackets extends MutationStrategy
     }
 
     @Override
-    boolean isMutatable(String line)
+    boolean isMutatable(String cleanedLine)
     {
-        if (line.matches(BRACKET_MATCH))
+        if (cleanedLine.matches(BRACKET_MATCH))
         {
-            System.out.println(line);
+            System.out.println(cleanedLine);
             return true;
         }
         return false;

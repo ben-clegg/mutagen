@@ -5,13 +5,14 @@ import mutagen.TargetSource;
 import mutagen.mutation.Mutant;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public abstract class MutationStrategy
 {
     private TargetSource original;
     protected String type;
-    private final int TYPE_LENGTH = 20;
+    private final int TYPE_LENGTH = 22;
 
     public MutationStrategy(TargetSource target)
     {
@@ -36,10 +37,34 @@ public abstract class MutationStrategy
         JavaSource originalLines = original.getLines();
         for (int i = 0; i < originalLines.size(); i++)
         {
-            if(isMutatable(originalLines.get(i)))
+            if(isMutatable(cleanLine(originalLines.get(i))))
                 indexes.add(i);
         }
         return indexes;
+    }
+
+    private String cleanLine(String original)
+    {
+        List<String> split = Arrays.asList(original.split(" "));
+
+        for (int i = 0; i < split.size(); i++)
+        {
+            // remove comments
+            if (split.get(i).contains("//"))
+            {
+                split = split.subList(0, i);
+                break;
+            }
+            // TODO remove strings
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (String s : split)
+        {
+            sb.append(s);
+            sb.append(" ");
+        }
+        return sb.toString();
     }
 
     public List<Mutant> createAllMutants()
@@ -57,7 +82,12 @@ public abstract class MutationStrategy
         return original.getLines();
     }
 
-    abstract boolean isMutatable(String line);
+    /**
+     * Check if a line of the program can be mutated
+     * @param cleanedLine - the line, with comments and strings removed
+     * @return true if the line is mutatable
+     */
+    abstract boolean isMutatable(String cleanedLine);
 
     abstract List<Mutant> createLineMutants(int lineIndex);
 
