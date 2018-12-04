@@ -16,6 +16,7 @@ public class Summary
         lines = new StringBuilder();
         mutantList = mutants;
 
+        // TODO add type
         // CSV Header
         lines.append("ID,MutatedLine,Replacement,Location\n");
 

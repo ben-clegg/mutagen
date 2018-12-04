@@ -1,5 +1,7 @@
 package mutagen;
 
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ast.CompilationUnit;
 import com.google.common.io.Files;
 
 import java.io.File;
@@ -12,13 +14,18 @@ public class TargetSource
     private File location;
     private JavaSource lines;
     private String filename;
+    private CompilationUnit compilationUnit;
 
     private void loadContents()
     {
         try
         {
+            // Load contents of file
             lines = new JavaSource(
                         Files.readLines(location, Charset.forName("UTF-8")));
+
+            // Parse Abstract Syntax Tree with JavaParser
+            compilationUnit = JavaParser.parse(location);
         }
         catch (IOException ioEx)
         {
@@ -36,6 +43,11 @@ public class TargetSource
     public JavaSource getLines()
     {
         return lines;
+    }
+
+    public CompilationUnit getCompilationUnit()
+    {
+        return compilationUnit;
     }
 
     public String getFilename()
