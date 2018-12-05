@@ -46,10 +46,13 @@ public class ClassnameReplacementStrategy extends ASTMutationStrategy
         // Lowercase
         replacements.add(original.toLowerCase());
 
-        // TODO other strategies
-
         // Character removal
+        for (int i = 0; i < original.length(); i++)
+        {
+            replacements.add(original.substring(0, i) + original.substring(i+1));
+        }
 
+        // TODO other strategies
         // Character swapping
 
         return replacements;
