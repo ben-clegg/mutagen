@@ -11,11 +11,11 @@ import java.util.List;
 
 public class ClassnameReplacementStrategy extends ASTMutationStrategy
 {
-    private TargetSource original;
-
     public ClassnameReplacementStrategy(TargetSource target)
     {
         super(target);
+        setType("ClassnameReplacement");
+        setType("ClassnameReplacement");
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ClassnameReplacementStrategy extends ASTMutationStrategy
                 {
                     ClassOrInterfaceDeclaration mutated = declaration.clone();
                     mutated.setName(name);
-                    addNodeMutant(new NodeMutant(declaration, mutated));
+                    addMutant(new NodeMutant(getOriginal().getCompilationUnit(), declaration, mutated, type));
                 }
             }
         };
@@ -47,6 +47,10 @@ public class ClassnameReplacementStrategy extends ASTMutationStrategy
         replacements.add(original.toLowerCase());
 
         // TODO other strategies
+
+        // Character removal
+
+        // Character swapping
 
         return replacements;
     }

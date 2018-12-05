@@ -4,36 +4,26 @@ import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import mutagen.TargetSource;
+import mutagen.mutation.MutationStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ASTMutationStrategy
+public abstract class ASTMutationStrategy extends MutationStrategy
 {
-    private TargetSource original;
     protected VoidVisitorAdapter visitor;
-    private List<NodeMutant> nodeMutants;
 
     public ASTMutationStrategy(TargetSource target)
     {
-        original = target;
+        super(target);
         visitorSetup();
-        nodeMutants = new ArrayList<NodeMutant>();
     }
 
-    public void addNodeMutant(NodeMutant m)
+    @Override
+    public void createAllMutants()
     {
-        nodeMutants.add(m);
+        visitor.visit(getOriginal().getCompilationUnit(), null);
     }
 
-    public void run()
-    {
-        visitor.visit(original.getCompilationUnit(), null);
-        System.out.println(nodeMutants);
-    }
-
-    protected void visitorSetup()
-    {
-        // Override
-    }
+    protected abstract void visitorSetup();
 }

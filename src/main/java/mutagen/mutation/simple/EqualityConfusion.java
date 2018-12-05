@@ -1,12 +1,11 @@
-package mutagen.mutation.strategy;
+package mutagen.mutation.simple;
 
 import mutagen.TargetSource;
-import mutagen.mutation.Mutant;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EqualityConfusion extends MutationStrategy
+public class EqualityConfusion extends SimpleMutationStrategy
 {
     public EqualityConfusion(TargetSource original)
     {
@@ -21,9 +20,9 @@ public class EqualityConfusion extends MutationStrategy
     }
 
     @Override
-    List<Mutant> createLineMutants(int lineIndex)
+    List<SimpleMutant> createLineMutants(int lineIndex)
     {
-        List<Mutant> mutants = new ArrayList<Mutant>();
+        List<SimpleMutant> simpleMutants = new ArrayList<SimpleMutant>();
         String original = getOriginalLines().get(lineIndex);
 
         String mutated = original;
@@ -38,9 +37,9 @@ public class EqualityConfusion extends MutationStrategy
             mutated = mutated.replaceFirst("=", "==");
         }
 
-        mutants.add(createMutant(mutated, lineIndex));
+        simpleMutants.add(createMutant(mutated, lineIndex));
 
-        return mutants;
+        return simpleMutants;
     }
 
 }

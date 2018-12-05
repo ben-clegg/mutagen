@@ -1,12 +1,11 @@
-package mutagen.mutation.strategy;
+package mutagen.mutation.simple;
 
 import mutagen.TargetSource;
-import mutagen.mutation.Mutant;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShortCircuitConfusion extends MutationStrategy
+public class ShortCircuitConfusion extends SimpleMutationStrategy
 {
     public ShortCircuitConfusion(TargetSource original)
     {
@@ -23,9 +22,9 @@ public class ShortCircuitConfusion extends MutationStrategy
     }
 
     @Override
-    List<Mutant> createLineMutants(int lineIndex)
+    List<SimpleMutant> createLineMutants(int lineIndex)
     {
-        List<Mutant> mutants = new ArrayList<Mutant>();
+        List<SimpleMutant> simpleMutants = new ArrayList<SimpleMutant>();
         String original = getOriginalLines().get(lineIndex);
 
         for (int i = 0; i < original.length(); i++)
@@ -42,23 +41,23 @@ public class ShortCircuitConfusion extends MutationStrategy
                     if(original.charAt(i) == original.charAt(i+1))
                     {
                         // Reduce
-                        mutants.add(createMutant(reduceOperator(original, i), lineIndex));
+                        simpleMutants.add(createMutant(reduceOperator(original, i), lineIndex));
                     }
                     else
                     {
                         // Duplicate
-                        mutants.add(createMutant(duplicateOperator(original, i), lineIndex));
+                        simpleMutants.add(createMutant(duplicateOperator(original, i), lineIndex));
                     }
                 }
                 else
                 {
                     // Can only be duplicated
-                    mutants.add(createMutant(duplicateOperator(original, i), lineIndex));
+                    simpleMutants.add(createMutant(duplicateOperator(original, i), lineIndex));
                 }
             }
         }
 
-        return mutants;
+        return simpleMutants;
     }
 
     private String duplicateOperator(String original, int index)

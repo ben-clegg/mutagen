@@ -1,13 +1,11 @@
-package mutagen.mutation.strategy;
+package mutagen.mutation.simple;
 
 import mutagen.TargetSource;
-import mutagen.mutation.Mutant;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
-public class ConstantToVariable extends MutationStrategy
+public class ConstantToVariable extends SimpleMutationStrategy
 {
     public ConstantToVariable(TargetSource original)
     {
@@ -40,14 +38,14 @@ public class ConstantToVariable extends MutationStrategy
     }
 
     @Override
-    List<Mutant> createLineMutants(int lineIndex)
+    List<SimpleMutant> createLineMutants(int lineIndex)
     {
-        ArrayList<Mutant> mutants = new ArrayList<Mutant>();
+        ArrayList<SimpleMutant> simpleMutants = new ArrayList<SimpleMutant>();
         String original = getOriginalLines().get(lineIndex);
 
-        mutants.add(createMutant(original.replaceFirst("final ", ""), lineIndex));
+        simpleMutants.add(createMutant(original.replaceFirst("final ", ""), lineIndex));
 
-        return mutants;
+        return simpleMutants;
     }
 
 }

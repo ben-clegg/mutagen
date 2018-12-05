@@ -1,12 +1,11 @@
-package mutagen.mutation.strategy;
+package mutagen.mutation.simple;
 
 import mutagen.TargetSource;
-import mutagen.mutation.Mutant;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ComparatorConfusion extends MutationStrategy
+public class ComparatorConfusion extends SimpleMutationStrategy
 {
     public ComparatorConfusion(TargetSource original)
     {
@@ -23,9 +22,9 @@ public class ComparatorConfusion extends MutationStrategy
     }
 
     @Override
-    List<Mutant> createLineMutants(int lineIndex)
+    List<SimpleMutant> createLineMutants(int lineIndex)
     {
-        List<Mutant> mutants = new ArrayList<Mutant>();
+        List<SimpleMutant> simpleMutants = new ArrayList<SimpleMutant>();
         String original = getOriginalLines().get(lineIndex);
 
         for (int i = 0; i < original.length()-2; i++)
@@ -34,15 +33,15 @@ public class ComparatorConfusion extends MutationStrategy
             {
                 if (original.charAt(i+1) == '=')
                 {
-                    mutants.add(createMutantAtCharIndex(i, original, lineIndex));
+                    simpleMutants.add(createMutantAtCharIndex(i, original, lineIndex));
                 }
             }
         }
 
-        return mutants;
+        return simpleMutants;
     }
 
-    private Mutant createMutantAtCharIndex(int charIndex, String originalLine, int lineIndex)
+    private SimpleMutant createMutantAtCharIndex(int charIndex, String originalLine, int lineIndex)
     {
         String mutated = originalLine.substring(0, charIndex);
         mutated = mutated + '=';

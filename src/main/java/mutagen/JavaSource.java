@@ -1,6 +1,7 @@
 package mutagen;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class JavaSource extends ArrayList<String>
@@ -9,6 +10,12 @@ public class JavaSource extends ArrayList<String>
     public JavaSource(List list)
     {
         super(list);
+    }
+
+    public JavaSource(String full)
+    {
+        String[] lines = full.split("\n");
+        this.addAll(Arrays.asList(lines));
     }
 
     public JavaSource copy()

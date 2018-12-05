@@ -1,16 +1,15 @@
 package mutagen.output;
 
-import mutagen.mutation.Mutant;
+import mutagen.mutation.simple.SimpleMutant;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Summary
 {
-    private List<Mutant> mutantList;
+    private List<SimpleMutant> mutantList;
     private StringBuilder lines;
 
-    public Summary(List<Mutant> mutants)
+    public Summary(List<SimpleMutant> mutants)
     {
         // Initialise variables
         lines = new StringBuilder();
@@ -20,8 +19,10 @@ public class Summary
         // CSV Header
         lines.append("ID,MutatedLine,Replacement,Location\n");
 
+        // TODO support mutant types
+
         // Add each mutant as a line to CSV
-        for (Mutant m : mutants)
+        for (SimpleMutant m : mutants)
         {
             lines.append(m.getIdString() + "," +
                         String.format("%04d",m.getLineNumber()) + ",\"" +

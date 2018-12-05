@@ -1,40 +1,25 @@
-package mutagen.mutation.strategy;
+package mutagen.mutation.simple;
 
 import mutagen.JavaSource;
 import mutagen.TargetSource;
-import mutagen.mutation.Mutant;
+import mutagen.mutation.MutationStrategy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class MutationStrategy
+public abstract class SimpleMutationStrategy extends MutationStrategy
 {
-    private TargetSource original;
-    protected String type;
-    private final int TYPE_LENGTH = 22;
 
-    public MutationStrategy(TargetSource target)
+    public SimpleMutationStrategy(TargetSource target)
     {
-        original = target;
-        setType("UnspecifiedType");
-    }
-
-    protected void setType(String typeName)
-    {
-        StringBuffer str = new StringBuffer(TYPE_LENGTH);
-        str.append(typeName);
-        while(str.length() < TYPE_LENGTH) {
-            str.append(" ");
-        }
-
-        type = str.toString();
+        super(target);
     }
 
     public List<Integer> getMutatableIndexes()
     {
         List<Integer> indexes = new ArrayList<Integer>();
-        JavaSource originalLines = original.getLines();
+        JavaSource originalLines = getOriginal().getLines();
         for (int i = 0; i < originalLines.size(); i++)
         {
             if(isMutatable(cleanLine(originalLines.get(i))))
@@ -67,19 +52,13 @@ public abstract class MutationStrategy
         return sb.toString();
     }
 
-    public List<Mutant> createAllMutants()
+    @Override
+    public void createAllMutants()
     {
-        List<Mutant> mutants = new ArrayList();
         for (int i : getMutatableIndexes())
         {
             mutants.addAll(createLineMutants(i));
         }
-        return mutants;
-    }
-
-    public JavaSource getOriginalLines()
-    {
-        return original.getLines();
     }
 
     /**
@@ -89,14 +68,14 @@ public abstract class MutationStrategy
      */
     abstract boolean isMutatable(String cleanedLine);
 
-    abstract List<Mutant> createLineMutants(int lineIndex);
+    abstract List<SimpleMutant> createLineMutants(int lineIndex);
 
-    protected Mutant createMutant(String mutatedLine, int lineIndex)
+    protected SimpleMutant createMutant(String mutatedLine, int lineIndex)
     {
-        Mutant m = new Mutant(mutatedLine,
+        SimpleMutant m = new SimpleMutant(mutatedLine,
                                 lineIndex,
                                 type,
-                                original);
+                                getOriginal());
         return m;
     }
 }

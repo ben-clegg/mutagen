@@ -1,7 +1,8 @@
 package mutagen.mutation;
 
 import mutagen.TargetSource;
-import mutagen.mutation.strategy.*;
+import mutagen.mutation.ast.ClassnameReplacementStrategy;
+import mutagen.mutation.simple.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,14 +31,16 @@ public class MutationEngine
         strategies.add(new ConstantToVariable(target));
         strategies.add(new ComparatorConfusion(target));
         strategies.add(new ShortCircuitConfusion(target));
+        strategies.add(new ClassnameReplacementStrategy(target));
     }
 
     public void generateMutants()
     {
-        // Create mutants from every strategy
+        // Create mutants from every simple
         for (MutationStrategy s : strategies)
         {
-            mutants.addAll(s.createAllMutants());
+            s.createAllMutants();
+            mutants.addAll(s.getMutants());
         }
 
         // Generate an ID for each mutant

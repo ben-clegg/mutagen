@@ -1,13 +1,12 @@
-package mutagen.mutation.strategy;
+package mutagen.mutation.simple;
 
 import mutagen.TargetSource;
-import mutagen.mutation.Mutant;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class UnbalancedBrackets extends MutationStrategy
+public class UnbalancedBrackets extends SimpleMutationStrategy
 {
     private static final String BRACKET_MATCH = "(.*)([\\{\\[\\(\\)\\]\\}]+)(.*)";
     //private static final Character[] POSSIBLE_BRACKETS = {'{', '[', '(', ')', ']', '}'};
@@ -33,9 +32,9 @@ public class UnbalancedBrackets extends MutationStrategy
     }
 
     @Override
-    List<Mutant> createLineMutants(int lineIndex)
+    List<SimpleMutant> createLineMutants(int lineIndex)
     {
-        ArrayList<Mutant> mutants = new ArrayList<Mutant>();
+        ArrayList<SimpleMutant> simpleMutants = new ArrayList<SimpleMutant>();
 
         String original = getOriginalLines().get(lineIndex);
 
@@ -61,16 +60,16 @@ public class UnbalancedBrackets extends MutationStrategy
         for (int bIndex : bracketIndexes)
         {
             // Bracket deletion
-            mutants.add(createMutant(deleteBracket(original, bIndex), lineIndex));
+            simpleMutants.add(createMutant(deleteBracket(original, bIndex), lineIndex));
 
             // Bracket replacement
             for (String replaced : replaceBrackets(original, bIndex))
             {
-                mutants.add(createMutant(replaced, lineIndex));
+                simpleMutants.add(createMutant(replaced, lineIndex));
             }
         }
 
-        return mutants;
+        return simpleMutants;
     }
 
     private String deleteBracket(String originalLine, int charIndex)
