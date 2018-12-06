@@ -1,15 +1,17 @@
 package mutagen.output;
 
+import mutagen.mutation.Mutant;
+import mutagen.mutation.ast.NodeMutant;
 import mutagen.mutation.simple.SimpleMutant;
 
 import java.util.List;
 
 public class Summary
 {
-    private List<SimpleMutant> mutantList;
+    private List<Mutant> mutantList;
     private StringBuilder lines;
 
-    public Summary(List<SimpleMutant> mutants)
+    public Summary(List<Mutant> mutants)
     {
         // Initialise variables
         lines = new StringBuilder();
@@ -22,12 +24,24 @@ public class Summary
         // TODO support mutant types
 
         // Add each mutant as a line to CSV
-        for (SimpleMutant m : mutants)
+        for (Mutant m : mutants)
         {
-            lines.append(m.getIdString() + "," +
-                        String.format("%04d",m.getLineNumber()) + ",\"" +
-                        m.getReplacement() + "\",\"" +
-                        m.getLocation() + "\"\n");
+            if(m.getClass().equals(SimpleMutant.class))
+            {
+                SimpleMutant sm = (SimpleMutant)m;
+                lines.append(sm.getIdString() + "," +
+                        String.format("%04d",sm.getLineNumber()) + ",\"" +
+                        sm.getReplacement() + "\",\"" +
+                        sm.getLocation() + "\"\n");
+            }
+            else if (m.getClass().equals(NodeMutant.class))
+            {
+                NodeMutant nm = (NodeMutant) m;
+                lines.append(nm.getIdString() + ",?," +
+                        nm.getChange() + "\",\"" +
+                        nm.getLocation() + "\"\n");
+            }
+
         }
     }
 

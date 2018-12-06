@@ -46,8 +46,6 @@ public class FileOutput
 
     public void writeSummary(List<Mutant> mutants)
     {
-        // TODO reimplement
-        /*
         Summary summary = new Summary(mutants);
         File csvLocation = new File(directory.getPath() + File.separatorChar +
                                     "mutantIndex.csv");
@@ -61,6 +59,5 @@ public class FileOutput
             System.err.println("Failed to write mutant index CSV to " +
                                 csvLocation);
         }
-        */
     }
 }

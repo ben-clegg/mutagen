@@ -33,7 +33,10 @@ public class ClassnameReplacementStrategy extends ASTMutationStrategy
                 {
                     ClassOrInterfaceDeclaration mutated = declaration.clone();
                     mutated.setName(name);
-                    addMutant(new NodeMutant(getOriginal().getCompilationUnit(), declaration, mutated, type));
+                    NodeMutant m = new NodeMutant(getOriginal().getCompilationUnit(), declaration, mutated, type);
+                    m.setPreMutation(declaration.getNameAsString());
+                    m.setPostMutation(mutated.getNameAsString());
+                    addMutant(m);
                 }
             }
         };

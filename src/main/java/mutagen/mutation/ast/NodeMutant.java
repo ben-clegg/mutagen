@@ -11,6 +11,9 @@ public class NodeMutant extends Mutant
     private Node mutated;
     private CompilationUnit originalCU;
 
+    private String preMutation = "";
+    private String postMutation = "";
+
     public NodeMutant(CompilationUnit originalCompilationUnit,
                       Node originalNode,
                       Node mutatedNode,
@@ -21,6 +24,35 @@ public class NodeMutant extends Mutant
         mutated = mutatedNode;
         originalCU = originalCompilationUnit;
         setupMutatedJavaSource();
+    }
+
+    public void setPreMutation(String preMutation)
+    {
+        this.preMutation = preMutation;
+    }
+
+    public void setPostMutation(String postMutation)
+    {
+        this.postMutation = postMutation;
+    }
+
+    public String getChange()
+    {
+        if(postMutation.equals(""))
+        {
+            return "";
+        }
+        else
+        {
+            if(preMutation.equals(""))
+            {
+                return postMutation;
+            }
+            else
+            {
+                return preMutation + " -> " + postMutation;
+            }
+        }
     }
 
     @Override
@@ -34,7 +66,8 @@ public class NodeMutant extends Mutant
     public String toString()
     {
         return  getType() +
-                "[" + getIdString() + "] (AST Mutant)";
+                "[" + getIdString() + "] (AST Mutant): " +
+                getChange();
     }
 
     public Node getOriginal()
