@@ -23,8 +23,8 @@ public class SimpleMutant extends Mutant
         original = originalSrc;
         setupMutatedJavaSource();
 
-        setPreMutation(originalSrc.getLines().get(index));
-        setPostMutation(patched);
+        setPreMutation(originalSrc.getLines().get(index).trim());
+        setPostMutation(patched.trim());
     }
 
     @Override

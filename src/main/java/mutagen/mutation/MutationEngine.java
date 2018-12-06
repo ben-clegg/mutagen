@@ -1,7 +1,8 @@
 package mutagen.mutation;
 
 import mutagen.TargetSource;
-import mutagen.mutation.ast.ClassnameReplacementStrategy;
+import mutagen.mutation.ast.ClassnameReplacement;
+import mutagen.mutation.ast.ForSeparatorConfusion;
 import mutagen.mutation.simple.*;
 
 import java.util.ArrayList;
@@ -31,7 +32,8 @@ public class MutationEngine
         strategies.add(new ConstantToVariable(target));
         strategies.add(new ComparatorConfusion(target));
         strategies.add(new ShortCircuitConfusion(target));
-        strategies.add(new ClassnameReplacementStrategy(target));
+        strategies.add(new ClassnameReplacement(target));
+        strategies.add(new ForSeparatorConfusion(target));
     }
 
     public void generateMutants()

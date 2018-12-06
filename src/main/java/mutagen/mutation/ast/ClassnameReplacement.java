@@ -9,12 +9,11 @@ import mutagen.TargetSource;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassnameReplacementStrategy extends ASTMutationStrategy
+public class ClassnameReplacement extends ASTMutationStrategy
 {
-    public ClassnameReplacementStrategy(TargetSource target)
+    public ClassnameReplacement(TargetSource target)
     {
         super(target);
-        setType("ClassnameReplacement");
         setType("ClassnameReplacement");
     }
 
