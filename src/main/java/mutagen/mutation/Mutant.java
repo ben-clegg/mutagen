@@ -11,12 +11,44 @@ public abstract class Mutant
     protected JavaSource modified;
     private String type;
 
+    protected String preMutation = null;
+    protected String postMutation = null;
+
     public Mutant(String mutantType)
     {
         type = mutantType;
     }
 
     protected abstract void setupMutatedJavaSource();
+
+    public void setPreMutation(String preMutation)
+    {
+        this.preMutation = preMutation;
+    }
+
+    public void setPostMutation(String postMutation)
+    {
+        this.postMutation = postMutation;
+    }
+
+    public String getChange()
+    {
+        if(postMutation == null)
+        {
+            return "";
+        }
+        else
+        {
+            if(preMutation == null)
+            {
+                return postMutation;
+            }
+            else
+            {
+                return preMutation + " -> " + postMutation;
+            }
+        }
+    }
 
 
     public int getId()
@@ -44,7 +76,7 @@ public abstract class Mutant
         this.location = location;
     }
 
-    protected String getType()
+    public String getType()
     {
         return type;
     }

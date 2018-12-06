@@ -19,9 +19,7 @@ public class Summary
 
         // TODO add type
         // CSV Header
-        lines.append("ID,MutatedLine,Replacement,Location\n");
-
-        // TODO support mutant types
+        lines.append("ID,MutantType,MutatedLine,Change,Location\n");
 
         // Add each mutant as a line to CSV
         for (Mutant m : mutants)
@@ -30,16 +28,18 @@ public class Summary
             {
                 SimpleMutant sm = (SimpleMutant)m;
                 lines.append(sm.getIdString() + "," +
+                        sm.getType() + "," +
                         String.format("%04d",sm.getLineNumber()) + ",\"" +
-                        sm.getReplacement() + "\",\"" +
+                        sm.getChange() + "\",\"" +
                         sm.getLocation() + "\"\n");
             }
-            else if (m.getClass().equals(NodeMutant.class))
+            else
             {
-                NodeMutant nm = (NodeMutant) m;
-                lines.append(nm.getIdString() + ",?," +
-                        nm.getChange() + "\",\"" +
-                        nm.getLocation() + "\"\n");
+                lines.append(m.getIdString() + "," +
+                        m.getType() +
+                        ",?," +
+                        m.getChange() + "\",\"" +
+                        m.getLocation() + "\"\n");
             }
 
         }

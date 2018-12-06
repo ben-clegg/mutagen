@@ -22,6 +22,9 @@ public class SimpleMutant extends Mutant
         index = lineIndex;
         original = originalSrc;
         setupMutatedJavaSource();
+
+        setPreMutation(originalSrc.getLines().get(index));
+        setPostMutation(patched);
     }
 
     @Override
@@ -43,7 +46,7 @@ public class SimpleMutant extends Mutant
         return  getType() +
                 "[" + getIdString() + "] @ Line " +
                 String.format("%04d", getLineNumber()) +
-                " : " + patched;
+                " : " + getChange();
     }
 
     public String getReplacement()
