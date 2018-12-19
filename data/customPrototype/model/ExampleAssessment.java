@@ -10,9 +10,10 @@ class ExampleAssessment
     public static void main(String[] args)
     {
         int wholeNumber = Integer.parseInt(args[0]);
+        char letter = args[1].charAt(0);
 
         ExampleAssessment ex = new ExampleAssessment();
-        ex.run(wholeNumber);
+        ex.run(wholeNumber, letter);
 
         ex.printLines();
     }
@@ -66,6 +67,26 @@ class ExampleAssessment
         }
     }
 
+    public void comparators(int n)
+    {
+        if (n <= 50)
+        {
+            addLine("less than or equal to 50");
+        }
+        if (n >= 3)
+        {
+            addLine("greater than or equal to 3");
+        }
+        if (n < 50)
+        {
+            addLine("less than 50");
+        }
+        if (n > 3)
+        {
+            addLine("greater than 3");
+        }
+    }
+
     public void logicalOperators()
     {
         String s = null;
@@ -113,10 +134,41 @@ class ExampleAssessment
         return "UNIMPLEMENTED FILE READING";
     }
 
-    public void run(int wholeNumber)
+    public void vowelChecker(char ch)
+    {
+        switch (ch)
+        {
+            case 'a': case 'A':
+                addLine("Vowel: A");
+                break;
+            case 'e': case 'E':
+                addLine("Vowel: E");
+                break;
+            case 'i': case 'I':
+                addLine("Vowel: I");
+                break;
+            case 'o': case 'O':
+                addLine("Vowel: O");
+                break;
+            case 'u': case 'U':
+                addLine("Vowel: U");
+                break;
+            default:
+                addLine("Consonant");
+                break;
+        }
+    }
+
+    public void run(int wholeNumber, char letter)
     {
         // Basic output - tests string correctness
         addLine("Output:");
+
+        // Vowel check - tests SwitchStmtsShouldHaveDefault and MissingBreakInSwitch
+        vowelChecker(letter);
+
+        // Run comparators - tests cmpSyn
+        comparators(wholeNumber);
 
         // Constant addition - test constant repetition
         addLine(CONSTANT_NUM);
@@ -125,7 +177,7 @@ class ExampleAssessment
         // Ensure number is positive - input validation
         if (wholeNumber < 0)
         {
-            addLine("You must enter a positive number!");
+            addLine("The number is negative");
         }
 
         // Perform arithmetic - tests operators and values
