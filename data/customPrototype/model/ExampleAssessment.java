@@ -45,6 +45,59 @@ class ExampleAssessment
         }
     }
 
+    public boolean stringEquality()
+    {
+        String a = "foo";
+        String b = "foo";
+        String c = "bar";
+        if ((a.equals(b)) || !(a.equals(c)))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void iterateArray()
+    {
+        int[] arr = {2,4,6,8,10,12};
+        for (int i = 0; i < 6; i++)
+        {
+            addLine(arr[i]);
+        }
+    }
+
+    public void logicalOperators()
+    {
+        String s = null;
+
+        // Short-circuiting - does not expect a NullPointerException
+        // Non-short-circuiting - expects a NullPointerException
+        try
+        {
+            boolean b = (s != null && s.length() > 0);
+            addLine("CORRECT: No NullPointerException encountered.");
+        }
+        catch (NullPointerException correctE)
+        {
+            addLine("ERROR: Unexpected NullPointerException encountered.");
+        }
+
+        // Non-short-circuiting - expects a NullPointerException
+        try
+        {
+            if (s != null & s.length() > 0)
+            {
+                addLine("ERROR: No NullPointerException encountered!");
+            }
+        }
+        catch (NullPointerException correctE)
+        {
+            addLine("CORRECT: NullPointerException encountered as expected.");
+        }
+
+        // TODO implement for | / ||
+    }
+
     public void printLines()
     {
         // iterate and print through linesList -
@@ -101,6 +154,15 @@ class ExampleAssessment
                 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
                 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
                 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
+        // Check string equality - test string .equals vs ==
+        if(stringEquality()) { addLine("String equality correct"); }
+
+        // Array iteration - checks exceeding range and [] replacement
+        iterateArray();
+
+        // Logical operators - check short-circuit operator confusion
+        logicalOperators();
 
 
     }
