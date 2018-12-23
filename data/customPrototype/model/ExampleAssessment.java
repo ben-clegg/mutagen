@@ -11,9 +11,10 @@ class ExampleAssessment
     {
         int wholeNumber = Integer.parseInt(args[0]);
         char letter = args[1].charAt(0);
+        String word = args[2];
 
         ExampleAssessment ex = new ExampleAssessment();
-        ex.run(wholeNumber, letter);
+        ex.run(wholeNumber, letter, word);
 
         ex.printLines();
     }
@@ -52,6 +53,16 @@ class ExampleAssessment
         String b = "foo";
         String c = "bar";
         if ((a.equals(b)) || !(a.equals(c)))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean literalStringEquality(String s)
+    {
+        // PositionLiteralsFirstInComparisons
+        if ("correct".equals(s))
         {
             return true;
         }
@@ -159,7 +170,55 @@ class ExampleAssessment
         }
     }
 
-    public void run(int wholeNumber, char letter)
+    public void equalsFourteen(int n)
+    {
+        if (n == 14)
+        {
+            addLine("Equals 14.");
+        }
+        else
+        {
+            addLine("Not equal to 14.");
+        }
+    }
+
+    public boolean equalsTwelve(int n)
+    {
+        // SimplifyBooleanReturns
+        if (n == 12)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public float arithmetic(int input)
+    {
+        float f = input;
+        f = f * 7;
+        f += 3.5;
+        int divisor = 3;
+        f = f / divisor;
+        f -= 2.3;
+        f += CONSTANT_NUM;
+        return f;
+    }
+
+    public boolean isEven(int input)
+    {
+        return (input % 2) == 0;
+    }
+
+    public int absolute(int n)
+    {
+        if (n < 0)
+        {
+            return (n * -1);
+        }
+        return n;
+    }
+
+    public void run(int wholeNumber, char letter, String word)
     {
         // Basic output - tests string correctness
         addLine("Output:");
@@ -184,7 +243,7 @@ class ExampleAssessment
         float postArithmetic = arithmetic(wholeNumber);
         addLine(postArithmetic);
 
-        // Check if even -
+        // Check if even - tests SimplifyBooleanExpressions
         if (isEven(Math.round(postArithmetic)))
         {
             addLine("even");
@@ -210,29 +269,28 @@ class ExampleAssessment
         // Check string equality - test string .equals vs ==
         if(stringEquality()) { addLine("String equality correct"); }
 
-        // Array iteration - checks exceeding range and [] replacement
+        // Array iteration - tests exceeding range and [] replacement
         iterateArray();
 
-        // Logical operators - check short-circuit operator confusion
+        // Logical operators - tests short-circuit operator confusion
         logicalOperators();
 
+        // Simple number equality - tests ConfusingTernary
+        equalsFourteen(wholeNumber);
 
-    }
+        // Absolute value of a number - tests CollapsibleIfStmts
+        addLine("Absolute of " + wholeNumber + ": " + absolute(wholeNumber));
 
-    public float arithmetic(int input)
-    {
-        float f = input;
-        f = f * 7;
-        f += 3.5;
-        int divisor = 3;
-        f = f / divisor;
-        f -= 2.3;
-        f += CONSTANT_NUM;
-        return f;
-    }
+        // Simple string equality ("correct") - tests PositionLiteralsFirstInComparisons
+        if (literalStringEquality(word))
+        {
+            addLine("string reads correct");
+        }
 
-    public boolean isEven(int input)
-    {
-        return (input % 2) == 0;
+        // simple boolean return - tests SimplifyBooleanReturns
+        if (equalsTwelve(wholeNumber))
+        {
+            addLine("equals twelve");
+        }
     }
 }
