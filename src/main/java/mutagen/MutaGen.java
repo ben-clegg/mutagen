@@ -8,38 +8,24 @@ public class MutaGen
 {
     private Configuration config;
 
-    private TargetSource target;
-    private FileOutput fileOutput;
 
-    public MutaGen(String[] args)
+
+    public MutaGen(Configuration configuration)
     {
-        config = new Configuration(args);
+        config = configuration;
 
-        try
-        {
-            target = new TargetSource(
-                        config.getInputValue(OptionNames.TARGET));
-            fileOutput = new FileOutput(
-                        config.getInputValue(OptionNames.OUTPUT_DIR),
-                        target.getFilename());
-
-        }
-        catch (OptionNotSetException optEx)
-        {
-            optEx.printStackTrace();
-            System.exit(ErrorCodes.NO_TARGET.ordinal());
-        }
-
-        MutationEngine mutate = new MutationEngine(target);
+        MutationEngine mutate = new MutationEngine(config.getTargets());
         mutate.generateMutants();
         mutate.printAllMutants();
 
-        fileOutput.writeMutants(mutate.getMutants());
-        fileOutput.writeSummary(mutate.getMutants());
+        config.getFileOutput().writeMutants(mutate.getMutants());
+        config.getFileOutput().writeSummary(mutate.getMutants());
     }
 
     public static void main(String[] args)
     {
-        MutaGen mutaGen = new MutaGen(args);
+        CLIReader cli = new CLIReader(args);
+        Configuration conf = new Configuration(cli);
+        MutaGen mutaGen = new MutaGen(conf);
     }
 }

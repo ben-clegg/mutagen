@@ -1,63 +1,63 @@
 package mutagen.cli;
 
-import org.apache.commons.cli.*;
+import mutagen.TargetSource;
+import mutagen.output.FileOutput;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Configuration
 {
-    private CommandLine cli;
-    private Options opts;
+    private List<TargetSource> targets;
+    private FileOutput fileOutput;
 
-    private void initOptions()
+    public Configuration(String targetSolutionPaths,
+                         String targetSourceFilename,
+                         String outputDir)
     {
-        opts = new Options();
-
-        opts.addOption(Option.builder(OptionNames.SHORT_TARGET)
-                .longOpt(OptionNames.TARGET)
-                .hasArg()
-                .desc("Path to the source file of the class to mutate.")
-                .build());
-
-        opts.addOption(Option.builder(OptionNames.SHORT_OUTPUT_DIR)
-                .longOpt(OptionNames.OUTPUT_DIR)
-                .hasArg()
-                .desc("Path to the directory to store mutants in.")
-                .build());
+        String[] targetLocs = (targetSolutionPaths.split(","));
+        targets = createTargetList(targetLocs, targetSourceFilename);
+        fileOutput = new FileOutput(outputDir, targetSourceFilename);
     }
 
-    public Configuration(String[] args)
+    public Configuration(CLIReader cli)
     {
-        initOptions();
-
-        CommandLineParser commandLineParser = new DefaultParser();
-
         try
         {
-            cli = commandLineParser.parse(opts, args);
+            String[] targetLocs = (cli.getInputValue(OptionNames.TARGET_DIR).split(","));
+            String targetSourceFilename = cli.getInputValue(OptionNames.TARGET_SOURCEFILE);
+            targets = createTargetList(targetLocs, targetSourceFilename);
+            fileOutput = new FileOutput(
+                    cli.getInputValue(OptionNames.OUTPUT_DIR),
+                    targetSourceFilename);
+
         }
-        catch (ParseException e)
+        catch (OptionNotSetException optEx)
         {
-            e.printStackTrace();
-            System.err.println("Unexpected parsing error, check configuration.");
-            System.exit(1);
+            optEx.printStackTrace();
+            System.exit(ErrorCodes.NO_TARGET.ordinal());
         }
     }
 
-    public String getInputValue(String optStr) throws OptionNotSetException
+    private List<TargetSource> createTargetList(String[] targetLocs, String sourceFilename)
     {
-        if(cli.hasOption(optStr))
+        List<TargetSource> targetList = new ArrayList<>();
+        for (String l : targetLocs)
         {
-            return cli.getOptionValue(optStr);
+            TargetSource t = new TargetSource(l + File.separatorChar + sourceFilename);
+            targetList.add(t);
         }
-        Option o = opts.getOption(optStr);
-        StringBuilder msg = new StringBuilder();
-        msg.append("Option not set: (-" + o.getOpt());
-
-        if(o.hasLongOpt())
-            msg.append(" / --" + o.getLongOpt());
-        msg.append(") - " + o.getDescription());
-
-        throw new OptionNotSetException(msg.toString());
+        return targetList;
     }
 
+    public List<TargetSource> getTargets()
+    {
+        return targets;
+    }
 
+    public FileOutput getFileOutput()
+    {
+        return fileOutput;
+    }
 }

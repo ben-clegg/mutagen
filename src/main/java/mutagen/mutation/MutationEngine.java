@@ -15,11 +15,11 @@ public class MutationEngine
 {
     private List<Mutant> mutants;
     private List<MutationStrategy> strategies;
-    private TargetSource target;
+    private List<TargetSource> targets;
 
-    public MutationEngine(TargetSource targetSource)
+    public MutationEngine(List<TargetSource> targetSource)
     {
-        target = targetSource;
+        targets = targetSource;
         mutants = new ArrayList<Mutant>();
         initialiseStrategies();
     }
@@ -27,13 +27,16 @@ public class MutationEngine
     private void initialiseStrategies()
     {
         strategies = new ArrayList<MutationStrategy>();
-        strategies.add(new EqualityConfusion(target));
-        strategies.add(new UnbalancedBrackets(target));
-        strategies.add(new ConstantToVariable(target));
-        strategies.add(new ComparatorConfusion(target));
-        strategies.add(new ShortCircuitConfusion(target));
-        strategies.add(new ClassnameReplacement(target));
-        strategies.add(new ForSeparatorConfusion(target));
+        for (TargetSource t : targets)
+        {
+            strategies.add(new EqualityConfusion(t));
+            strategies.add(new UnbalancedBrackets(t));
+            strategies.add(new ConstantToVariable(t));
+            strategies.add(new ComparatorConfusion(t));
+            strategies.add(new ShortCircuitConfusion(t));
+            strategies.add(new ClassnameReplacement(t));
+            strategies.add(new ForSeparatorConfusion(t));
+        }
     }
 
     public void generateMutants()
