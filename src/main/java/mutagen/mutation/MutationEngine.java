@@ -30,12 +30,12 @@ public class MutationEngine
         for (TargetSource t : targets)
         {
             strategies.add(new EqualityConfusion(t));
-            strategies.add(new UnbalancedBrackets(t));
-            strategies.add(new ConstantToVariable(t));
             strategies.add(new ComparatorConfusion(t));
             strategies.add(new ShortCircuitConfusion(t));
-            strategies.add(new ClassnameReplacement(t));
             strategies.add(new ForSeparatorConfusion(t));
+            strategies.add(new UnbalancedBrackets(t));
+            strategies.add(new ConstantToVariable(t));
+            strategies.add(new ClassnameReplacement(t));
         }
     }
 
@@ -68,5 +68,10 @@ public class MutationEngine
     public List<Mutant> getMutants()
     {
         return mutants;
+    }
+
+    public List<MutationStrategy> getStrategies()
+    {
+        return strategies;
     }
 }
