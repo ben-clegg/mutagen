@@ -18,29 +18,40 @@ public class FileOutput
         filename = originalFilename;
     }
 
+    public void setMutantLocation(Mutant m)
+    {
+        m.setLocation(new File(directory.getPath() +
+                File.separatorChar +
+                m.getIdString() +
+                File.separatorChar + filename));
+    }
+
+    public void writeMutant(Mutant m)
+    {
+        // Set mutant's location to a subdirectory of its ID.
+        setMutantLocation(m);
+
+        // Write the mutant to a file
+        System.out.println(m.getLocation());
+        m.getLocation().getParentFile().mkdirs();
+        try
+        {
+            Files.writeFile(m.getModifiedLines().toString(),
+                    m.getLocation());
+        }
+        catch (IOException ioEx)
+        {
+            ioEx.printStackTrace();
+            System.err.println("Failed to save mutant to " +
+                    m.getLocation());
+        }
+    }
+
     public void writeMutants(List<Mutant> mutants)
     {
         for (Mutant m : mutants)
         {
-            // Set mutant's location to a subdirectory of its ID.
-            m.setLocation(new File(directory.getPath() +
-                    File.separatorChar +
-                    m.getIdString() +
-                    File.separatorChar + filename));
-
-            // Write the mutant to a file
-            m.getLocation().getParentFile().mkdirs();
-            try
-            {
-                Files.writeFile(m.getModifiedLines().toString(),
-                        m.getLocation());
-            }
-            catch (IOException ioEx)
-            {
-                ioEx.printStackTrace();
-                System.err.println("Failed to save mutant to " +
-                                    m.getLocation());
-            }
+            writeMutant(m);
         }
     }
 
