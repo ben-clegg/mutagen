@@ -1,5 +1,6 @@
 package mutagen.mutation.major;
 
+import mutagen.JavaSource;
 import mutagen.mutation.Mutant;
 
 import java.io.File;
@@ -20,5 +21,6 @@ public class MajorMutant extends Mutant
     public void setupMutatedJavaSource()
     {
         // TODO implement - load from mutated file location - read the source
+        modified = new JavaSource(mutantLoc);
     }
 }

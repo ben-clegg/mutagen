@@ -9,9 +9,10 @@ public abstract class MajorStrategy extends MutationStrategy
 {
     protected String operators; // Operators to use (e.g. :AOR:LOR)
 
-    public MajorStrategy(TargetSource targetSource)
+    public MajorStrategy(TargetSource targetSource, String operatorSet)
     {
         super(targetSource);
+        operators = operatorSet;
     }
 
     private void runMajor()
@@ -26,9 +27,11 @@ public abstract class MajorStrategy extends MutationStrategy
 
         File mutantsDir = new File(getOriginal().getLocation().getParent() +
                 File.separator + "_mutants" + operators);
-        for (File f : mutantsDir.listFiles())
+        for (File f : mutantsDir.listFiles(File::isDirectory))
         {
             // TODO add each mutant source as a new MajorMutant
+            File src = new File(f + File.separator + getOriginal().getFilename());
+            mutants.add(new MajorMutant(operators, src));
         }
     }
 }
