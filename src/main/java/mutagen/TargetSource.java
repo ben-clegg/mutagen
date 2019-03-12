@@ -54,4 +54,9 @@ public class TargetSource
     {
         return filename;
     }
+
+    public File getLocation()
+    {
+        return location;
+    }
 }
