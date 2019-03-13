@@ -12,6 +12,12 @@ public class Configuration
     private List<TargetSource> targets;
     private FileOutput fileOutput;
 
+    private static String majorLocation = File.separator + "usr" +
+                                    File.separator + "share" +
+                                    File.separator + "major" +
+                                    File.separator + "bin" +
+                                    File.separator + "javac";
+
     public Configuration(String targetSolutionPaths,
                          String targetSourceFilename,
                          String outputDir)
@@ -59,5 +65,10 @@ public class Configuration
     public FileOutput getFileOutput()
     {
         return fileOutput;
+    }
+
+    public static String getMajorLocation()
+    {
+        return majorLocation;
     }
 }
