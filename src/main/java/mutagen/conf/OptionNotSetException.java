@@ -1,4 +1,4 @@
-package mutagen.cli;
+package mutagen.conf;
 
 public class OptionNotSetException extends Exception
 {

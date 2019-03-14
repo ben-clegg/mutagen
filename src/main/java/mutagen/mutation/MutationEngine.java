@@ -3,6 +3,7 @@ package mutagen.mutation;
 import mutagen.TargetSource;
 import mutagen.mutation.ast.ClassnameReplacement;
 import mutagen.mutation.ast.ForSeparatorConfusion;
+import mutagen.mutation.major.MajorStrategy;
 import mutagen.mutation.simple.*;
 
 import java.util.ArrayList;
@@ -36,6 +37,9 @@ public class MutationEngine
             strategies.add(new UnbalancedBrackets(t));
             strategies.add(new ConstantToVariable(t));
             strategies.add(new ClassnameReplacement(t));
+            strategies.add(new MajorStrategy(t,"AOR","IncorrectCalculation"));
+            strategies.add(new MajorStrategy(t,"EVR,LVR","IncorrectValues"));
+            strategies.add(new MajorStrategy(t,"STD","IncompleteImplementation"));
         }
     }
 

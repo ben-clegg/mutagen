@@ -1,22 +1,28 @@
 package mutagen.mutation.major;
 
 import mutagen.TargetSource;
-import mutagen.cli.Configuration;
+import mutagen.conf.Configuration;
+import mutagen.conf.Paths;
 import mutagen.mutation.MutationStrategy;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public abstract class MajorStrategy extends MutationStrategy
+public class MajorStrategy extends MutationStrategy
 {
     protected String operators; // Operators to use (e.g. AOR,LOR)
+    File mutantsDir;
 
-    public MajorStrategy(TargetSource targetSource, String operatorSet)
+    public MajorStrategy(TargetSource targetSource, String operatorSet, String mType)
     {
         super(targetSource);
         operators = operatorSet;
+        mutantsDir = new File(getOriginal().getLocation().getParent() +
+                File.separator + "_mutants" + File.separator + operators);
+        setType(mType);
     }
 
     private void runMajor()
@@ -41,15 +47,17 @@ public abstract class MajorStrategy extends MutationStrategy
         // TODO implement
     }
 
-    private String constructMajorCommand()
+    private String[] constructMajorCommand()
     {
-        String c = Configuration.getMajorLocation() + " ";  // Major javac binary
-        c = c + getOriginal().getLocation() + " ";          // Location of target file
-        c = c + "-XMutator:" + operators;                   // Set operators
-        c = c + "-J-Dmajor.export.mutants=true ";           // Export source file
-        c = c + "-J-Dmajor.export.directory= ";             // TODO Set export directory
+        List<String> c = new ArrayList<>();
+        c.add(Paths.getMajorLocation());                              // Major javac binary
+        c.add(getOriginal().getLocation().getAbsolutePath());                              // Location of target file
+        c.add("-XMutator:" + operators);                                 // Set operators
+        c.add("-J-Dmajor.export.mutants=true");                               // Export source file
+        c.add("-J-Dmajor.export.directory=" + mutantsDir.getAbsolutePath());   // Set export directory
 
-        return c;
+        String[] finalCommand = new String[c.size()];
+        return c.toArray(finalCommand);
     }
 
     @Override
@@ -57,14 +65,14 @@ public abstract class MajorStrategy extends MutationStrategy
     {
         runMajor();
 
-        File mutantsDir = new File(getOriginal().getLocation().getParent() +
-                File.separator + "_mutants" + operators);
-
-        for (File f : mutantsDir.listFiles(File::isDirectory))
+        if(mutantsDir.exists() && mutantsDir.listFiles(File::isDirectory) != null)
         {
-            // TODO add each mutant source as a new MajorMutant
-            File src = new File(f + File.separator + getOriginal().getFilename());
-            mutants.add(new MajorMutant(operators, src));
+            for (File f : mutantsDir.listFiles(File::isDirectory))
+            {
+                // TODO add each mutant source as a new MajorMutant
+                File src = new File(f + File.separator + getOriginal().getFilename());
+                mutants.add(new MajorMutant(type, src));
+            }
         }
     }
 }

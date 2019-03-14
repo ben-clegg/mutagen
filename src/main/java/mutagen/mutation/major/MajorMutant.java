@@ -12,15 +12,24 @@ public class MajorMutant extends Mutant
     public MajorMutant(String mutantType, File mutantLocation)
     {
         super(mutantType);
+        mutantLoc = mutantLocation;
+        setupMutatedJavaSource();
+
         setPreMutation("Unknown (Major)");
         setPostMutation("Unknown (Major)");
-        mutantLoc = mutantLocation;
     }
 
     @Override
     public void setupMutatedJavaSource()
     {
-        // TODO implement - load from mutated file location - read the source
+        // load lines from mutated file location
         modified = new JavaSource(mutantLoc);
+    }
+
+    @Override
+    public String toString()
+    {
+        return getType() +
+                "[" + getIdString() + "] (Major Mutant - Change not directly known) " + hashCode();
     }
 }

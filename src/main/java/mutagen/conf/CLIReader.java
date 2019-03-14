@@ -1,4 +1,4 @@
-package mutagen.cli;
+package mutagen.conf;
 
 import org.apache.commons.cli.*;
 

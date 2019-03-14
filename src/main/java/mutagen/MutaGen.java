@@ -1,8 +1,7 @@
 package mutagen;
 
-import mutagen.cli.*;
+import mutagen.conf.*;
 import mutagen.mutation.MutationEngine;
-import mutagen.output.FileOutput;
 
 public class MutaGen
 {
