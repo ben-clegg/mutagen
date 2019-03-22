@@ -1,8 +1,7 @@
 package mutagen.output;
 
 import mutagen.mutation.Mutant;
-import org.testng.reporters.Files;
-
+import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -36,8 +35,7 @@ public class FileOutput
         m.getLocation().getParentFile().mkdirs();
         try
         {
-            Files.writeFile(m.getModifiedLines().toString(),
-                    m.getLocation());
+            FileUtils.writeStringToFile(m.getLocation(), m.getModifiedLines().toString(), "UTF-8");
         }
         catch (IOException ioEx)
         {
@@ -62,7 +60,7 @@ public class FileOutput
                                     "mutantIndex.csv");
         try
         {
-            Files.writeFile(summary.makeCSV(),csvLocation);
+            FileUtils.writeStringToFile(csvLocation, summary.makeCSV(), "UTF-8");
         }
         catch (IOException ioEx)
         {

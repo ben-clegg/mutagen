@@ -53,4 +53,9 @@ public abstract class MutationStrategy
     {
         return original.getLines();
     }
+
+    public String getType()
+    {
+        return type;
+    }
 }
