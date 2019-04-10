@@ -21,13 +21,13 @@ public class MutationEngine
     public MutationEngine(List<TargetSource> targetSource)
     {
         targets = targetSource;
-        mutants = new ArrayList<Mutant>();
+        mutants = new ArrayList<>();
+        strategies = new ArrayList<>();
         initialiseStrategies();
     }
 
-    private void initialiseStrategies()
+    protected void initialiseStrategies()
     {
-        strategies = new ArrayList<MutationStrategy>();
         for (TargetSource t : targets)
         {
             strategies.add(new EqualityConfusion(t));
@@ -67,6 +67,11 @@ public class MutationEngine
         {
             System.out.println(m.toString());
         }
+    }
+
+    public List<TargetSource> getTargets()
+    {
+        return targets;
     }
 
     public List<Mutant> getMutants()
