@@ -14,7 +14,7 @@ public class ShortCircuitConfusion extends SimpleMutationStrategy
     }
 
     @Override
-    boolean isMutatable(String cleanedLine)
+    protected boolean isMutatable(String cleanedLine)
     {
         if(cleanedLine.contains("|") || cleanedLine.contains("&"))
             return true;
@@ -22,7 +22,7 @@ public class ShortCircuitConfusion extends SimpleMutationStrategy
     }
 
     @Override
-    List<SimpleMutant> createLineMutants(int lineIndex)
+    protected List<SimpleMutant> createLineMutants(int lineIndex)
     {
         List<SimpleMutant> simpleMutants = new ArrayList<SimpleMutant>();
         String original = getOriginalLines().get(lineIndex);

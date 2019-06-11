@@ -21,7 +21,7 @@ public class UnbalancedBrackets extends SimpleMutationStrategy
     }
 
     @Override
-    boolean isMutatable(String cleanedLine)
+    protected boolean isMutatable(String cleanedLine)
     {
         if (cleanedLine.matches(BRACKET_MATCH))
         {
@@ -32,7 +32,7 @@ public class UnbalancedBrackets extends SimpleMutationStrategy
     }
 
     @Override
-    List<SimpleMutant> createLineMutants(int lineIndex)
+    protected List<SimpleMutant> createLineMutants(int lineIndex)
     {
         ArrayList<SimpleMutant> simpleMutants = new ArrayList<SimpleMutant>();
 

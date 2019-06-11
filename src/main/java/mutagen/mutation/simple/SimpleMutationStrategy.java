@@ -66,9 +66,9 @@ public abstract class SimpleMutationStrategy extends MutationStrategy
      * @param cleanedLine - the line, with comments and strings removed
      * @return true if the line is mutatable
      */
-    abstract boolean isMutatable(String cleanedLine);
+    protected abstract boolean isMutatable(String cleanedLine);
 
-    abstract List<SimpleMutant> createLineMutants(int lineIndex);
+    protected abstract List<SimpleMutant> createLineMutants(int lineIndex);
 
     protected SimpleMutant createMutant(String mutatedLine, int lineIndex)
     {

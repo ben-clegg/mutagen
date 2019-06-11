@@ -14,13 +14,13 @@ public class EqualityConfusion extends SimpleMutationStrategy
     }
 
     @Override
-    boolean isMutatable(String cleanedLine)
+    protected boolean isMutatable(String cleanedLine)
     {
         return cleanedLine.contains("=");
     }
 
     @Override
-    List<SimpleMutant> createLineMutants(int lineIndex)
+    protected List<SimpleMutant> createLineMutants(int lineIndex)
     {
         List<SimpleMutant> simpleMutants = new ArrayList<SimpleMutant>();
         String original = getOriginalLines().get(lineIndex);

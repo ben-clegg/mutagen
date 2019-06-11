@@ -21,7 +21,7 @@ public class FileOutput
     {
         m.setLocation(new File(directory.getPath() +
                 File.separatorChar +
-                m.getIdString() +
+                m.getIdString() + "_" + m.getType().trim() +
                 File.separatorChar + filename));
     }
 

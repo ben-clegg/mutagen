@@ -14,7 +14,7 @@ public class ConstantToVariable extends SimpleMutationStrategy
     }
 
     @Override
-    boolean isMutatable(String cleanedLine)
+    protected boolean isMutatable(String cleanedLine)
     {
         String[] elems = cleanedLine.split(" ");
         for (String e : elems)
@@ -38,9 +38,9 @@ public class ConstantToVariable extends SimpleMutationStrategy
     }
 
     @Override
-    List<SimpleMutant> createLineMutants(int lineIndex)
+    protected List<SimpleMutant> createLineMutants(int lineIndex)
     {
-        ArrayList<SimpleMutant> simpleMutants = new ArrayList<SimpleMutant>();
+        List<SimpleMutant> simpleMutants = new ArrayList<SimpleMutant>();
         String original = getOriginalLines().get(lineIndex);
 
         simpleMutants.add(createMutant(original.replaceFirst("final ", ""), lineIndex));
