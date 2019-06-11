@@ -6,7 +6,7 @@ import mutagen.TargetSource;
 import mutagen.mutation.Mutant;
 import mutagen.mutation.simple.SimpleMutant;
 
-public class ForSeparatorConfusion extends ASTMutationStrategy
+public class ForSeparatorConfusion extends ASTVisitorMutationStrategy
 {
     public ForSeparatorConfusion(TargetSource target)
     {

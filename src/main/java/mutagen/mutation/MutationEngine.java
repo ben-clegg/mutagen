@@ -3,10 +3,11 @@ package mutagen.mutation;
 import mutagen.TargetSource;
 import mutagen.mutation.ast.ClassnameReplacement;
 import mutagen.mutation.ast.ForSeparatorConfusion;
+import mutagen.mutation.ast.identifiernaming.VariableNameBadFormatting;
 import mutagen.mutation.major.MajorStrategy;
 import mutagen.mutation.simple.*;
-import mutagen.mutation.simple.indentation.AdditionalIndentation;
-import mutagen.mutation.simple.indentation.RemovedIndentation;
+import mutagen.mutation.simple.poorindentation.AdditionalIndentation;
+import mutagen.mutation.simple.poorindentation.RemovedIndentation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +43,11 @@ public class MutationEngine
             strategies.add(new MajorStrategy(t,"AOR","IncorrectCalculation"));
             strategies.add(new MajorStrategy(t,"EVR,LVR","IncorrectValues"));
             strategies.add(new MajorStrategy(t,"STD","IncompleteImplementation"));
+            // Poor Indentation
             strategies.add(new AdditionalIndentation(t, 2));
             strategies.add(new RemovedIndentation(t, 2));
+            // Incorrect Identifier Style
+            strategies.add(new VariableNameBadFormatting(t));
         }
     }
 

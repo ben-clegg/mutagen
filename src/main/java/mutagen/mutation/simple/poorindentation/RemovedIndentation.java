@@ -1,4 +1,4 @@
-package mutagen.mutation.simple.indentation;
+package mutagen.mutation.simple.poorindentation;
 
 import mutagen.TargetSource;
 import mutagen.mutation.simple.SimpleMutant;
@@ -7,14 +7,14 @@ import mutagen.mutation.simple.SimpleMutationStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdditionalIndentation extends SimpleMutationStrategy
+public class RemovedIndentation extends SimpleMutationStrategy
 {
     private String spaces;
 
-    public AdditionalIndentation(TargetSource original, int spacesInIndent)
+    public RemovedIndentation(TargetSource original, int spacesInIndent)
     {
         super(original);
-        setType("AdditionalIndentation");
+        setType("RemovedIndentation");
 
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < spacesInIndent; i++)
@@ -27,8 +27,8 @@ public class AdditionalIndentation extends SimpleMutationStrategy
     @Override
     protected boolean isMutatable(String cleanedLine)
     {
-        // Every line can have additional indentation added
-        return true;
+        // Every line beginning with poorindentation can have it removed
+        return cleanedLine.startsWith(spaces);
     }
 
     @Override
@@ -37,8 +37,8 @@ public class AdditionalIndentation extends SimpleMutationStrategy
         List<SimpleMutant> simpleMutants = new ArrayList<SimpleMutant>();
         String original = getOriginalLines().get(lineIndex);
 
-        // Add spaces before the original line
-        simpleMutants.add(createMutant(spaces + original, lineIndex));
+        // Remove spaces at beginning of original line
+        simpleMutants.add(createMutant(original.replaceFirst(spaces, ""), lineIndex));
 
         return simpleMutants;
     }

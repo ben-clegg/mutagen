@@ -9,11 +9,11 @@ import mutagen.mutation.MutationStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ASTMutationStrategy extends MutationStrategy
+public abstract class ASTVisitorMutationStrategy extends MutationStrategy
 {
     protected VoidVisitorAdapter visitor;
 
-    public ASTMutationStrategy(TargetSource target)
+    public ASTVisitorMutationStrategy(TargetSource target)
     {
         super(target);
         visitorSetup();

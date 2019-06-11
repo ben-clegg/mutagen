@@ -2,6 +2,7 @@ package mutagen.mutation.ast;
 
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
+import com.github.javaparser.ast.body.VariableDeclarator;
 import mutagen.JavaSource;
 import mutagen.mutation.Mutant;
 
@@ -26,8 +27,11 @@ public class NodeMutant extends Mutant
     @Override
     protected void setupMutatedJavaSource()
     {
-        // TODO may need to modify to consider compilation unit
-        modified = new JavaSource(mutated.toString());
+        CompilationUnit modifiedCU = originalCU.clone();
+        modifiedCU.findAll(VariableDeclarator.class).stream()
+                .filter(f -> f.equals(original))
+                .forEach(c -> c.replace(mutated));
+        modified = new JavaSource(modifiedCU.toString());
     }
 
     @Override
