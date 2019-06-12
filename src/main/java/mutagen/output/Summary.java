@@ -1,7 +1,6 @@
 package mutagen.output;
 
 import mutagen.mutation.Mutant;
-import mutagen.mutation.ast.NodeMutant;
 import mutagen.mutation.simple.SimpleMutant;
 
 import java.util.List;

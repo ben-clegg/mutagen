@@ -1,7 +1,6 @@
 package mutagen.mutation.ast;
 
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
-import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import mutagen.TargetSource;
 import mutagen.mutation.ast.identifiernaming.NameReformatter;
@@ -32,7 +31,7 @@ public class ClassnameReplacement extends ASTVisitorMutationStrategy
                 {
                     ClassOrInterfaceDeclaration mutated = declaration.clone();
                     mutated.setName(name);
-                    NodeMutant m = new NodeMutant(getOriginal().getCompilationUnit(), declaration, mutated, type);
+                    ASTMutant m = new ASTMutant(getOriginal().getCompilationUnit(), declaration, mutated, type);
                     m.setPreMutation(declaration.getNameAsString());
                     m.setPostMutation(mutated.getNameAsString());
                     addMutant(m);

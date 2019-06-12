@@ -3,7 +3,7 @@ package mutagen.mutation;
 import mutagen.TargetSource;
 import mutagen.mutation.ast.ClassnameReplacement;
 import mutagen.mutation.ast.ForSeparatorConfusion;
-import mutagen.mutation.ast.identifiernaming.VariableNameBadFormatting;
+import mutagen.mutation.ast.identifiernaming.IncorrectIdentifierNaming;
 import mutagen.mutation.major.MajorStrategy;
 import mutagen.mutation.simple.*;
 import mutagen.mutation.simple.poorindentation.AdditionalIndentation;
@@ -47,7 +47,7 @@ public class MutationEngine
             strategies.add(new AdditionalIndentation(t, 2));
             strategies.add(new RemovedIndentation(t, 2));
             // Incorrect Identifier Style
-            strategies.add(new VariableNameBadFormatting(t));
+            strategies.add(new IncorrectIdentifierNaming(t));
         }
     }
 

@@ -31,7 +31,7 @@ public class FileOutput
         setMutantLocation(m);
 
         // Write the mutant to a file
-        System.out.println(m.getLocation());
+        //System.out.println(m.getLocation());
         m.getLocation().getParentFile().mkdirs();
         try
         {
@@ -47,10 +47,12 @@ public class FileOutput
 
     public void writeMutants(List<Mutant> mutants)
     {
+        System.out.println("Writing mutants to " + directory.getPath() + "...");
         for (Mutant m : mutants)
         {
             writeMutant(m);
         }
+        System.out.println("Mutants written!");
     }
 
     public void writeSummary(List<Mutant> mutants)
