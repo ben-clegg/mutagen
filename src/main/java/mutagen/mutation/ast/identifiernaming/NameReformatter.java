@@ -4,6 +4,51 @@ import java.util.*;
 
 public class NameReformatter
 {
+
+    /**
+     * Take an arbitrary identifier in the form lowerCamelCase, UpperCamelCase, or CONSTANT_NAMING
+     * and generate mutants in the 2 other forms
+     * @param originalIdentifier an identifier string
+     * @return 2 mutants of the other naming conventions
+     */
+    public static List<String> generateMutants(String originalIdentifier)
+    {
+        List<String> mutantIdentifiers = new ArrayList<>();
+
+        if (originalIdentifier.contains("_") || originalIdentifier.equals(originalIdentifier.toUpperCase()))
+        {
+            // Contains an underscore, or ALLCAPS, can assume that the identifier is in CONSTANT_NAMING
+            List<String> words = constantToWords(originalIdentifier);
+
+            mutantIdentifiers.add(wordsToLowerCamelCase(words));
+            mutantIdentifiers.add(wordsToUpperCamelCase(words));
+        }
+
+        else
+        {
+            // No underscore, not ALLCAPS, can assume identifier is in camelCase
+            List<String> words = camelCaseToWords(originalIdentifier);
+
+            String firstLetter = originalIdentifier.substring(0, 1);
+            if (firstLetter.equals(firstLetter.toLowerCase()))
+            {
+                // First letter is lowercase, can assume that the identifier is lowerCamelCase
+                mutantIdentifiers.add(wordsToConstant(words));
+                mutantIdentifiers.add(wordsToUpperCamelCase(words));
+            }
+
+            else
+            {
+                // First letter is uppercase, can assume that the identifier is UpperCamelCase
+                mutantIdentifiers.add(wordsToConstant(words));
+                mutantIdentifiers.add(wordsToLowerCamelCase(words));
+
+            }
+        }
+
+        return mutantIdentifiers;
+    }
+
     /**
      * Convert either upper or lower camel case to individual words
      * @return a list of individual lowercase words

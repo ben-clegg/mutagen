@@ -34,6 +34,7 @@ public class IncorrectIdentifierNaming extends ASTVisitorMutationStrategy
     {
         visitor = new VoidVisitorAdapter<Void>()
         {
+            // TODO define for other types (e.g. class declaration)
             @Override
             public void visit(VariableDeclarator declaration, Void v)
             {
@@ -104,15 +105,6 @@ public class IncorrectIdentifierNaming extends ASTVisitorMutationStrategy
 
     private List<String> nameReplacements(String original)
     {
-        List<String> replacements = new ArrayList<String>();
-
-        // TODO create system to auto-detect which kind of identifier it is
-
-        // Name reformatting - upperCamelCase
-        replacements.add(NameReformatter.wordsToUpperCamelCase(NameReformatter.camelCaseToWords(original)));
-        // Name reformatting - CONSTANT_NAMING
-        replacements.add(NameReformatter.wordsToConstant(NameReformatter.camelCaseToWords(original)));
-
-        return replacements;
+        return NameReformatter.generateMutants(original);
     }
 }

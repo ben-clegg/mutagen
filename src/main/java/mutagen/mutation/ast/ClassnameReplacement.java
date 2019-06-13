@@ -53,10 +53,9 @@ public class ClassnameReplacement extends ASTVisitorMutationStrategy
             replacements.add(original.substring(0, i) + original.substring(i+1));
         }
 
-        // Name reformatting - lowerCamelCase
-        replacements.add(NameReformatter.wordsToLowerCamelCase(NameReformatter.camelCaseToWords(original)));
-        // Name reformatting - CONSTANT_NAMING
-        replacements.add(NameReformatter.wordsToConstant(NameReformatter.camelCaseToWords(original)));
+        // Name reformatting
+        // TODO move to incorrect identifier naming?
+        replacements.addAll(NameReformatter.generateMutants(original));
 
         // TODO other strategies
         // Character swapping
