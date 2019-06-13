@@ -66,7 +66,7 @@ public class ASTMutant extends Mutant
     @Override
     public String toString()
     {
-        return  getType() +
+        return getType() +
                 "[" + getIdString() + "] (AST Mutant): " +
                 getChange();
     }

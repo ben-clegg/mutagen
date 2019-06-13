@@ -1,0 +1,118 @@
+package mutagen.mutation.ast.identifiernaming;
+
+import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.Node;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.VariableDeclarator;
+import com.github.javaparser.ast.expr.MethodCallExpr;
+import com.github.javaparser.ast.expr.Name;
+import com.github.javaparser.ast.expr.NameExpr;
+import com.github.javaparser.ast.expr.SimpleName;
+import com.github.javaparser.ast.nodeTypes.NodeWithSimpleName;
+import com.github.javaparser.ast.stmt.Statement;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import javassist.compiler.ast.Declarator;
+import mutagen.TargetSource;
+import mutagen.mutation.ast.ASTVisitorMutationStrategy;
+import mutagen.mutation.ast.ASTMutant;
+import mutagen.mutation.ast.NodePatch;
+
+import javax.swing.plaf.nimbus.State;
+import java.util.ArrayList;
+import java.util.List;
+
+public class IncorrectIdentifierNaming extends ASTVisitorMutationStrategy
+{
+    public IncorrectIdentifierNaming(TargetSource target)
+    {
+        super(target);
+        setType("IncorrectIdentifierNaming");
+    }
+
+    @Override
+    protected void visitorSetup()
+    {
+        visitor = new VoidVisitorAdapter<Void>()
+        {
+            @Override
+            public void visit(VariableDeclarator declaration, Void v)
+            {
+                super.visit(declaration, v);
+                generateNamingMutant(declaration, new Class[]{
+                        NameExpr.class
+                });
+            }
+
+            @Override
+            public void visit(MethodDeclaration declaration, Void v)
+            {
+                super.visit(declaration, v);
+                generateNamingMutant(declaration, new Class[]{
+                        MethodCallExpr.class
+                });
+            }
+        };
+    }
+
+    private void generateNamingMutant(Node declaration, Class[] usageNodeTypes)
+    {
+        NodeWithSimpleName namedDeclaration = (NodeWithSimpleName) declaration;
+
+        for (String name : nameReplacements(namedDeclaration.getNameAsString()))
+        {
+            List<NodePatch> nodePatches = new ArrayList<>();
+
+            // Create patch for declarator
+            NodeWithSimpleName mutated = (NodeWithSimpleName) declaration.clone();
+            mutated.setName(name);
+            NodePatch declNodePatch = new NodePatch(declaration, (Node) mutated);
+            nodePatches.add(declNodePatch);
+
+            // Add node patches for usages of the identifier
+            nodePatches.addAll(generateIdentifierUsagePatches(namedDeclaration.getName(), name, usageNodeTypes));
+
+            // Add full mutant
+            ASTMutant m = new ASTMutant(getOriginal().getCompilationUnit(), nodePatches, type);
+            m.setPreMutation(namedDeclaration.getNameAsString());
+            m.setPostMutation(mutated.getNameAsString());
+            addMutant(m);
+        }
+    }
+
+
+    private List<NodePatch> generateIdentifierUsagePatches(SimpleName originalName, String mutatedName, Class[] targetReplacementNodeTypes)
+    {
+        List<NodePatch> patches = new ArrayList<>();
+
+        // Find all identifiers of the given node types that match the identifier being modified
+        // TODO tighten scope to just the nodes adjacent to our declarators parent?
+        CompilationUnit mutationCU = getOriginal().getCompilationUnit().clone();
+
+        for (Class<Node> nodeType : targetReplacementNodeTypes)
+        {
+            mutationCU.findAll(nodeType).stream()
+                    .filter(n -> ((NodeWithSimpleName) n).getName().equals(originalName))
+                    .forEach(nameExpr -> {
+                        NodeWithSimpleName mut = (NodeWithSimpleName) nameExpr.clone();
+                        mut.setName(mutatedName);
+                        patches.add(new NodePatch(nameExpr, (Node) mut));
+                    });
+        }
+
+        return patches;
+    }
+
+    private List<String> nameReplacements(String original)
+    {
+        List<String> replacements = new ArrayList<String>();
+
+        // TODO create system to auto-detect which kind of identifier it is
+
+        // Name reformatting - upperCamelCase
+        replacements.add(NameReformatter.wordsToUpperCamelCase(NameReformatter.camelCaseToWords(original)));
+        // Name reformatting - CONSTANT_NAMING
+        replacements.add(NameReformatter.wordsToConstant(NameReformatter.camelCaseToWords(original)));
+
+        return replacements;
+    }
+}
