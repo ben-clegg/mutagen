@@ -3,6 +3,7 @@ package mutagen.mutation.ast;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.VariableDeclarator;
+import com.github.javaparser.printer.PrettyPrinterConfiguration;
 import mutagen.JavaSource;
 import mutagen.mutation.Mutant;
 
@@ -59,8 +60,12 @@ public class ASTMutant extends Mutant
                     .forEach(n -> n.replace(nodePatch.getMutated()));
         }
 
+        // Prepare a PrettyPrinterConfiguration to use for sourcecode output
+        PrettyPrinterConfiguration p = new PrettyPrinterConfiguration();
+        p.setIndentType(PrettyPrinterConfiguration.IndentType.SPACES);
+        p.setIndentSize(2);
         // Convert the cloned AST to a JavaSource
-        modified = new JavaSource(modifiedCU.toString());
+        modified = new JavaSource(modifiedCU.toString(p));
     }
 
     @Override
