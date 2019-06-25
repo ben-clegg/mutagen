@@ -81,27 +81,7 @@ public class IncorrectIdentifierNaming extends ASTVisitorMutationStrategy
     }
 
 
-    private List<NodePatch> generateIdentifierUsagePatches(SimpleName originalName, String mutatedName, Class[] targetReplacementNodeTypes)
-    {
-        List<NodePatch> patches = new ArrayList<>();
 
-        // Find all identifiers of the given node types that match the identifier being modified
-        // TODO tighten scope to just the nodes adjacent to our declarators parent?
-        CompilationUnit mutationCU = getOriginal().getCompilationUnit().clone();
-
-        for (Class<Node> nodeType : targetReplacementNodeTypes)
-        {
-            mutationCU.findAll(nodeType).stream()
-                    .filter(n -> ((NodeWithSimpleName) n).getName().equals(originalName))
-                    .forEach(nameExpr -> {
-                        NodeWithSimpleName mut = (NodeWithSimpleName) nameExpr.clone();
-                        mut.setName(mutatedName);
-                        patches.add(new NodePatch(nameExpr, (Node) mut));
-                    });
-        }
-
-        return patches;
-    }
 
     private List<String> nameReplacements(String original)
     {

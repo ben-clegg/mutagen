@@ -4,6 +4,11 @@ import java.util.*;
 
 public class NameReformatter
 {
+    public static boolean isConstant(String identifier)
+    {
+        return identifier.toUpperCase().equals(identifier);
+    }
+
 
     /**
      * Take an arbitrary identifier in the form lowerCamelCase, UpperCamelCase, or CONSTANT_NAMING
@@ -15,7 +20,7 @@ public class NameReformatter
     {
         List<String> mutantIdentifiers = new ArrayList<>();
 
-        if (originalIdentifier.contains("_") || originalIdentifier.equals(originalIdentifier.toUpperCase()))
+        if (originalIdentifier.contains("_") || isConstant(originalIdentifier))
         {
             // Contains an underscore, or ALLCAPS, can assume that the identifier is in CONSTANT_NAMING
             List<String> words = constantToWords(originalIdentifier);

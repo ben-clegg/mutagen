@@ -3,6 +3,7 @@ package mutagen.mutation;
 import mutagen.TargetSource;
 import mutagen.mutation.ast.ClassnameReplacement;
 import mutagen.mutation.ast.ForSeparatorConfusion;
+import mutagen.mutation.ast.LiteralValueRepetition;
 import mutagen.mutation.ast.identifiernaming.IncorrectIdentifierNaming;
 import mutagen.mutation.major.MajorStrategy;
 import mutagen.mutation.simple.*;
@@ -40,6 +41,7 @@ public class MutationEngine
             strategies.add(new UnbalancedBrackets(t));
             strategies.add(new ConstantToVariable(t));
             strategies.add(new ClassnameReplacement(t));
+            // Major mutants
             strategies.add(new MajorStrategy(t,"AOR","IncorrectCalculation"));
             strategies.add(new MajorStrategy(t,"EVR,LVR","IncorrectValues"));
             strategies.add(new MajorStrategy(t,"STD","IncompleteImplementation"));
@@ -48,6 +50,8 @@ public class MutationEngine
             strategies.add(new RemovedIndentation(t, 2));
             // Incorrect Identifier Style
             strategies.add(new IncorrectIdentifierNaming(t));
+
+            strategies.add(new LiteralValueRepetition(t));
         }
     }
 
