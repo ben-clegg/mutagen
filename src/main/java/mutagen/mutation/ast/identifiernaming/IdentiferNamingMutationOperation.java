@@ -1,32 +1,25 @@
 package mutagen.mutation.ast.identifiernaming;
 
-import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.MethodCallExpr;
-import com.github.javaparser.ast.expr.Name;
 import com.github.javaparser.ast.expr.NameExpr;
-import com.github.javaparser.ast.expr.SimpleName;
 import com.github.javaparser.ast.nodeTypes.NodeWithSimpleName;
-import com.github.javaparser.ast.stmt.Statement;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import javassist.compiler.ast.Declarator;
 import mutagen.TargetSource;
-import mutagen.mutation.ast.ASTVisitorMutationStrategy;
 import mutagen.mutation.ast.ASTMutant;
+import mutagen.mutation.ast.ASTVisitorMutationStrategy;
 import mutagen.mutation.ast.NodePatch;
 
-import javax.swing.plaf.nimbus.State;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IncorrectIdentifierNaming extends ASTVisitorMutationStrategy
+public abstract class IdentiferNamingMutationOperation extends ASTVisitorMutationStrategy
 {
-    public IncorrectIdentifierNaming(TargetSource target)
+    public IdentiferNamingMutationOperation(TargetSource target)
     {
         super(target);
-        setType("IncorrectIdentifierNaming");
     }
 
     @Override
@@ -39,7 +32,7 @@ public class IncorrectIdentifierNaming extends ASTVisitorMutationStrategy
             public void visit(VariableDeclarator declaration, Void v)
             {
                 super.visit(declaration, v);
-                generateNamingMutant(declaration, new Class[]{
+                generateNamingMutants(declaration, new Class[]{
                         NameExpr.class
                 });
             }
@@ -48,14 +41,14 @@ public class IncorrectIdentifierNaming extends ASTVisitorMutationStrategy
             public void visit(MethodDeclaration declaration, Void v)
             {
                 super.visit(declaration, v);
-                generateNamingMutant(declaration, new Class[]{
+                generateNamingMutants(declaration, new Class[]{
                         MethodCallExpr.class
                 });
             }
         };
     }
 
-    private void generateNamingMutant(Node declaration, Class[] usageNodeTypes)
+    protected void generateNamingMutants(Node declaration, Class[] usageNodeTypes)
     {
         NodeWithSimpleName namedDeclaration = (NodeWithSimpleName) declaration;
 
@@ -80,11 +73,5 @@ public class IncorrectIdentifierNaming extends ASTVisitorMutationStrategy
         }
     }
 
-
-
-
-    private List<String> nameReplacements(String original)
-    {
-        return NameReformatter.generateMutants(original);
-    }
+    abstract List<String> nameReplacements(String original);
 }
