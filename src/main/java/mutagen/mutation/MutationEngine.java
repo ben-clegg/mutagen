@@ -4,6 +4,7 @@ import mutagen.TargetSource;
 import mutagen.mutation.ast.ClassnameReplacement;
 import mutagen.mutation.ast.ForSeparatorConfusion;
 import mutagen.mutation.ast.LiteralValueRepetition;
+import mutagen.mutation.ast.StringMisspelling;
 import mutagen.mutation.ast.identifiernaming.IncorrectIdentifierStyle;
 import mutagen.mutation.ast.identifiernaming.PoorIdentifierNaming;
 import mutagen.mutation.major.MajorStrategy;
@@ -54,6 +55,7 @@ public class MutationEngine
             strategies.add(new PoorIdentifierNaming(t));
 
             strategies.add(new LiteralValueRepetition(t));
+            strategies.add(new StringMisspelling(t));
         }
     }
 

@@ -15,7 +15,7 @@ import mutagen.mutation.MutationStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ASTVisitorMutationStrategy extends MutationStrategy
+public class ASTVisitorMutationStrategy extends MutationStrategy
 {
     protected VoidVisitorAdapter visitor;
 
@@ -72,5 +72,5 @@ public abstract class ASTVisitorMutationStrategy extends MutationStrategy
         return patches;
     }
 
-    protected abstract void visitorSetup();
+    protected void visitorSetup(){}
 }
