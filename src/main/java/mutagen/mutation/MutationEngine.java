@@ -47,6 +47,10 @@ public class MutationEngine
             strategies.add(new MajorStrategy(t,"AOR","IncorrectCalculation"));
             strategies.add(new MajorStrategy(t,"EVR,LVR","IncorrectValues"));
             strategies.add(new MajorStrategy(t,"STD","IncompleteImplementation"));
+            strategies.add(new MajorStrategy(t, "LOR", "LogicalOperatorReplacement"));
+            strategies.add(new MajorStrategy(t, "COR", "ConditionalOperatorReplacement"));
+            strategies.add(new MajorStrategy(t, "ROR", "RelationalOperatorReplacement"));
+            strategies.add(new MajorStrategy(t, "SOR", "ShiftOperatorReplacement"));
             // Poor Indentation
             strategies.add(new AdditionalIndentation(t, 2));
             strategies.add(new RemovedIndentation(t, 2));
