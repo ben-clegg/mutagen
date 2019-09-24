@@ -7,6 +7,7 @@ import mutagen.mutation.ast.LiteralValueRepetition;
 import mutagen.mutation.ast.StringMisspelling;
 import mutagen.mutation.ast.identifiernaming.IncorrectIdentifierStyle;
 import mutagen.mutation.ast.identifiernaming.PoorIdentifierNaming;
+import mutagen.mutation.ast.logicflow.ExtractedContentsIfStatement;
 import mutagen.mutation.major.MajorStrategy;
 import mutagen.mutation.simple.*;
 import mutagen.mutation.simple.poorindentation.AdditionalIndentation;
@@ -43,6 +44,7 @@ public class MutationEngine
             strategies.add(new UnbalancedBrackets(t));
             strategies.add(new ConstantToVariable(t));
             strategies.add(new ClassnameReplacement(t));
+            strategies.add(new ExtractedContentsIfStatement(t));
             // Major mutants
             strategies.add(new MajorStrategy(t,"AOR","IncorrectCalculation"));
             strategies.add(new MajorStrategy(t,"EVR,LVR","IncorrectValues"));
