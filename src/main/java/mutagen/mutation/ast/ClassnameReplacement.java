@@ -4,6 +4,7 @@ import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import mutagen.TargetSource;
 import mutagen.mutation.ast.identifiernaming.NameReformatter;
+import mutagen.properties.MutantFlag;
 import mutagen.properties.MutantType;
 
 import java.util.ArrayList;
@@ -15,6 +16,9 @@ public class ClassnameReplacement extends ASTVisitorMutationStrategy
     {
         super(target);
         setType(MutantType.CLASSNAME_REPLACEMENT);
+        addFlag(MutantFlag.COMPILABILITY);
+        addFlag(MutantFlag.FUNCTIONALITY);
+        addFlag(MutantFlag.USES_AST);
     }
 
     @Override

@@ -4,6 +4,7 @@ import mutagen.TargetSource;
 import mutagen.conf.Configuration;
 import mutagen.conf.Paths;
 import mutagen.mutation.MutationStrategy;
+import mutagen.properties.MutantFlag;
 import mutagen.properties.MutantType;
 
 import java.io.File;
@@ -24,6 +25,8 @@ public class MajorStrategy extends MutationStrategy
         mutantsDir = new File(getOriginal().getLocation().getParent() +
                 File.separator + "_mutants" + File.separator + operators);
         setType(mutantType);
+        addFlag(MutantFlag.FUNCTIONALITY);
+        addFlag(MutantFlag.USES_MAJOR);
     }
 
     private void runMajor()

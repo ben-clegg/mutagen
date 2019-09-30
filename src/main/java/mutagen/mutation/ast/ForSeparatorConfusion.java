@@ -5,6 +5,7 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import mutagen.TargetSource;
 import mutagen.mutation.Mutant;
 import mutagen.mutation.simple.SimpleMutant;
+import mutagen.properties.MutantFlag;
 import mutagen.properties.MutantType;
 
 public class ForSeparatorConfusion extends ASTVisitorMutationStrategy
@@ -13,6 +14,9 @@ public class ForSeparatorConfusion extends ASTVisitorMutationStrategy
     {
         super(target);
         setType(MutantType.FOR_SEPARATOR_CONFUSION);
+        addFlag(MutantFlag.COMPILABILITY);
+        addFlag(MutantFlag.FUNCTIONALITY);
+        addFlag(MutantFlag.USES_AST);
     }
 
     @Override

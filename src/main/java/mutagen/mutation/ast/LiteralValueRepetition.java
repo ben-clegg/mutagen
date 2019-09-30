@@ -9,6 +9,7 @@ import com.github.javaparser.ast.nodeTypes.NodeWithVariables;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import mutagen.TargetSource;
 import mutagen.mutation.ast.identifiernaming.NameReformatter;
+import mutagen.properties.MutantFlag;
 import mutagen.properties.MutantType;
 
 import java.util.ArrayList;
@@ -25,6 +26,8 @@ public class LiteralValueRepetition extends ASTVisitorMutationStrategy
     {
         super(target);
         setType(MutantType.LITERAL_REPETITION);
+        addFlag(MutantFlag.QUALITY);
+        addFlag(MutantFlag.USES_AST);
     }
 
 

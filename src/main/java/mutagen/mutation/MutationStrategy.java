@@ -2,14 +2,16 @@ package mutagen.mutation;
 
 import mutagen.JavaSource;
 import mutagen.TargetSource;
+import mutagen.properties.MutantFlag;
 import mutagen.properties.MutantType;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public abstract class MutationStrategy
 {
     private final int TYPE_LENGTH = 22;
+
+    private Set<MutantFlag> flags = Collections.synchronizedSet(EnumSet.noneOf(MutantFlag.class));
 
     private TargetSource original;
     protected MutantType type;
@@ -26,6 +28,7 @@ public abstract class MutationStrategy
 
     protected void addMutant(Mutant mutant)
     {
+        mutant.setFlags(flags);
         mutants.add(mutant);
     }
 
@@ -52,5 +55,21 @@ public abstract class MutationStrategy
     public MutantType getType()
     {
         return type;
+    }
+
+    protected void addFlag(MutantFlag mutantFlag)
+    {
+        flags.add(mutantFlag);
+    }
+
+    protected void setFlags(Collection<MutantFlag> mutantFlags)
+    {
+        flags.clear();
+        flags.addAll(mutantFlags);
+    }
+
+    public Set<MutantFlag> getFlags()
+    {
+        return flags;
     }
 }

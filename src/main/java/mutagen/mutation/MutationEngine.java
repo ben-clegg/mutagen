@@ -16,6 +16,8 @@ import mutagen.properties.MutantType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Oversees the creation of every possible mutant
@@ -64,6 +66,11 @@ public class MutationEngine
             strategies.add(new LiteralValueRepetition(t));
             strategies.add(new StringMisspelling(t));
         }
+    }
+
+    public void applyFilterToStrategies(Predicate<? super MutationStrategy> predicate)
+    {
+        strategies = strategies.stream().filter(predicate).collect(Collectors.toList());
     }
 
     public void generateMutants()

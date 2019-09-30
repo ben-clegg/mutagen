@@ -1,6 +1,7 @@
 package mutagen.mutation.simple;
 
 import mutagen.TargetSource;
+import mutagen.properties.MutantFlag;
 import mutagen.properties.MutantType;
 
 import java.util.ArrayList;
@@ -19,6 +20,9 @@ public class UnbalancedBrackets extends SimpleMutationStrategy
     {
         super(original);
         setType(MutantType.UNBALANCED_BRACKETS);
+        addFlag(MutantFlag.COMPILABILITY);
+        addFlag(MutantFlag.FUNCTIONALITY);
+        addFlag(MutantFlag.USES_STRING_MANIPULATION);
     }
 
     @Override
