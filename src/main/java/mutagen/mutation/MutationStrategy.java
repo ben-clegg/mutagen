@@ -2,6 +2,7 @@ package mutagen.mutation;
 
 import mutagen.JavaSource;
 import mutagen.TargetSource;
+import mutagen.properties.MutantType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +12,13 @@ public abstract class MutationStrategy
     private final int TYPE_LENGTH = 22;
 
     private TargetSource original;
-    protected String type;
+    protected MutantType type;
     protected List<Mutant> mutants;
 
     public MutationStrategy(TargetSource target)
     {
         original = target;
-        setType("UnspecifiedType");
+        setType(MutantType.UNKNOWN_MUTANT);
         mutants = new ArrayList<Mutant>();
     }
 
@@ -33,15 +34,9 @@ public abstract class MutationStrategy
         return mutants;
     }
 
-    protected void setType(String typeName)
+    protected void setType(MutantType mutantType)
     {
-        StringBuffer str = new StringBuffer(TYPE_LENGTH);
-        str.append(typeName);
-        while(str.length() < TYPE_LENGTH) {
-            str.append(" ");
-        }
-
-        type = str.toString();
+        type = mutantType;
     }
 
     protected TargetSource getOriginal()
@@ -54,7 +49,7 @@ public abstract class MutationStrategy
         return original.getLines();
     }
 
-    public String getType()
+    public MutantType getType()
     {
         return type;
     }

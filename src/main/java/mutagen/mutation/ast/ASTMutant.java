@@ -6,6 +6,7 @@ import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.printer.PrettyPrinterConfiguration;
 import mutagen.JavaSource;
 import mutagen.mutation.Mutant;
+import mutagen.properties.MutantType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class ASTMutant extends Mutant
 
     private List<NodePatch> nodePatches;
 
-    private ASTMutant(CompilationUnit originalCompilationUnit, String mutantType)
+    private ASTMutant(CompilationUnit originalCompilationUnit, MutantType mutantType)
     {
         super(mutantType);
         originalCU = originalCompilationUnit;
@@ -24,7 +25,7 @@ public class ASTMutant extends Mutant
 
     public ASTMutant(CompilationUnit originalCompilationUnit,
                         List<NodePatch> nodePatchesToApply,
-                        String mutantType)
+                        MutantType mutantType)
     {
         this(originalCompilationUnit, mutantType);
 
@@ -35,7 +36,7 @@ public class ASTMutant extends Mutant
     public ASTMutant(CompilationUnit originalCompilationUnit,
                         Node originalNode,
                         Node mutatedNode,
-                        String mutantType)
+                        MutantType mutantType)
     {
         this(originalCompilationUnit, mutantType);
 

@@ -3,6 +3,7 @@ package mutagen.mutation.simple;
 import mutagen.JavaSource;
 import mutagen.TargetSource;
 import mutagen.mutation.Mutant;
+import mutagen.properties.MutantType;
 
 import java.io.File;
 
@@ -14,7 +15,7 @@ public class SimpleMutant extends Mutant
 
     public SimpleMutant(String mutatedLine,
                         int lineIndex,
-                        String mutantType,
+                        MutantType mutantType,
                         TargetSource originalSrc)
     {
         super(mutantType);

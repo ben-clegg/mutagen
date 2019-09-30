@@ -1,6 +1,7 @@
 package mutagen.mutation.simple;
 
 import mutagen.TargetSource;
+import mutagen.properties.MutantType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ public class ComparatorConfusion extends SimpleMutationStrategy
     public ComparatorConfusion(TargetSource original)
     {
         super(original);
-        setType("ComparatorConfusion");
+        setType(MutantType.COMPARATOR_CONFUSION);
     }
 
     @Override

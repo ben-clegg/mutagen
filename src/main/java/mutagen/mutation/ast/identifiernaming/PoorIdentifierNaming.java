@@ -11,6 +11,7 @@ import mutagen.TargetSource;
 import mutagen.mutation.ast.ASTMutant;
 import mutagen.mutation.ast.ASTVisitorMutationStrategy;
 import mutagen.mutation.ast.NodePatch;
+import mutagen.properties.MutantType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ public class PoorIdentifierNaming extends IdentiferNamingMutationOperation
     public PoorIdentifierNaming(TargetSource target)
     {
         super(target);
-        setType("PoorIdentifierNaming");
+        setType(MutantType.POOR_IDENTIFIER_NAMING);
     }
 
     @Override

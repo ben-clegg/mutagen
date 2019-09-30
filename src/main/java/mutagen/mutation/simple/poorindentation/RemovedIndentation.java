@@ -3,6 +3,7 @@ package mutagen.mutation.simple.poorindentation;
 import mutagen.TargetSource;
 import mutagen.mutation.simple.SimpleMutant;
 import mutagen.mutation.simple.SimpleMutationStrategy;
+import mutagen.properties.MutantType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ public class RemovedIndentation extends SimpleMutationStrategy
     public RemovedIndentation(TargetSource original, int spacesInIndent)
     {
         super(original);
-        setType("RemovedIndentation");
+        setType(MutantType.POOR_INDENTATION);
 
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < spacesInIndent; i++)

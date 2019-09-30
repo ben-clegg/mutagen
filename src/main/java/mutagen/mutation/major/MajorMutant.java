@@ -2,6 +2,7 @@ package mutagen.mutation.major;
 
 import mutagen.JavaSource;
 import mutagen.mutation.Mutant;
+import mutagen.properties.MutantType;
 
 import java.io.File;
 
@@ -9,7 +10,7 @@ public class MajorMutant extends Mutant
 {
     private File mutantLoc;
 
-    public MajorMutant(String mutantType, File mutantLocation)
+    public MajorMutant(MutantType mutantType, File mutantLocation)
     {
         super(mutantType);
         mutantLoc = mutantLocation;

@@ -11,6 +11,7 @@ import mutagen.TargetSource;
 import mutagen.mutation.ast.ASTVisitorMutationStrategy;
 import mutagen.mutation.ast.ASTMutant;
 import mutagen.mutation.ast.NodePatch;
+import mutagen.properties.MutantType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ public class IncorrectIdentifierStyle extends IdentiferNamingMutationOperation
     public IncorrectIdentifierStyle(TargetSource target)
     {
         super(target);
-        setType("IncorrectIdentifierStyle");
+        setType(MutantType.INCORRECT_IDENTIFIER_STYLE);
     }
 
     @Override

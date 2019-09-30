@@ -1,6 +1,7 @@
 package mutagen.mutation.simple;
 
 import mutagen.TargetSource;
+import mutagen.properties.MutantType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ public class ConstantToVariable extends SimpleMutationStrategy
     public ConstantToVariable(TargetSource original)
     {
         super(original);
-        setType("ConstantToVariable");
+        setType(MutantType.CONSTANT_TO_VARIABLE);
     }
 
     @Override

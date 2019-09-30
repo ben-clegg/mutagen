@@ -1,22 +1,42 @@
 package mutagen.mutation;
 
 import mutagen.JavaSource;
+import mutagen.properties.MutantFlag;
+import mutagen.properties.MutantType;
 
 import java.io.File;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.Set;
 
 public abstract class Mutant
 {
+    private Set<MutantFlag> flags = Collections.synchronizedSet(EnumSet.noneOf(MutantFlag.class));
+    private MutantType type;
+
     protected int id;
     protected File location;
     protected JavaSource modified;
-    private String type;
+    //private String type;
 
     protected String preMutation = null;
     protected String postMutation = null;
 
-    public Mutant(String mutantType)
+    public Mutant(MutantType mutantType)
     {
         type = mutantType;
+    }
+
+    protected void addFlag(MutantFlag mutantFlag)
+    {
+        flags.add(mutantFlag);
+    }
+
+    protected void setFlags(Collection<MutantFlag> mutantFlags)
+    {
+        flags.clear();
+        flags.addAll(mutantFlags);
     }
 
     protected abstract void setupMutatedJavaSource();
@@ -76,7 +96,7 @@ public abstract class Mutant
         this.location = location;
     }
 
-    public String getType()
+    public MutantType getType()
     {
         return type;
     }

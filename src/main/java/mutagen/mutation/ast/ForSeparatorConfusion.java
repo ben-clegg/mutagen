@@ -5,13 +5,14 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import mutagen.TargetSource;
 import mutagen.mutation.Mutant;
 import mutagen.mutation.simple.SimpleMutant;
+import mutagen.properties.MutantType;
 
 public class ForSeparatorConfusion extends ASTVisitorMutationStrategy
 {
     public ForSeparatorConfusion(TargetSource target)
     {
         super(target);
-        setType("ForSeparatorConfusion");
+        setType(MutantType.FOR_SEPARATOR_CONFUSION);
     }
 
     @Override

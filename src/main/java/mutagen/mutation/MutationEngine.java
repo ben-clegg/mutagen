@@ -12,6 +12,7 @@ import mutagen.mutation.major.MajorStrategy;
 import mutagen.mutation.simple.*;
 import mutagen.mutation.simple.poorindentation.AdditionalIndentation;
 import mutagen.mutation.simple.poorindentation.RemovedIndentation;
+import mutagen.properties.MutantType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,16 +47,16 @@ public class MutationEngine
             strategies.add(new ClassnameReplacement(t));
             strategies.add(new ExtractedContentsIfStatement(t));
             // Major mutants
-            strategies.add(new MajorStrategy(t,"AOR","IncorrectCalculation"));
-            strategies.add(new MajorStrategy(t,"EVR,LVR","IncorrectValues"));
-            strategies.add(new MajorStrategy(t,"STD","IncompleteImplementation"));
-            strategies.add(new MajorStrategy(t, "LOR", "LogicalOperatorReplacement"));
-            strategies.add(new MajorStrategy(t, "COR", "ConditionalOperatorReplacement"));
-            strategies.add(new MajorStrategy(t, "ROR", "RelationalOperatorReplacement"));
-            strategies.add(new MajorStrategy(t, "SOR", "ShiftOperatorReplacement"));
+            strategies.add(new MajorStrategy(t,"AOR", MutantType.INCORRECT_CALCULATION));
+            strategies.add(new MajorStrategy(t,"EVR,LVR",MutantType.INCORRECT_VALUES));
+            strategies.add(new MajorStrategy(t,"STD",MutantType.INCOMPLETE_IMPLEMENTATION));
+            strategies.add(new MajorStrategy(t,"LOR", MutantType.LOGICAL_OPERATOR_REPLACEMENT));
+            strategies.add(new MajorStrategy(t,"COR", MutantType.CONDITIONAL_OPERATOR_REPLACEMENT));
+            strategies.add(new MajorStrategy(t,"ROR", MutantType.RELATIONAL_OPERATOR_REPLACEMENT));
+            strategies.add(new MajorStrategy(t,"SOR", MutantType.SHIFT_OPERATOR_REPLACEMENT));
             // Poor Indentation
-            strategies.add(new AdditionalIndentation(t, 2));
-            strategies.add(new RemovedIndentation(t, 2));
+            strategies.add(new AdditionalIndentation(t,2));
+            strategies.add(new RemovedIndentation(t,2));
             // Incorrect Identifier Style
             strategies.add(new IncorrectIdentifierStyle(t));
             strategies.add(new PoorIdentifierNaming(t));

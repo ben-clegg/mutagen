@@ -4,6 +4,7 @@ import mutagen.TargetSource;
 import mutagen.conf.Configuration;
 import mutagen.conf.Paths;
 import mutagen.mutation.MutationStrategy;
+import mutagen.properties.MutantType;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,13 +17,13 @@ public class MajorStrategy extends MutationStrategy
     protected String operators; // Operators to use (e.g. AOR,LOR)
     File mutantsDir;
 
-    public MajorStrategy(TargetSource targetSource, String operatorSet, String mType)
+    public MajorStrategy(TargetSource targetSource, String operatorSet, MutantType mutantType)
     {
         super(targetSource);
         operators = operatorSet;
         mutantsDir = new File(getOriginal().getLocation().getParent() +
                 File.separator + "_mutants" + File.separator + operators);
-        setType(mType);
+        setType(mutantType);
     }
 
     private void runMajor()

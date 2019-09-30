@@ -5,6 +5,7 @@ import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.StringLiteralExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import mutagen.TargetSource;
+import mutagen.properties.MutantType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class StringMisspelling extends ASTVisitorMutationStrategy
     public StringMisspelling(TargetSource target)
     {
         super(target);
-        setType("StringMisspelling");
+        setType(MutantType.STRING_MISSPELLING);
     }
 
     @Override

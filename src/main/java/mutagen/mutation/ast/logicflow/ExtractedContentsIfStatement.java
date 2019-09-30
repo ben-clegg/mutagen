@@ -13,6 +13,7 @@ import mutagen.TargetSource;
 import mutagen.mutation.ast.ASTMutant;
 import mutagen.mutation.ast.ASTVisitorMutationStrategy;
 import mutagen.mutation.ast.NodePatch;
+import mutagen.properties.MutantType;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class ExtractedContentsIfStatement extends ASTVisitorMutationStrategy
     public ExtractedContentsIfStatement(TargetSource target)
     {
         super(target);
-        setType("ExtractedContentsIfStatement");
+        setType(MutantType.LOGIC_FLOW_ERROR);
     }
 
     @Override
