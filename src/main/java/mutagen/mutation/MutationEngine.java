@@ -1,10 +1,7 @@
 package mutagen.mutation;
 
 import mutagen.TargetSource;
-import mutagen.mutation.ast.ClassnameReplacement;
-import mutagen.mutation.ast.ForSeparatorConfusion;
-import mutagen.mutation.ast.LiteralValueRepetition;
-import mutagen.mutation.ast.StringMisspelling;
+import mutagen.mutation.ast.*;
 import mutagen.mutation.ast.identifiernaming.IncorrectIdentifierStyle;
 import mutagen.mutation.ast.identifiernaming.PoorIdentifierNaming;
 import mutagen.mutation.ast.logicflow.ExtractedContentsIfStatement;
@@ -65,6 +62,8 @@ public class MutationEngine
 
             strategies.add(new LiteralValueRepetition(t));
             strategies.add(new StringMisspelling(t));
+
+            strategies.add(new EarlyExit(t));
         }
     }
 
