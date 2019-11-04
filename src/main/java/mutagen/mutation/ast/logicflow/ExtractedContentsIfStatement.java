@@ -99,17 +99,28 @@ public class ExtractedContentsIfStatement extends ASTVisitorMutationStrategy
             }
         }
 
-        NodeList<Statement> parentContents = new NodeList<>();
+        // Construct new siblings with changes
+        //NodeList<Statement> parentContents = new NodeList<>();
+        BlockStmt block = new BlockStmt(new NodeList<>());
         for (Node n : siblings)
         {
-            Statement s = (Statement) n;
-            parentContents.add(s);
+            if(n instanceof Statement)
+            {
+                Statement s = (Statement) n;
+                block.addStatement(s);
+            }
+            else if (n instanceof Expression)
+            {
+                Expression e = (Expression) n;
+                block.addStatement(e);
+            }
+            //parentContents.add(s);
         }
-        BlockStmt b = new BlockStmt(parentContents);
+        //BlockStmt b = new BlockStmt(parentContents);
 
         addMutant(new ASTMutant(getOriginal().getCompilationUnit(),
                                 ifStmt.getParentNode().get(),
-                                b,
+                                block,
                                 this.getType()));
 
     }
