@@ -9,11 +9,13 @@ import java.io.File;
 public class MajorMutant extends Mutant
 {
     private File mutantLoc;
+    private String operators;
 
-    public MajorMutant(MutantType mutantType, File mutantLocation)
+    public MajorMutant(MutantType mutantType, File mutantLocation, String operatorGroup)
     {
         super(mutantType);
         mutantLoc = mutantLocation;
+        operators = operatorGroup;
         setupMutatedJavaSource();
 
         setPreMutation("Unknown (Major)");
@@ -31,6 +33,7 @@ public class MajorMutant extends Mutant
     public String toString()
     {
         return getType() +
-                "[" + getIdString() + "] (Major Mutant - Change not directly known) " + hashCode();
+                "[" + getIdString() + "] (Major Mutant {" + operators +
+                    "}- Change not directly known) " + hashCode();
     }
 }

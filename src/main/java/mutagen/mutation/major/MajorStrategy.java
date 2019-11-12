@@ -75,7 +75,7 @@ public class MajorStrategy extends MutationStrategy
             {
                 // TODO add each mutant source as a new MajorMutant
                 File src = new File(f + File.separator + getOriginal().getFilename());
-                mutants.add(new MajorMutant(type, src));
+                mutants.add(new MajorMutant(type, src, operators));
             }
         }
     }
