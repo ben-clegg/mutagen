@@ -31,7 +31,7 @@ public class FileOutput
         setMutantLocation(m);
 
         // Write the mutant to a file
-        //System.out.println(m.getLocation());
+        //System.out.println(m.getFullyQualifiedFile());
         m.getLocation().getParentFile().mkdirs();
         try
         {

@@ -7,14 +7,15 @@ import com.google.common.io.Files;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
 
 public class TargetSource
 {
-    private File location;
+    private File fullyQualifiedFile;
+    private File rootDir;
     private JavaSource lines;
-    private String filename;
+    private String relativePath;
     private CompilationUnit compilationUnit;
+    private String classpath;
 
     private void loadContents()
     {
@@ -22,10 +23,10 @@ public class TargetSource
         {
             // Load contents of file
             lines = new JavaSource(
-                        Files.readLines(location, Charset.forName("UTF-8")));
+                        Files.readLines(fullyQualifiedFile, Charset.forName("UTF-8")));
 
             // Parse Abstract Syntax Tree with JavaParser
-            compilationUnit = JavaParser.parse(location);
+            compilationUnit = JavaParser.parse(fullyQualifiedFile);
         }
         catch (IOException ioEx)
         {
@@ -33,10 +34,12 @@ public class TargetSource
         }
     }
 
-    public TargetSource(String path)
+    public TargetSource(String dir, String relativeLocalPath, String targetClasspath)
     {
-        location = new File(path);
-        filename = location.getName();
+        rootDir = new File(dir);
+        fullyQualifiedFile = new File(dir + File.separator + relativeLocalPath);
+        relativePath = relativeLocalPath;
+        classpath = targetClasspath;
         loadContents();
     }
 
@@ -50,13 +53,23 @@ public class TargetSource
         return compilationUnit;
     }
 
-    public String getFilename()
+    public String getRelativePath()
     {
-        return filename;
+        return relativePath;
     }
 
-    public File getLocation()
+    public File getFullyQualifiedFile()
     {
-        return location;
+        return fullyQualifiedFile;
+    }
+
+    public String getClasspath()
+    {
+        return classpath;
+    }
+
+    public File getRootDir()
+    {
+        return rootDir;
     }
 }

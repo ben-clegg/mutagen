@@ -17,8 +17,8 @@ public class CLIReader
                 .desc("Path to the directories containing source files to mutate.")
                 .build());
 
-        opts.addOption(Option.builder(OptionNames.SHORT_TARGET_SOURCEFILE)
-                .longOpt(OptionNames.TARGET_SOURCEFILE)
+        opts.addOption(Option.builder(OptionNames.SHORT_TARGET_RELATIVE_PATH)
+                .longOpt(OptionNames.TARGET_RELATIVE_PATH)
                 .hasArg()
                 .desc("Name of the solution to mutate (e.g. Classname.java).")
                 .build());
@@ -27,6 +27,12 @@ public class CLIReader
                 .longOpt(OptionNames.OUTPUT_DIR)
                 .hasArg()
                 .desc("Path to the directory to store mutants in.")
+                .build());
+
+        opts.addOption(Option.builder(OptionNames.SHORT_CLASSPATH)
+                .longOpt(OptionNames.CLASSPATH)
+                .hasArg()
+                .desc("Classpath for model solution.")
                 .build());
     }
 
