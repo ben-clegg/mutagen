@@ -1,6 +1,7 @@
 package mutagen.conf;
 
 import com.sun.istack.internal.NotNull;
+import mutagen.MutaGen;
 import mutagen.TargetSource;
 import mutagen.output.FileOutput;
 
@@ -14,15 +15,26 @@ public class Configuration
     private FileOutput fileOutput;
     private String classpath;
 
+    public static void main(String[] args)
+    {
+        Configuration configuration = new Configuration(
+                "/home/cleggy/Documents/phd-research/data/2018-19/assignment4_wine/model/modelSolution_mutation",
+                "assignment2019/WineSampleCellar.java",
+                "/home/cleggy/Documents/phd-research/data/2018-19/assignment4_wine/mutants",
+                "/home/cleggy/Documents/phd-research/data/2018-19/assignment4_wine/classpathRoot"
+        );
+        MutaGen m = new MutaGen(configuration);
+    }
+
     public Configuration(@NotNull String targetSolutionDirPaths,
                          @NotNull String targetRelativePath,
                          @NotNull String outputDir,
                          String targetClasspath)
     {
         String[] targetLocs = (targetSolutionDirPaths.split(","));
+        classpath = targetClasspath;
         targets = createTargetList(targetLocs, targetRelativePath);
         fileOutput = new FileOutput(outputDir, targetRelativePath);
-        classpath = targetClasspath;
     }
 
     public Configuration(CLIReader cli)
