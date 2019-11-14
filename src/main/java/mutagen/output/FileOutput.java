@@ -9,20 +9,19 @@ import java.util.List;
 public class FileOutput
 {
     private File directory;
-    private String filename;
+    private String relativeFilePath;
 
     public FileOutput(String path, String originalFilename)
     {
         directory = new File(path);
-        filename = originalFilename;
+        relativeFilePath = originalFilename;
     }
 
     public void setMutantLocation(Mutant m)
     {
         m.setLocation(new File(directory.getPath() +
                 File.separatorChar +
-                m.getIdString() + "_" + m.getType().toString().trim() +
-                File.separatorChar + filename));
+                m.getIdString() + "_" + m.getType().toString().trim()), relativeFilePath);
     }
 
     public void writeMutant(Mutant m)

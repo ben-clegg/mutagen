@@ -17,6 +17,7 @@ public abstract class Mutant
 
     protected int id;
     protected File location;
+    private File directory;
     protected JavaSource modified;
     //private String type;
 
@@ -91,9 +92,15 @@ public abstract class Mutant
         return location;
     }
 
-    public void setLocation(File location)
+    public void setLocation(File dir, String relativeLocation)
     {
-        this.location = location;
+        directory = dir;
+        this.location = new File(dir + File.separator + relativeLocation);
+    }
+
+    public File getDirectory()
+    {
+        return directory;
     }
 
     public MutantType getType()
