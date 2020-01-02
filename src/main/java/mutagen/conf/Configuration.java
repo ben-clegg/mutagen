@@ -5,15 +5,23 @@ import mutagen.MutaGen;
 import mutagen.TargetSource;
 import mutagen.output.FileOutput;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Configuration
 {
     private List<TargetSource> targets;
     private FileOutput fileOutput;
     private String classpath;
+    private Map<ConfigFlag, Boolean> configFlagsMap = new HashMap<>();
+
+    private void initConfigFlags()
+    {
+        for (ConfigFlag f : ConfigFlag.values())
+            configFlagsMap.put(f, false);
+    }
 
     public static void main(String[] args)
     {
@@ -35,6 +43,7 @@ public class Configuration
         classpath = targetClasspath;
         targets = createTargetList(targetLocs, targetRelativePath);
         fileOutput = new FileOutput(outputDir, targetRelativePath);
+        initConfigFlags();
     }
 
     public Configuration(CLIReader cli)
@@ -64,6 +73,12 @@ public class Configuration
             optEx.printStackTrace();
             System.exit(ErrorCodes.NO_TARGET.ordinal());
         }
+
+        // Config flags
+        initConfigFlags();
+        configFlagsMap.put(ConfigFlag.REMOVE_COMPILABILITY_MUTANTS, cli.isOptionSet(OptionNames.GEN_REMOVE_COMPILABILITY_MUTANTS));
+        configFlagsMap.put(ConfigFlag.ONLY_FUNCTIONALITY_MUTANTS, cli.isOptionSet(OptionNames.GEN_ONLY_FUNCTIONALITY_MUTANTS));
+
     }
 
     private List<TargetSource> createTargetList(String[] targetLocs, String localPath)
@@ -90,5 +105,10 @@ public class Configuration
     public String getClasspath()
     {
         return classpath;
+    }
+
+    public boolean getConfigFlagValue(ConfigFlag flag)
+    {
+        return configFlagsMap.get(flag);
     }
 }

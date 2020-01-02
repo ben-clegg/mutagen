@@ -13,4 +13,7 @@ public class OptionNames
 
     public static final String CLASSPATH = "classpath";
     public static final String SHORT_CLASSPATH = "c";
+
+    public static final String GEN_REMOVE_COMPILABILITY_MUTANTS = "removeCompilabilityMutants";
+    public static final String GEN_ONLY_FUNCTIONALITY_MUTANTS = "onlyFunctionalityMutants";
 }

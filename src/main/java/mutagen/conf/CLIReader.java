@@ -34,6 +34,16 @@ public class CLIReader
                 .hasArg()
                 .desc("Classpath for model solution.")
                 .build());
+
+        opts.addOption(Option.builder(OptionNames.GEN_REMOVE_COMPILABILITY_MUTANTS)
+                .desc("Remove mutants that simulate issues that prevent compilation.")
+                .build());
+
+        opts.addOption(Option.builder(OptionNames.GEN_ONLY_FUNCTIONALITY_MUTANTS)
+                .desc("Only use mutants that simulate issues that affect functionality.")
+                .build());
+
+
     }
 
     public CLIReader(String[] args)
@@ -52,6 +62,12 @@ public class CLIReader
             System.err.println("Unexpected parsing error, check configuration.");
             System.exit(1);
         }
+    }
+
+    public boolean isOptionSet(String optStr)
+    {
+        return cli.hasOption(optStr);
+
     }
 
     public String getInputValue(String optStr) throws OptionNotSetException

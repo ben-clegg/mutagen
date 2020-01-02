@@ -2,6 +2,7 @@ package mutagen;
 
 import mutagen.conf.*;
 import mutagen.mutation.MutationEngine;
+import mutagen.properties.MutantFlag;
 
 public class MutaGen
 {
@@ -13,12 +14,18 @@ public class MutaGen
     {
         config = configuration;
 
-        MutationEngine mutate = new MutationEngine(config.getTargets());
-        mutate.generateMutants();
-        mutate.printAllMutants();
+        MutationEngine engine = new MutationEngine(config.getTargets());
 
-        config.getFileOutput().writeMutants(mutate.getMutants());
-        config.getFileOutput().writeSummary(mutate.getMutants());
+        if (configuration.getConfigFlagValue(ConfigFlag.REMOVE_COMPILABILITY_MUTANTS))
+            engine.applyFilterToStrategies(ms -> !ms.getFlags().contains(MutantFlag.COMPILABILITY));
+        if(configuration.getConfigFlagValue(ConfigFlag.ONLY_FUNCTIONALITY_MUTANTS))
+            engine.applyFilterToStrategies(ms -> ms.getFlags().contains(MutantFlag.FUNCTIONALITY));
+
+        engine.generateMutants();
+        engine.printAllMutants();
+
+        config.getFileOutput().writeMutants(engine.getMutants());
+        config.getFileOutput().writeSummary(engine.getMutants());
     }
 
     public static void main(String[] args)
