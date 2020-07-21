@@ -25,6 +25,7 @@ public class IncorrectIdentifierStyle extends IdentiferNamingMutationOperation
         setType(MutantType.INCORRECT_IDENTIFIER_STYLE);
         addFlag(MutantFlag.STYLE);
         addFlag(MutantFlag.USES_AST);
+        addFlag(MutantFlag.MUTAGEN_UNIQUE);
     }
 
     @Override

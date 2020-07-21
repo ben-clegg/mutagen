@@ -27,6 +27,7 @@ public class ExtractedContentsIfStatement extends ASTVisitorMutationStrategy
         setType(MutantType.LOGIC_FLOW_ERROR);
         addFlag(MutantFlag.FUNCTIONALITY);
         addFlag(MutantFlag.USES_AST);
+        addFlag(MutantFlag.MUTAGEN_UNIQUE);
     }
 
     @Override

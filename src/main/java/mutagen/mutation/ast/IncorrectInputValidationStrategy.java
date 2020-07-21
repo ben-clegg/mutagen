@@ -16,6 +16,7 @@ public class IncorrectInputValidationStrategy extends ASTVisitorMutationStrategy
         setType(MutantType.INCORRECT_INPUT_VALIDATION);
         addFlag(MutantFlag.FUNCTIONALITY);
         addFlag(MutantFlag.USES_AST);
+        addFlag(MutantFlag.MUTAGEN_UNIQUE);
     }
 
     @Override

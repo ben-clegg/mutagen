@@ -15,6 +15,7 @@ public class ConstantToVariable extends SimpleMutationStrategy
         setType(MutantType.CONSTANT_TO_VARIABLE);
         addFlag(MutantFlag.QUALITY);
         addFlag(MutantFlag.USES_STRING_MANIPULATION);
+        addFlag(MutantFlag.MUTAGEN_UNIQUE);
     }
 
     @Override

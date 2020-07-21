@@ -28,6 +28,7 @@ public class LiteralValueRepetition extends ASTVisitorMutationStrategy
         setType(MutantType.LITERAL_REPETITION);
         addFlag(MutantFlag.QUALITY);
         addFlag(MutantFlag.USES_AST);
+        addFlag(MutantFlag.MUTAGEN_UNIQUE);
     }
 
 

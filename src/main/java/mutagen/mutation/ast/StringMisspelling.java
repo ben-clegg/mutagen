@@ -22,6 +22,7 @@ public class StringMisspelling extends ASTVisitorMutationStrategy
         setType(MutantType.STRING_MISSPELLING);
         addFlag(MutantFlag.FUNCTIONALITY);
         addFlag(MutantFlag.USES_AST);
+        addFlag(MutantFlag.MUTAGEN_UNIQUE);
     }
 
     @Override

@@ -38,8 +38,8 @@ public class MutationEngine
         for (TargetSource t : targets)
         {
             strategies.add(new EqualityConfusion(t));
-            strategies.add(new ComparatorConfusion(t));
-            strategies.add(new ShortCircuitConfusion(t));
+            //strategies.add(new ComparatorConfusion(t));
+            //strategies.add(new ShortCircuitConfusion(t));
             strategies.add(new ForSeparatorConfusion(t));
             strategies.add(new UnbalancedBrackets(t));
             strategies.add(new ConstantToVariable(t));

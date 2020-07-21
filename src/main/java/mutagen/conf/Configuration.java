@@ -78,6 +78,8 @@ public class Configuration
         initConfigFlags();
         configFlagsMap.put(ConfigFlag.REMOVE_COMPILABILITY_MUTANTS, cli.isOptionSet(OptionNames.GEN_REMOVE_COMPILABILITY_MUTANTS));
         configFlagsMap.put(ConfigFlag.ONLY_FUNCTIONALITY_MUTANTS, cli.isOptionSet(OptionNames.GEN_ONLY_FUNCTIONALITY_MUTANTS));
+        configFlagsMap.put(ConfigFlag.ONLY_MUTAGEN_MUTANTS, cli.isOptionSet(OptionNames.GEN_ONLY_MUTAGEN_MUTANTS));
+        configFlagsMap.put(ConfigFlag.ONLY_MAJOR_MUTANTS, cli.isOptionSet(OptionNames.GEN_ONLY_MAJOR_MUTANTS));
 
     }
 

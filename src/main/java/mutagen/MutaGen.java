@@ -9,7 +9,6 @@ public class MutaGen
     private Configuration config;
 
 
-
     public MutaGen(Configuration configuration)
     {
         config = configuration;
@@ -20,6 +19,10 @@ public class MutaGen
             engine.applyFilterToStrategies(ms -> !ms.getFlags().contains(MutantFlag.COMPILABILITY));
         if(configuration.getConfigFlagValue(ConfigFlag.ONLY_FUNCTIONALITY_MUTANTS))
             engine.applyFilterToStrategies(ms -> ms.getFlags().contains(MutantFlag.FUNCTIONALITY));
+        if(configuration.getConfigFlagValue(ConfigFlag.ONLY_MUTAGEN_MUTANTS))
+            engine.applyFilterToStrategies(ms -> ms.getFlags().contains(MutantFlag.MUTAGEN_UNIQUE));
+        if(configuration.getConfigFlagValue(ConfigFlag.ONLY_MAJOR_MUTANTS))
+            engine.applyFilterToStrategies(ms -> ms.getFlags().contains(MutantFlag.USES_MAJOR));
 
         engine.generateMutants();
         engine.printAllMutants();

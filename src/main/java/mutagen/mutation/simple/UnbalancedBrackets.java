@@ -23,6 +23,7 @@ public class UnbalancedBrackets extends SimpleMutationStrategy
         addFlag(MutantFlag.COMPILABILITY);
         addFlag(MutantFlag.FUNCTIONALITY);
         addFlag(MutantFlag.USES_STRING_MANIPULATION);
+        addFlag(MutantFlag.MUTAGEN_UNIQUE);
     }
 
     @Override

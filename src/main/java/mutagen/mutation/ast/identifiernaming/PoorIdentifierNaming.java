@@ -26,6 +26,7 @@ public class PoorIdentifierNaming extends IdentiferNamingMutationOperation
         //TODO Preserve identifier style
         addFlag(MutantFlag.QUALITY);
         addFlag(MutantFlag.USES_AST);
+        addFlag(MutantFlag.MUTAGEN_UNIQUE);
     }
 
     @Override

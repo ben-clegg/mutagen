@@ -29,6 +29,7 @@ public class EarlyExit extends ASTVisitorMutationStrategy
         setType(MutantType.EARLY_EXIT);
         addFlag(MutantFlag.FUNCTIONALITY);
         addFlag(MutantFlag.USES_AST);
+        addFlag(MutantFlag.MUTAGEN_UNIQUE);
     }
 
     @Override

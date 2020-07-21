@@ -19,6 +19,7 @@ public class ClassnameReplacement extends ASTVisitorMutationStrategy
         addFlag(MutantFlag.COMPILABILITY);
         addFlag(MutantFlag.FUNCTIONALITY);
         addFlag(MutantFlag.USES_AST);
+        addFlag(MutantFlag.MUTAGEN_UNIQUE);
     }
 
     @Override

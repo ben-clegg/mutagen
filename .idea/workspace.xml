@@ -7,141 +7,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/mutagen_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/mutagen_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/MutaGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/MutaGen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/conf/CLIReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/conf/CLIReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/conf/ConfigFlag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/conf/ConfigFlag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/conf/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/conf/Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/conf/OptionNames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/conf/OptionNames.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/MutationEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ASTMutationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ASTVisitorMutationStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ClassnameReplacement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ClassnameReplacement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/EarlyExit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/EarlyExit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ForSeparatorConfusion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ForSeparatorConfusion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/NodeMutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/NodeMutant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/indentation/AdditionalIndentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/poorindentation/AdditionalIndentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/indentation/RemovedIndentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/poorindentation/RemovedIndentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/IncorrectInputValidationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/IncorrectInputValidationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/LiteralValueRepetition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/LiteralValueRepetition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/StringMisspelling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/StringMisspelling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/IncorrectIdentifierStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/IncorrectIdentifierStyle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/PoorIdentifierNaming.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/PoorIdentifierNaming.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/logicflow/ExtractedContentsIfStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/logicflow/ExtractedContentsIfStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/ConstantToVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/ConstantToVariable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/EqualityConfusion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/EqualityConfusion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/UnbalancedBrackets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/UnbalancedBrackets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/poorindentation/AdditionalIndentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/poorindentation/AdditionalIndentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/poorindentation/RemovedIndentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/poorindentation/RemovedIndentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/properties/MutantFlag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mutagen/properties/MutantFlag.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/MutationEngine.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="960">
-                  <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
-                  <folding>
-                    <element signature="e#2043#2044#0" expanded="true" />
-                    <element signature="e#2073#2074#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/poorindentation/AdditionalIndentation.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="220">
-                  <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="12" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/poorindentation/RemovedIndentation.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="780">
-                  <caret line="44" column="1" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/NameReformatter.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="680">
-                  <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/VariableNameBadFormatting.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="560">
-                  <caret line="36" column="67" selection-start-line="36" selection-start-column="67" selection-end-line="36" selection-end-column="67" />
-                  <folding>
-                    <element signature="e#695#1514#0" expanded="true" />
-                    <element signature="e#1513#1514#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/ConstantToVariable.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="720">
-                  <caret line="39" selection-start-line="39" selection-end-line="39" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/MutaGen.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/output/FileOutput.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="460">
-                  <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ClassnameReplacement.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="34" column="40" lean-forward="true" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/NodeMutant.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -165,234 +58,13 @@
     <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/MutaGen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/Mutation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/cli/OptionNotSetException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/cli/ErrorCodes.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/JavaFile.java" />
-        <option value="$PROJECT_DIR$/data/prototypeTest/model/Assignment1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/output/FileWriter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/strategy/UnbalancedBrackets.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/output/SummaryOutput.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/strategy/ConstantToVariable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/strategy/EqualityConfusion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/strategy/ShortCircuitConfusion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/strategy/MutationStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/strategy/ComparatorConfusion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/SimpleMutationStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/AdvancedParsingExpt.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ASTMutationStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ClassnameReplacementStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/output/Summary.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/SimpleMutant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ForSeparatorConfusion.java" />
-        <option value="$PROJECT_DIR$/data/customPrototype/model/AssessmentInterface.java" />
-        <option value="$PROJECT_DIR$/data/customPrototype/model/ExampleAssessment.java" />
-        <option value="$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield/customPrototype/model/AssessmentInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/cli/OptionNames.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/cli/CLIReader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/MutaGen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/major/MutantPatch.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/Mutant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/TargetSource.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/JavaSource.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/cli/Configuration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/conf/Configuration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/conf/Paths.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/major/MajorStrategy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/major/MajorMutant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/MutationStrategy.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/ConstantToVariable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/output/FileOutput.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/indentation/AdditionalIndentation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/indentation/RemovedIndentation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/poorindentation/RemovedIndentation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/identifiernaming/NameReformatter.java" />
-        <option value="$PROJECT_DIR$/src/test/mutagen/mutation/simple/identifiernaming/NameReformatterTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/VariableNameMisformatting.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ClassnameReplacement.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/MutationEngine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/NodeMutant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/VariableNameBadFormatting.java" />
-      </list>
-    </option>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
-    <option name="y" value="-28" />
-    <option name="width" value="3844" />
-    <option name="height" value="2161" />
-  </component>
+  <component name="ProjectId" id="1boDLa0fiUzVyDEZfvGp88yU89o" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="prototypeTest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="prototypeTest" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="mutation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="mutation" type="462c0819:PsiDirectoryNode" />
-              <item name="ast" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="mutation" type="462c0819:PsiDirectoryNode" />
-              <item name="ast" type="462c0819:PsiDirectoryNode" />
-              <item name="identifiernaming" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="mutation" type="462c0819:PsiDirectoryNode" />
-              <item name="simple" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="output" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="mutation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="mutation" type="462c0819:PsiDirectoryNode" />
-              <item name="identifiernaming" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mutagen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mutagen" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/bclegg/Documents/IdeaProjects/mutagen/src/main/java/mutagen/mutation/MutationStrategy.java" />
@@ -405,6 +77,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/target/classes" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="$USER_HOME$/.nvm/versions/node/v8.7.0/bin/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -428,19 +101,7 @@
       <recent name="$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.Generate - Assignment 1">
+  <component name="RunManager" selected="Application.Generate - FitnessQuestions">
     <configuration name="Generate - Assignment 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
       <module name="mutagen" />
@@ -453,6 +114,30 @@
       <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
       <module name="mutagen" />
       <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../autogradingTools/AutoGrader/data/customPrototype/model -f ExampleAssessment.java -o $PROJECT_DIR$/../../autogradingTools/AutoGrader/data/customPrototype/mutants" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Generate - DataLoader" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
+      <module name="mutagen" />
+      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-DataLoader-mutant/modelSolutions/model_a/ -o $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-DataLoader-mutant/studentSolutions/ -c $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-DataLoader-mutant/sourceDependencies/:$PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-DataLoader-mutant/modelSolutions/model_a/ -f assignment2020/dataloading/DataLoader.java -removeCompilabilityMutants -onlyFunctionalityMutants" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Generate - FitnessQuestions" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
+      <module name="mutagen" />
+      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-FQs-mutant/modelSolutions/model_a/ -o $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-FQs-mutant/studentSolutions/ -c $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-FQs-mutant/sourceDependencies/:$PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-FQs-mutant/modelSolutions/model_a/ -f assignment2020/handoutquestions/FitnessQuestions.java -removeCompilabilityMutants -onlyFunctionalityMutants" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Generate - Problem Sheet 2 - FitnessTrackerDistance" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
+      <module name="mutagen" />
+      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/runtime/mutation_ps2/model_a/ -o $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/runtime/mutation_ps2/generated/ -c $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/runtime/classpaths/ps2:$PROJECT_DIR$/../../Experiments/MutantStudentSolutions/runtime/mutation_ps2/model_a -f uk/ac/sheffield/com1003/problemsheet2/FitnessTrackerDistance.java -removeCompilabilityMutants" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -576,6 +261,9 @@
       <item itemvalue="Application.Run" />
       <item itemvalue="Application.Generate - Custom Prototype" />
       <item itemvalue="Application.Generate - Assignment 1" />
+      <item itemvalue="Application.Generate - Problem Sheet 2 - FitnessTrackerDistance" />
+      <item itemvalue="Application.Generate - FitnessQuestions" />
+      <item itemvalue="Application.Generate - DataLoader" />
       <item itemvalue="JUnit.NameReformatterTest" />
       <item itemvalue="JUnit.NameReformatterTest.testLowerCamelCaseToWords" />
       <item itemvalue="JUnit.NameReformatterTest.testBadConstantToWords" />
@@ -666,6 +354,19 @@
       <workItem from="1554892304626" duration="1176000" />
       <workItem from="1554893567899" duration="2227000" />
       <workItem from="1560239844939" duration="16101000" />
+      <workItem from="1589289499371" duration="422000" />
+      <workItem from="1589364071894" duration="5439000" />
+      <workItem from="1589472206820" duration="1459000" />
+      <workItem from="1589543884411" duration="4986000" />
+      <workItem from="1589816405055" duration="887000" />
+      <workItem from="1589980329845" duration="1821000" />
+      <workItem from="1590147725214" duration="5000" />
+      <workItem from="1592235392427" duration="363000" />
+      <workItem from="1592302957604" duration="22000" />
+      <workItem from="1592401375859" duration="2052000" />
+      <workItem from="1592469174352" duration="5879000" />
+      <workItem from="1593265240100" duration="8000" />
+      <workItem from="1595342904311" duration="2983000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -870,9 +571,6 @@
       <configuration name="NameReformatterTest" configurationId="JUnit" />
     </history-entry>
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245852000" />
-  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -882,46 +580,8 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-2" y="-28" width="3844" height="2161" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Designer" order="0" />
-      <window_info id="UI Designer" order="1" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info content_ui="combo" id="Project" order="4" visible="true" weight="0.07767246" />
-      <window_info id="Image Layers" order="5" />
-      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49947917" weight="0.32869378" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5005208" side_tool="true" weight="0.3299285" />
-      <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.3250988" />
-      <window_info anchor="bottom" id="Terminal" order="4" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.3299285" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.39938712" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="10" weight="0.32944915" />
-      <window_info active="true" anchor="bottom" id="Run" order="11" sideWeight="0.49947917" visible="true" weight="0.4125494" />
-      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info anchor="right" id="Palette" order="0" />
-      <window_info anchor="right" id="Palette&#9;" order="1" />
-      <window_info anchor="right" id="Capture Analysis" order="2" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="right" id="CDI" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" id="JSF" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Commander" order="8" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="9" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="10" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="11" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -953,323 +613,71 @@
     <MESSAGE value="added indentation operators" />
     <option name="LAST_COMMIT_MESSAGE" value="added indentation operators" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="1378" y="751" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595342946045">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state x="1378" y="751" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.3840.2135/3840.0.1920.1080@0.25.3840.2135" timestamp="1595342946045" />
+    <state x="1703" y="801" width="426" height="579" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1589980401852">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state x="1703" y="801" width="426" height="579" key="#com.intellij.ide.macro.MacrosDialog/0.25.3840.2135/3840.0.1920.1080@0.25.3840.2135" timestamp="1589980401852" />
+    <state width="3792" height="802" key="GridCell.Tab.0.bottom" timestamp="1592491707464">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state width="3792" height="802" key="GridCell.Tab.0.bottom/0.25.3840.2135/3840.0.1920.1080@0.25.3840.2135" timestamp="1592491707464" />
+    <state width="3792" height="802" key="GridCell.Tab.0.center" timestamp="1592491707464">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state width="3792" height="802" key="GridCell.Tab.0.center/0.25.3840.2135/3840.0.1920.1080@0.25.3840.2135" timestamp="1592491707464" />
+    <state width="3792" height="802" key="GridCell.Tab.0.left" timestamp="1592491707463">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state width="3792" height="802" key="GridCell.Tab.0.left/0.25.3840.2135/3840.0.1920.1080@0.25.3840.2135" timestamp="1592491707463" />
+    <state width="3792" height="802" key="GridCell.Tab.0.right" timestamp="1592491707464">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state width="3792" height="802" key="GridCell.Tab.0.right/0.25.3840.2135/3840.0.1920.1080@0.25.3840.2135" timestamp="1592491707464" />
+    <state width="3792" height="775" key="GridCell.Tab.1.bottom" timestamp="1592483933001">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state width="3792" height="775" key="GridCell.Tab.1.bottom/0.25.3840.2135/3840.0.1920.1080@0.25.3840.2135" timestamp="1592483933001" />
+    <state width="3792" height="775" key="GridCell.Tab.1.center" timestamp="1592483933001">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state width="3792" height="775" key="GridCell.Tab.1.center/0.25.3840.2135/3840.0.1920.1080@0.25.3840.2135" timestamp="1592483933001" />
+    <state width="3792" height="775" key="GridCell.Tab.1.left" timestamp="1592483933001">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state width="3792" height="775" key="GridCell.Tab.1.left/0.25.3840.2135/3840.0.1920.1080@0.25.3840.2135" timestamp="1592483933001" />
+    <state width="3792" height="775" key="GridCell.Tab.1.right" timestamp="1592483933001">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state width="3792" height="775" key="GridCell.Tab.1.right/0.25.3840.2135/3840.0.1920.1080@0.25.3840.2135" timestamp="1592483933001" />
+    <state x="1606" y="878" width="623" height="433" key="git4idea.merge.GitPullDialog" timestamp="1595342951407">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state x="1606" y="878" width="623" height="433" key="git4idea.merge.GitPullDialog/0.25.3840.2135/3840.0.1920.1080@0.25.3840.2135" timestamp="1595342951407" />
+    <state x="1581" y="523" key="run.anything.popup" timestamp="1595347735775">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state x="1581" y="523" key="run.anything.popup/0.25.3840.2135/3840.0.1920.1080@0.25.3840.2135" timestamp="1595347735775" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield/customPrototype/model/ExampleAssessment.java</url>
           <line>43</line>
-          <properties />
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/mutagen/mutation/major/MajorStrategy.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/Mutation.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/conf/OptionNotSetException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/UnbalancedBrackets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="57" column="22" lean-forward="true" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/prototypeTest/model/Assignment1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="11" selection-start-line="10" selection-start-column="24" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/ComparatorConfusion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/AdvancedParsingExpt.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/output/Summary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ForSeparatorConfusion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/conf/ErrorCodes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield/customPrototype/model/ExampleAssessment.java" />
-    <entry file="file://$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield/customPrototype/model/AssessmentInterface.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/conf/CLIReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/ShortCircuitConfusion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/EqualityConfusion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/major/MutantPatch.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/conf/OptionNames.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/TargetSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/JavaSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="24" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/major/MajorStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/major/MajorMutant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/SimpleMutant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="23" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/MutationStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="e#1152#1153#0" expanded="true" />
-            <element signature="e#1179#1180#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/conf/Paths.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/conf/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/Mutant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1060">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/artifacts/mutagen_jar.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/MutaGen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/output/FileOutput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/SimpleMutationStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/mutagen/mutation/ast/identifiernaming/NameReformatterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2000">
-          <caret line="100" column="9" lean-forward="true" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/ConstantToVariable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ASTVisitorMutationStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/VariableNameMisformatting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-          <folding>
-            <element signature="e#1455#1456#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/NameReformatter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/poorindentation/RemovedIndentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="44" column="1" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/poorindentation/AdditionalIndentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/MutationEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
-          <folding>
-            <element signature="e#2043#2044#0" expanded="true" />
-            <element signature="e#2073#2074#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ClassnameReplacement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="34" column="40" lean-forward="true" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/NodeMutant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/VariableNameBadFormatting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="36" column="67" selection-start-line="36" selection-start-column="67" selection-end-line="36" selection-end-column="67" />
-          <folding>
-            <element signature="e#695#1514#0" expanded="true" />
-            <element signature="e#1513#1514#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>

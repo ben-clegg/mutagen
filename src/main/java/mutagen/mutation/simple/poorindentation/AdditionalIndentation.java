@@ -20,6 +20,7 @@ public class AdditionalIndentation extends SimpleMutationStrategy
         addFlag(MutantFlag.STYLE);
         addFlag(MutantFlag.QUALITY);
         addFlag(MutantFlag.USES_STRING_MANIPULATION);
+        addFlag(MutantFlag.MUTAGEN_UNIQUE);
 
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < spacesInIndent; i++)
