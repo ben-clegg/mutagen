@@ -9,19 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Repaired packaging issue">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/MutaGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/MutaGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/CLIReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/CLIReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/ConfigFlag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/ConfigFlag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/OptionNames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/OptionNames.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/Mutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/Mutant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTMutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTMutant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
-    </list>
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented RemovePublicAccessModifier. Updated mutant diff system." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -387,7 +375,7 @@
       <workItem from="1626717474859" duration="2057000" />
       <workItem from="1626772776839" duration="764000" />
       <workItem from="1626773593195" duration="587000" />
-      <workItem from="1626774615010" duration="5149000" />
+      <workItem from="1626774615010" duration="5825000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -564,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626777943363</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Implemented RemovePublicAccessModifier. Updated mutant diff system.">
+      <created>1626783863901</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1626783863901</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -615,7 +610,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Initial commit" />
     <MESSAGE value="Implemented naive eqSyn mutant" />
     <MESSAGE value="Implemented naive unbalanced brackets strategy" />
     <MESSAGE value="Improved unbalanced brackets strategy" />
@@ -640,7 +634,8 @@
     <MESSAGE value="updated gitignore" />
     <MESSAGE value="added indentation operators" />
     <MESSAGE value="Repaired packaging issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Repaired packaging issue" />
+    <MESSAGE value="Implemented RemovePublicAccessModifier. Updated mutant diff system." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented RemovePublicAccessModifier. Updated mutant diff system." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
