@@ -1,9 +1,0 @@
-package mutagen.conf;
-
-public enum ConfigFlag
-{
-    REMOVE_COMPILABILITY_MUTANTS,
-    ONLY_FUNCTIONALITY_MUTANTS,
-    ONLY_MUTAGEN_MUTANTS,
-    ONLY_MAJOR_MUTANTS
-}
