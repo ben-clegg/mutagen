@@ -131,9 +131,18 @@ public class BranchExtraction extends ASTVisitorMutationStrategy
         }
         //BlockStmt b = new BlockStmt(parentContents);
 
-        addMutant(new ASTMutant(getOriginal().getCompilationUnit(),
-                originalIfStmt.getParentNode().get(),
-                block,
-                this.getType()));
+        try
+        {
+            addMutant(new ASTMutant(getOriginal().getCompilationUnit(),
+                    originalIfStmt.getParentNode().get(),
+                    block,
+                    this.getType()));
+        }
+        catch (ClassCastException classCastException)
+        {
+            System.err.println("Could not generate BranchExtraction mutant on if statement with condition: " +
+                    originalIfStmt.getCondition().toString());
+        }
+
     }
 }

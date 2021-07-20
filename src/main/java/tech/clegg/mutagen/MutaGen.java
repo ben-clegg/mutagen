@@ -26,6 +26,7 @@ public class MutaGen
         if(configuration.getConfigFlagValue(ConfigFlag.ONLY_MAJOR_MUTANTS))
             engine.applyFilterToStrategies(ms -> ms.getFlags().contains(MutantFlag.USES_MAJOR));
 
+        engine.printEnabledStrategies();
         engine.generateMutants();
         engine.printAllMutants();
 

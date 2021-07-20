@@ -9,8 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented StaticModifierIntroduction">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="BranchExtraction extended to include else case">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/MutaGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/MutaGen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/BranchExtraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/BranchExtraction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
     </list>
@@ -40,6 +42,14 @@
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1boDLa0fiUzVyDEZfvGp88yU89o" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -79,11 +89,11 @@
       <recent name="mutagen.mutation.simple.identifiernaming" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="tech.clegg.mutagen.mutation.ast.logicflow" />
       <recent name="tech.clegg.mutagen.mutation.ast" />
       <recent name="mutagen.mutation.ast.identifiernaming" />
       <recent name="mutagen.mutation.simple.indentation" />
       <recent name="mutagen.mutation.ast" />
-      <recent name="mutagen" />
     </key>
   </component>
   <component name="RunManager" selected="Application.New Func - Cellar">
@@ -147,19 +157,6 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -379,7 +376,8 @@
       <workItem from="1626717474859" duration="2057000" />
       <workItem from="1626772776839" duration="764000" />
       <workItem from="1626773593195" duration="587000" />
-      <workItem from="1626774615010" duration="9950000" />
+      <workItem from="1626774615010" duration="11328000" />
+      <workItem from="1626793569079" duration="1149000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -577,7 +575,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626787230823</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="BranchExtraction extended to include else case">
+      <created>1626791298302</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1626791298302</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -628,7 +633,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Improved unbalanced brackets strategy" />
     <MESSAGE value="Enhanced overall mutation access" />
     <MESSAGE value="Implemented mutation storage" />
     <MESSAGE value="Implemented &quot;final&quot; replacement mutant" />
@@ -653,7 +657,8 @@
     <MESSAGE value="Implemented RemovePublicAccessModifier. Updated mutant diff system." />
     <MESSAGE value="(RemovePublicAccessModifier was missing in last commit)" />
     <MESSAGE value="Implemented StaticModifierIntroduction" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented StaticModifierIntroduction" />
+    <MESSAGE value="BranchExtraction extended to include else case" />
+    <option name="LAST_COMMIT_MESSAGE" value="BranchExtraction extended to include else case" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -662,6 +667,16 @@
           <url>file://$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield/customPrototype/model/ExampleAssessment.java</url>
           <line>43</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/BreakContinueDeletion.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/BreakContinueDeletion.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

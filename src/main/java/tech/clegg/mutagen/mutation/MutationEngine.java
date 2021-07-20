@@ -5,6 +5,7 @@ import tech.clegg.mutagen.mutation.ast.*;
 import tech.clegg.mutagen.mutation.ast.identifiernaming.IncorrectIdentifierStyle;
 import tech.clegg.mutagen.mutation.ast.identifiernaming.PoorIdentifierNaming;
 import tech.clegg.mutagen.mutation.ast.logicflow.BranchExtraction;
+import tech.clegg.mutagen.mutation.ast.logicflow.BreakContinueDeletion;
 import tech.clegg.mutagen.mutation.major.MajorStrategy;
 import tech.clegg.mutagen.mutation.simple.*;
 import tech.clegg.mutagen.mutation.simple.poorindentation.AdditionalIndentation;
@@ -68,6 +69,16 @@ public class MutationEngine
             strategies.add(new EarlyExit(t));
             strategies.add(new RemovePublicAccessModifier(t));
             strategies.add(new StaticModifierIntroduction(t));
+            strategies.add(new BreakContinueDeletion(t));
+        }
+    }
+
+    public void printEnabledStrategies()
+    {
+        System.out.println("Enabled mutation strategies:");
+        for (MutationStrategy s : strategies)
+        {
+            System.out.println(s.getType().name());
         }
     }
 
