@@ -24,10 +24,11 @@ public class BranchExtraction extends ASTVisitorMutationStrategy
     public BranchExtraction(TargetSource target)
     {
         super(target);
-        setType(MutantType.LOGIC_FLOW_ERROR);
+        setType(MutantType.BRANCH_EXTRACTION);
         addFlag(MutantFlag.FUNCTIONALITY);
         addFlag(MutantFlag.USES_AST);
         addFlag(MutantFlag.MUTAGEN_UNIQUE);
+        addFlag(MutantFlag.MUTAGEN_UNIQUE_FUNCTIONALITY);
     }
 
     @Override
@@ -42,13 +43,13 @@ public class BranchExtraction extends ASTVisitorMutationStrategy
                 generateModifiedIfContentsMutant(n);
             }
         };
-        // TODO perform for else statement
     }
 
     private void generateModifiedIfContentsMutant(IfStmt ifStmt)
     {
         List<Node> ifStmtChildren = ifStmt.getChildNodes();
         // The contents of the BlockStmt are the lines to be extracted, minus any extra braces
+
 
         BlockStmt blockStmt = null;
         for (Node child : ifStmtChildren)
@@ -59,18 +60,29 @@ public class BranchExtraction extends ASTVisitorMutationStrategy
                 break;
             }
         }
+        generateMutantExtractBlockFromIfStmt(blockStmt, ifStmt);
 
-        if(blockStmt == null)
+        // Perform for else statement
+        if(ifStmt.hasElseBlock())
+        {
+            generateMutantExtractBlockFromIfStmt(ifStmt.getElseStmt().get().asBlockStmt(), ifStmt);
+        }
+
+    }
+
+    private void generateMutantExtractBlockFromIfStmt(BlockStmt toExtract, IfStmt originalIfStmt)
+    {
+        if(toExtract == null)
             return;
 
         // Children of BlockStmt are loaded
-        List<Node> blockStmtChildren = blockStmt.getChildNodes();
+        List<Node> blockStmtChildren = toExtract.getChildNodes();
 
         // Generate mutant
         CompilationUnit mutationCU = getOriginal().getCompilationUnit().clone();
-        IfStmt modifiedIfStmt = mutationCU.findAll(ifStmt.getClass())
+        IfStmt modifiedIfStmt = mutationCU.findAll(originalIfStmt.getClass())
                 .stream()
-                .filter(n -> n.equals(ifStmt)).findFirst().get();
+                .filter(n -> n.equals(originalIfStmt)).findFirst().get();
 
 
         // Remove children from BlockStmt in IfStmt
@@ -120,9 +132,8 @@ public class BranchExtraction extends ASTVisitorMutationStrategy
         //BlockStmt b = new BlockStmt(parentContents);
 
         addMutant(new ASTMutant(getOriginal().getCompilationUnit(),
-                                ifStmt.getParentNode().get(),
-                                block,
-                                this.getType()));
-
+                originalIfStmt.getParentNode().get(),
+                block,
+                this.getType()));
     }
 }
