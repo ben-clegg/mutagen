@@ -21,6 +21,8 @@ public class MutaGen
             engine.applyFilterToStrategies(ms -> ms.getFlags().contains(MutantFlag.FUNCTIONALITY));
         if(configuration.getConfigFlagValue(ConfigFlag.ONLY_MUTAGEN_MUTANTS))
             engine.applyFilterToStrategies(ms -> ms.getFlags().contains(MutantFlag.MUTAGEN_UNIQUE));
+        if(configuration.getConfigFlagValue(ConfigFlag.ONLY_MUTAGEN_MUTANTS_UPDATED))
+            engine.applyFilterToStrategies(ms -> ms.getFlags().contains(MutantFlag.MUTAGEN_UNIQUE_FUNCTIONALITY));
         if(configuration.getConfigFlagValue(ConfigFlag.ONLY_MAJOR_MUTANTS))
             engine.applyFilterToStrategies(ms -> ms.getFlags().contains(MutantFlag.USES_MAJOR));
 

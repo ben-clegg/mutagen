@@ -64,7 +64,9 @@ public class MutationEngine
             strategies.add(new LiteralValueRepetition(t));
             strategies.add(new StringMisspelling(t));
 
+            // Updated mutant set
             strategies.add(new EarlyExit(t));
+            strategies.add(new RemovePublicAccessModifier(t));
         }
     }
 

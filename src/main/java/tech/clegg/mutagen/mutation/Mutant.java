@@ -21,8 +21,8 @@ public abstract class Mutant
     protected JavaSource modified;
     //private String type;
 
-    protected String preMutation = null;
-    protected String postMutation = null;
+    protected String preMutation = "";
+    protected String postMutation = "";
 
     public Mutant(MutantType mutantType)
     {
@@ -66,7 +66,7 @@ public abstract class Mutant
             }
             else
             {
-                return preMutation + " -> " + postMutation;
+                return preMutation + "\n->" + postMutation;
             }
         }
     }

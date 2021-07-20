@@ -9,52 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Repaired packaging issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/JavaSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/JavaSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/MutaGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/MutaGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/TargetSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/TargetSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/conf/CLIReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/CLIReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/conf/ConfigFlag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/ConfigFlag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/conf/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/conf/ErrorCodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/ErrorCodes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/conf/OptionNames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/OptionNames.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/conf/OptionNotSetException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/OptionNotSetException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/conf/Paths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/Paths.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/Mutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/Mutant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/MutationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ASTMutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTMutant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ASTVisitorMutationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTVisitorMutationStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ClassnameReplacement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ClassnameReplacement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/EarlyExit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/EarlyExit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/ForSeparatorConfusion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ForSeparatorConfusion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/IncorrectInputValidationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/IncorrectInputValidationStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/LiteralValueRepetition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/LiteralValueRepetition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/NodePatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/NodePatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/StringMisspelling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/StringMisspelling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/IdentiferNamingMutationOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/identifiernaming/IdentiferNamingMutationOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/IncorrectIdentifierStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/identifiernaming/IncorrectIdentifierStyle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/NameReformatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/identifiernaming/NameReformatter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/identifiernaming/PoorIdentifierNaming.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/identifiernaming/PoorIdentifierNaming.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/ast/logicflow/ExtractedContentsIfStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/BranchExtraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/major/MajorMutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/major/MajorMutant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/major/MajorStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/major/MajorStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/ComparatorConfusion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/simple/ComparatorConfusion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/ConstantToVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/simple/ConstantToVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/EqualityConfusion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/simple/EqualityConfusion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/ShortCircuitConfusion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/simple/ShortCircuitConfusion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/SimpleMutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/simple/SimpleMutant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/SimpleMutationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/simple/SimpleMutationStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/UnbalancedBrackets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/simple/UnbalancedBrackets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/poorindentation/AdditionalIndentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/simple/poorindentation/AdditionalIndentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/mutation/simple/poorindentation/RemovedIndentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/simple/poorindentation/RemovedIndentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/output/FileOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/output/FileOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/output/Summary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/output/Summary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/properties/MutantFlag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantFlag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/mutagen/mutation/ast/identifiernaming/NameReformatterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/identifiernaming/NameReformatterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/MutaGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/MutaGen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/CLIReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/CLIReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/ConfigFlag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/ConfigFlag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/OptionNames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/conf/OptionNames.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/Mutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/Mutant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTMutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTMutant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Arquillian JUnit Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -92,6 +58,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/bclegg/Documents/IdeaProjects/mutagen/src/main/java/mutagen/mutation/MutationStrategy.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -127,7 +94,7 @@
       <recent name="mutagen.mutation.strategy" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Generate - FitnessQuestions">
+  <component name="RunManager" selected="Application.New Func - Cellar">
     <configuration name="Generate - Assignment 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
       <module name="mutagen" />
@@ -170,11 +137,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="New Func - Cellar" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.MutaGen" />
+      <module name="mutagen" />
+      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutagenTesting/Wine-Cellar/model -f assignment2019/WineSampleCellar.java -o $PROJECT_DIR$/../../Experiments/MutagenTesting/Wine-Cellar/_mutants -onlyNewMutaGenMutants" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
       <module name="mutagen" />
       <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/data/prototypeTest/model/Assignment1.java -o $PROJECT_DIR$/data/prototypeTest/mutants" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -299,6 +273,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.New Func - Cellar" />
       <item itemvalue="Application.Run" />
       <item itemvalue="Application.Generate - Custom Prototype" />
       <item itemvalue="Application.Generate - Assignment 1" />
@@ -412,7 +387,7 @@
       <workItem from="1626717474859" duration="2057000" />
       <workItem from="1626772776839" duration="764000" />
       <workItem from="1626773593195" duration="587000" />
-      <workItem from="1626774615010" duration="853000" />
+      <workItem from="1626774615010" duration="5149000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -582,7 +557,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560252264148</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Repaired packaging issue">
+      <created>1626777943363</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1626777943363</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -657,7 +639,8 @@
     <MESSAGE value="major mutation implemented" />
     <MESSAGE value="updated gitignore" />
     <MESSAGE value="added indentation operators" />
-    <option name="LAST_COMMIT_MESSAGE" value="added indentation operators" />
+    <MESSAGE value="Repaired packaging issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Repaired packaging issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

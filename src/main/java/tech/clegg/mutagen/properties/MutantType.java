@@ -29,7 +29,8 @@ public enum MutantType
     STRING_MISSPELLING(21),
     LOGIC_FLOW_ERROR(22),
     INCORRECT_INPUT_VALIDATION(23),
-    EARLY_EXIT(24)
+    EARLY_EXIT(24),
+    REMOVE_PUBLIC_ACCESS_MODIFIER(25)
     ;
 
     MutantType(int index) {

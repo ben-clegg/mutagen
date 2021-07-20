@@ -18,5 +18,6 @@ public class OptionNames
     public static final String GEN_ONLY_FUNCTIONALITY_MUTANTS = "onlyFunctionalityMutants";
 
     public static final String GEN_ONLY_MUTAGEN_MUTANTS = "onlyMutaGenMutants";
+    public static final String GEN_ONLY_MUTAGEN_UPDATED_MUTANTS = "onlyNewMutaGenMutants";
     public static final String GEN_ONLY_MAJOR_MUTANTS = "onlyMajorMutants";
 }
