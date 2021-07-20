@@ -3,6 +3,7 @@ package tech.clegg.mutagen.properties;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO likely a better means than enums, e.g. reflection
 public enum MutantType
 {
     NONE(0),
@@ -30,7 +31,8 @@ public enum MutantType
     LOGIC_FLOW_ERROR(22),
     INCORRECT_INPUT_VALIDATION(23),
     EARLY_EXIT(24),
-    REMOVE_PUBLIC_ACCESS_MODIFIER(25)
+    REMOVE_PUBLIC_ACCESS_MODIFIER(25),
+    STATIC_MODIFIER_INTRODUCTION(26)
     ;
 
     MutantType(int index) {

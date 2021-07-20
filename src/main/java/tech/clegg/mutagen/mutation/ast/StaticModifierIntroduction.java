@@ -2,6 +2,7 @@ package tech.clegg.mutagen.mutation.ast;
 
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.*;
+import com.github.javaparser.ast.nodeTypes.modifiers.NodeWithStaticModifier;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import tech.clegg.mutagen.TargetSource;
 import tech.clegg.mutagen.properties.MutantFlag;
@@ -9,12 +10,12 @@ import tech.clegg.mutagen.properties.MutantType;
 
 import java.util.EnumSet;
 
-public class RemovePublicAccessModifier extends ASTVisitorMutationStrategy
+public class StaticModifierIntroduction extends ASTVisitorMutationStrategy
 {
-    public RemovePublicAccessModifier(TargetSource target)
+    public StaticModifierIntroduction(TargetSource target)
     {
         super(target);
-        setType(MutantType.REMOVE_PUBLIC_ACCESS_MODIFIER);
+        setType(MutantType.STATIC_MODIFIER_INTRODUCTION);
         addFlag(MutantFlag.FUNCTIONALITY);
         addFlag(MutantFlag.USES_AST);
         addFlag(MutantFlag.MUTAGEN_UNIQUE);
@@ -34,7 +35,7 @@ public class RemovePublicAccessModifier extends ASTVisitorMutationStrategy
             }
 
             @Override
-            public void visit(ConstructorDeclaration n, Object arg)
+            public void visit(FieldDeclaration n, Object arg)
             {
                 super.visit(n, arg);
                 generatePublicModifierRemovalMutant(n);
@@ -42,12 +43,26 @@ public class RemovePublicAccessModifier extends ASTVisitorMutationStrategy
         };
     }
 
-    private void generatePublicModifierRemovalMutant(CallableDeclaration<?> declaration)
+    private void generatePublicModifierRemovalMutant(MethodDeclaration declaration)
     {
-        if(declaration.getModifiers().contains(Modifier.PUBLIC))
+        if(!declaration.getModifiers().contains(Modifier.STATIC))
         {
-            CallableDeclaration<?> modified = declaration.clone();
-            modified.removeModifier(Modifier.PUBLIC);
+            MethodDeclaration modified = declaration.clone();
+            modified.addModifier(Modifier.STATIC);
+
+            ASTMutant m = new ASTMutant(getOriginal().getCompilationUnit(), declaration, modified, getType());
+            addMutant(m);
+        }
+    }
+
+    // TODO Generify; though it's unclear how considering common type
+    //  is only BodyDeclaration with "NodeWithStaticModifier"
+    private void generatePublicModifierRemovalMutant(FieldDeclaration declaration)
+    {
+        if(!declaration.getModifiers().contains(Modifier.STATIC))
+        {
+            FieldDeclaration modified = declaration.clone();
+            modified.addModifier(Modifier.STATIC);
 
             ASTMutant m = new ASTMutant(getOriginal().getCompilationUnit(), declaration, modified, getType());
             addMutant(m);

@@ -9,7 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented RemovePublicAccessModifier. Updated mutant diff system." />
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="(RemovePublicAccessModifier was missing in last commit)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/RemovePublicAccessModifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/RemovePublicAccessModifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,11 +80,11 @@
       <recent name="mutagen.mutation.simple.identifiernaming" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="tech.clegg.mutagen.mutation.ast" />
       <recent name="mutagen.mutation.ast.identifiernaming" />
       <recent name="mutagen.mutation.simple.indentation" />
       <recent name="mutagen.mutation.ast" />
       <recent name="mutagen" />
-      <recent name="mutagen.mutation.strategy" />
     </key>
   </component>
   <component name="RunManager" selected="Application.New Func - Cellar">
@@ -375,7 +380,7 @@
       <workItem from="1626717474859" duration="2057000" />
       <workItem from="1626772776839" duration="764000" />
       <workItem from="1626773593195" duration="587000" />
-      <workItem from="1626774615010" duration="5825000" />
+      <workItem from="1626774615010" duration="7456000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -559,7 +564,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626783863901</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="(RemovePublicAccessModifier was missing in last commit)">
+      <created>1626785463064</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1626785463064</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -610,7 +622,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Implemented naive eqSyn mutant" />
     <MESSAGE value="Implemented naive unbalanced brackets strategy" />
     <MESSAGE value="Improved unbalanced brackets strategy" />
     <MESSAGE value="Enhanced overall mutation access" />
@@ -635,7 +646,8 @@
     <MESSAGE value="added indentation operators" />
     <MESSAGE value="Repaired packaging issue" />
     <MESSAGE value="Implemented RemovePublicAccessModifier. Updated mutant diff system." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented RemovePublicAccessModifier. Updated mutant diff system." />
+    <MESSAGE value="(RemovePublicAccessModifier was missing in last commit)" />
+    <option name="LAST_COMMIT_MESSAGE" value="(RemovePublicAccessModifier was missing in last commit)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

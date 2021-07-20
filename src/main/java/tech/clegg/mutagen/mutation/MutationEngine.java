@@ -67,6 +67,7 @@ public class MutationEngine
             // Updated mutant set
             strategies.add(new EarlyExit(t));
             strategies.add(new RemovePublicAccessModifier(t));
+            strategies.add(new StaticModifierIntroduction(t));
         }
     }
 
