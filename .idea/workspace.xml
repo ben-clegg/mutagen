@@ -9,8 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented TargetedStatementDeletionThrowStatements">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/exceptions/TargetedStatementDeletionThrowStatements.java" afterDir="false" />
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented TargetedStatementDeletionThrowStatement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
@@ -400,7 +399,7 @@
       <workItem from="1626793569079" duration="5505000" />
       <workItem from="1626868075932" duration="1169000" />
       <workItem from="1626870967938" duration="513000" />
-      <workItem from="1626871501569" duration="2331000" />
+      <workItem from="1626871501569" duration="6148000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -619,7 +618,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626872454005</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Implemented TargetedStatementDeletionThrowStatement">
+      <created>1626875460814</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1626875460814</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -670,7 +676,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Implemented &quot;final&quot; replacement mutant" />
     <MESSAGE value="Implemented comparator syntax error mutant" />
     <MESSAGE value="Implemented short circuit operator confusion error mutant" />
     <MESSAGE value="Partial simple implementation of the &quot;Incorrect Classname&quot; mutation strategy with JavaParser" />
@@ -695,7 +700,8 @@
     <MESSAGE value="BranchExtraction extended to include else case" />
     <MESSAGE value="Added BreakContinueDeletion; added exception handling to BranchExtraction" />
     <MESSAGE value="Implemented NewParameterCreation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented NewParameterCreation" />
+    <MESSAGE value="Implemented TargetedStatementDeletionThrowStatement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented TargetedStatementDeletionThrowStatement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -704,6 +710,11 @@
           <url>file://$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield/customPrototype/model/ExampleAssessment.java</url>
           <line>43</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/exceptions/TryStatementExtraction.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
