@@ -74,6 +74,7 @@ public class MutationEngine
             strategies.add(new NewParameterCreation(t));
             strategies.add(new TargetedStatementDeletionThrowStatement(t));
             strategies.add(new TryStatementExtraction(t));
+            strategies.add(new RemoveVariableInitialValue(t));
         }
     }
 

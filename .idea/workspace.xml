@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented TargetedStatementDeletionThrowStatement">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented TryStatementExtraction">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
@@ -88,14 +88,14 @@
       <recent name="mutagen.mutation.simple.identifiernaming" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="tech.clegg.mutagen.mutation.ast.exceptions" />
       <recent name="tech.clegg.mutagen.mutation.ast" />
+      <recent name="tech.clegg.mutagen.mutation.ast.exceptions" />
       <recent name="tech.clegg.mutagen.mutation.ast.logicflow" />
       <recent name="mutagen.mutation.ast.identifiernaming" />
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.New Func - DataLoader">
+  <component name="RunManager" selected="Application.New Func - Cellar">
     <configuration name="Generate - Assignment 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
       <module name="mutagen" />
@@ -399,7 +399,7 @@
       <workItem from="1626793569079" duration="5505000" />
       <workItem from="1626868075932" duration="1169000" />
       <workItem from="1626870967938" duration="513000" />
-      <workItem from="1626871501569" duration="6148000" />
+      <workItem from="1626871501569" duration="7747000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -625,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626875460814</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Implemented TryStatementExtraction">
+      <created>1626880738073</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1626880738073</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -676,7 +683,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Implemented comparator syntax error mutant" />
     <MESSAGE value="Implemented short circuit operator confusion error mutant" />
     <MESSAGE value="Partial simple implementation of the &quot;Incorrect Classname&quot; mutation strategy with JavaParser" />
     <MESSAGE value="Fully implemented first AST mutant&#10;Disabled summary file to allow this" />
@@ -701,7 +707,8 @@
     <MESSAGE value="Added BreakContinueDeletion; added exception handling to BranchExtraction" />
     <MESSAGE value="Implemented NewParameterCreation" />
     <MESSAGE value="Implemented TargetedStatementDeletionThrowStatement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented TargetedStatementDeletionThrowStatement" />
+    <MESSAGE value="Implemented TryStatementExtraction" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented TryStatementExtraction" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -712,12 +719,15 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/exceptions/TryStatementExtraction.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="20" />
+          <url>file://$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/RemoveVariableInitialValue.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/mutagen$New_Func___DataLoader.ic" NAME="New Func - DataLoader Coverage Results" MODIFIED="1626882873733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="masterDetails">
     <states>
