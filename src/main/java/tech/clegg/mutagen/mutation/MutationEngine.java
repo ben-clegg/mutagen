@@ -2,6 +2,7 @@ package tech.clegg.mutagen.mutation;
 
 import tech.clegg.mutagen.TargetSource;
 import tech.clegg.mutagen.mutation.ast.*;
+import tech.clegg.mutagen.mutation.ast.exceptions.TargetedStatementDeletionThrowStatement;
 import tech.clegg.mutagen.mutation.ast.identifiernaming.IncorrectIdentifierStyle;
 import tech.clegg.mutagen.mutation.ast.identifiernaming.PoorIdentifierNaming;
 import tech.clegg.mutagen.mutation.ast.logicflow.BranchExtraction;
@@ -11,7 +12,6 @@ import tech.clegg.mutagen.mutation.simple.*;
 import tech.clegg.mutagen.mutation.simple.poorindentation.AdditionalIndentation;
 import tech.clegg.mutagen.mutation.simple.poorindentation.RemovedIndentation;
 import tech.clegg.mutagen.properties.MutantType;
-import tech.clegg.mutagen.mutation.major.MajorStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +71,7 @@ public class MutationEngine
             strategies.add(new StaticModifierIntroduction(t));
             strategies.add(new BreakContinueDeletion(t));
             strategies.add(new NewParameterCreation(t));
+            strategies.add(new TargetedStatementDeletionThrowStatement(t));
         }
     }
 
