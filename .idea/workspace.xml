@@ -9,9 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented TryStatementExtraction">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented RemoveVariableInitialValue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/TargetSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/TargetSource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTMutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTMutant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,6 +86,9 @@
       <recent name="$PROJECT_DIR$/src/test/java" />
       <recent name="$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="tech.clegg.mutagen.mutation.ast" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="mutagen.mutation.simple.identifiernaming" />
     </key>
@@ -95,7 +100,7 @@
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.New Func - Cellar">
+  <component name="RunManager" selected="JUnit.RemoveCastsTest">
     <configuration name="Generate - Assignment 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
       <module name="mutagen" />
@@ -212,23 +217,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NameReformatterTest.testLowerCamelCaseToWords" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mutagen" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tech.clegg.identifiernaming.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="mutagen.mutation.ast.identifiernaming" />
-      <option name="MAIN_CLASS_NAME" value="tech.clegg.identifiernaming.NameReformatterTest" />
-      <option name="METHOD_NAME" value="testLowerCamelCaseToWords" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NameReformatterTest.testWordsToConstant" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mutagen" />
       <extension name="coverage">
@@ -263,6 +251,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RemoveCastsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mutagen" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tech.clegg.mutagen.mutation.ast" />
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.RemoveCastsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -289,18 +293,18 @@
       <item itemvalue="Application.Generate - FitnessQuestions" />
       <item itemvalue="Application.Generate - DataLoader" />
       <item itemvalue="JUnit.NameReformatterTest" />
-      <item itemvalue="JUnit.NameReformatterTest.testLowerCamelCaseToWords" />
       <item itemvalue="JUnit.NameReformatterTest.testBadConstantToWords" />
       <item itemvalue="JUnit.NameReformatterTest.testWordsToUpperCamelCase" />
       <item itemvalue="JUnit.NameReformatterTest.testWordsToConstant" />
+      <item itemvalue="JUnit.RemoveCastsTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RemoveCastsTest" />
         <item itemvalue="JUnit.NameReformatterTest" />
         <item itemvalue="JUnit.NameReformatterTest.testWordsToConstant" />
         <item itemvalue="JUnit.NameReformatterTest.testWordsToUpperCamelCase" />
         <item itemvalue="JUnit.NameReformatterTest.testBadConstantToWords" />
-        <item itemvalue="JUnit.NameReformatterTest.testLowerCamelCaseToWords" />
       </list>
     </recent_temporary>
   </component>
@@ -399,7 +403,7 @@
       <workItem from="1626793569079" duration="5505000" />
       <workItem from="1626868075932" duration="1169000" />
       <workItem from="1626870967938" duration="513000" />
-      <workItem from="1626871501569" duration="7747000" />
+      <workItem from="1626871501569" duration="10542000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -632,7 +636,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626880738073</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Implemented RemoveVariableInitialValue">
+      <created>1626882986793</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1626882986793</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -683,7 +694,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Implemented short circuit operator confusion error mutant" />
     <MESSAGE value="Partial simple implementation of the &quot;Incorrect Classname&quot; mutation strategy with JavaParser" />
     <MESSAGE value="Fully implemented first AST mutant&#10;Disabled summary file to allow this" />
     <MESSAGE value="Reimplemented summary file" />
@@ -708,7 +718,8 @@
     <MESSAGE value="Implemented NewParameterCreation" />
     <MESSAGE value="Implemented TargetedStatementDeletionThrowStatement" />
     <MESSAGE value="Implemented TryStatementExtraction" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented TryStatementExtraction" />
+    <MESSAGE value="Implemented RemoveVariableInitialValue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented RemoveVariableInitialValue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -719,9 +730,9 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/RemoveVariableInitialValue.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="21" />
+          <url>file://$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/RemoveCasts.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

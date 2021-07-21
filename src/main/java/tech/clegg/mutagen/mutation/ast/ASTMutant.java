@@ -96,4 +96,8 @@ public class ASTMutant extends Mutant
                 getChange();
     }
 
+    public List<NodePatch> getNodePatches()
+    {
+        return nodePatches;
+    }
 }

@@ -43,6 +43,12 @@ public class TargetSource
         loadContents();
     }
 
+    public TargetSource(String simpleCode)
+    {
+        this.lines = new JavaSource(simpleCode);
+        this.compilationUnit = JavaParser.parse(simpleCode);
+    }
+
     public JavaSource getLines()
     {
         return lines;
