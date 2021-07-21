@@ -70,6 +70,7 @@ public class MutationEngine
             strategies.add(new RemovePublicAccessModifier(t));
             strategies.add(new StaticModifierIntroduction(t));
             strategies.add(new BreakContinueDeletion(t));
+            strategies.add(new NewParameterCreation(t));
         }
     }
 
