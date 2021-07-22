@@ -2,3 +2,6 @@ out/
 data/
 target/
 .idea/workspace.xml
+/.idea/sonarlint/
+/.idea/rGraphicsSettings.xml
+/.idea/rSettings.xml
