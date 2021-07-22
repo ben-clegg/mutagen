@@ -7,7 +7,7 @@ import static org.junit.Assert.assertNotEquals;
 
 public class ASTStrategyTest
 {
-    public void assertNodePatchesAllModified(ASTVisitorMutationStrategy astVisitorMutationStrategy)
+    protected void assertNodePatchesAllModified(ASTVisitorMutationStrategy astVisitorMutationStrategy)
     {
         for (Mutant m : astVisitorMutationStrategy.getMutants())
         {
@@ -16,5 +16,16 @@ public class ASTStrategyTest
                 assertNotEquals(n.getOriginal(), n.getMutated());
         }
     }
+
+    protected void assertSameNumberLines(ASTVisitorMutationStrategy astVisitorMutationStrategy)
+    {
+        int originalCount = astVisitorMutationStrategy.getOriginalLines().size();
+
+        for (Mutant m : astVisitorMutationStrategy.getMutants())
+        {
+            Assert.assertEquals(originalCount, m.getModifiedLines().size());
+        }
+    }
+
 
 }

@@ -79,6 +79,7 @@ public class MutationEngine
             strategies.add(new TargetedExtractionBreakContinue(t));
             strategies.add(new StatementTranspose(t));
             strategies.add(new ElseRelocation(t));
+            strategies.add(new BranchNesting(t));
         }
     }
 
