@@ -9,10 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented StatementCreationIteratorNext, with test">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented TargetedExtractionBreakContinue, with test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/RemoveCastsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/RemoveCastsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/StatementCreationIteratorNextTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/StatementCreationIteratorNextTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinueTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +99,7 @@
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TargetedExtractionBreakContinueTest">
+  <component name="RunManager" selected="JUnit.All in mutagen">
     <configuration name="Generate - Assignment 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
       <module name="mutagen" />
@@ -184,17 +185,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NameReformatterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in mutagen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mutagen" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tech.clegg.identifiernaming.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="mutagen.mutation.ast.identifiernaming" />
-      <option name="MAIN_CLASS_NAME" value="tech.clegg.identifiernaming.NameReformatterTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -290,19 +284,19 @@
       <item itemvalue="Application.Generate - Problem Sheet 2 - FitnessTrackerDistance" />
       <item itemvalue="Application.Generate - FitnessQuestions" />
       <item itemvalue="Application.Generate - DataLoader" />
-      <item itemvalue="JUnit.NameReformatterTest" />
       <item itemvalue="JUnit.RemoveCastsTest" />
       <item itemvalue="JUnit.StatementCreationIteratorNextTest" />
       <item itemvalue="JUnit.StatementCreationIteratorNextTest.testIteratorAssignmentCase" />
       <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
+      <item itemvalue="JUnit.All in mutagen" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in mutagen" />
         <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
         <item itemvalue="JUnit.StatementCreationIteratorNextTest" />
         <item itemvalue="JUnit.StatementCreationIteratorNextTest.testIteratorAssignmentCase" />
         <item itemvalue="JUnit.RemoveCastsTest" />
-        <item itemvalue="JUnit.NameReformatterTest" />
       </list>
     </recent_temporary>
   </component>
@@ -402,7 +396,7 @@
       <workItem from="1626868075932" duration="1169000" />
       <workItem from="1626870967938" duration="513000" />
       <workItem from="1626871501569" duration="10820000" />
-      <workItem from="1626951254574" duration="12282000" />
+      <workItem from="1626951254574" duration="12609000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -656,7 +650,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626960980634</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Implemented TargetedExtractionBreakContinue, with test">
+      <created>1626967913669</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1626967913670</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -707,7 +708,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Reimplemented summary file" />
     <MESSAGE value="Improved change reporting" />
     <MESSAGE value="Added standard for separator confusion mutation strategy" />
     <MESSAGE value="Partially completed custom prototype for preliminary experiments" />
@@ -732,7 +732,8 @@
     <MESSAGE value="Implemented RemoveVariableInitialValue" />
     <MESSAGE value="Implemented RemoveCasts, with test" />
     <MESSAGE value="Implemented StatementCreationIteratorNext, with test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented StatementCreationIteratorNext, with test" />
+    <MESSAGE value="Implemented TargetedExtractionBreakContinue, with test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented TargetedExtractionBreakContinue, with test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

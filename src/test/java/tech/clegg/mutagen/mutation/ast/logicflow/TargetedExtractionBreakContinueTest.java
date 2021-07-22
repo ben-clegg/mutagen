@@ -5,12 +5,13 @@ import org.junit.Test;
 import tech.clegg.mutagen.TargetSource;
 import tech.clegg.mutagen.mutation.Mutant;
 import tech.clegg.mutagen.mutation.ast.ASTMutant;
+import tech.clegg.mutagen.mutation.ast.ASTStrategyTest;
 import tech.clegg.mutagen.mutation.ast.NodePatch;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-public class TargetedExtractionBreakContinueTest
+public class TargetedExtractionBreakContinueTest extends ASTStrategyTest
 {
     @Test
     public void testSimpleCase()
@@ -35,11 +36,6 @@ public class TargetedExtractionBreakContinueTest
         targetedExtractionBreakContinue.createAllMutants();
         Assert.assertEquals(2, targetedExtractionBreakContinue.getMutants().size());
 
-        for (Mutant m : targetedExtractionBreakContinue.getMutants())
-        {
-            ASTMutant astMutant = (ASTMutant) m;
-            for (NodePatch n : astMutant.getNodePatches())
-                assertNotEquals(n.getOriginal(), n.getMutated());
-        }
+        assertNodePatchesAllModified(targetedExtractionBreakContinue);
     }
 }

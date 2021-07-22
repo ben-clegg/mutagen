@@ -11,7 +11,7 @@ import java.util.Iterator;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-public class StatementCreationIteratorNextTest
+public class StatementCreationIteratorNextTest extends ASTStrategyTest
 {
     @Test
     public void testIteratorSimpleCallCase()
@@ -30,14 +30,7 @@ public class StatementCreationIteratorNextTest
         statementCreationIteratorNext.createAllMutants();
         assertEquals(1, statementCreationIteratorNext.getMutants().size());
 
-        for (Mutant m : statementCreationIteratorNext.getMutants())
-        {
-            ASTMutant astMutant = (ASTMutant) m;
-            assertNotEquals(
-                    astMutant.getNodePatches().get(0).getOriginal(),
-                    astMutant.getNodePatches().get(0).getMutated()
-            );
-        }
+        assertNodePatchesAllModified(statementCreationIteratorNext);
     }
 
     @Test
@@ -60,14 +53,7 @@ public class StatementCreationIteratorNextTest
         statementCreationIteratorNext.createAllMutants();
         assertEquals(1, statementCreationIteratorNext.getMutants().size());
 
-        for (Mutant m : statementCreationIteratorNext.getMutants())
-        {
-            ASTMutant astMutant = (ASTMutant) m;
-            assertNotEquals(
-                    astMutant.getNodePatches().get(0).getOriginal(),
-                    astMutant.getNodePatches().get(0).getMutated()
-            );
-        }
+        assertNodePatchesAllModified(statementCreationIteratorNext);
     }
     @Test
     public void testIteratorBothCases()
@@ -90,13 +76,6 @@ public class StatementCreationIteratorNextTest
         statementCreationIteratorNext.createAllMutants();
         assertEquals(2, statementCreationIteratorNext.getMutants().size());
 
-        for (Mutant m : statementCreationIteratorNext.getMutants())
-        {
-            ASTMutant astMutant = (ASTMutant) m;
-            assertNotEquals(
-                    astMutant.getNodePatches().get(0).getOriginal(),
-                    astMutant.getNodePatches().get(0).getMutated()
-            );
-        }
+        assertNodePatchesAllModified(statementCreationIteratorNext);
     }
 }

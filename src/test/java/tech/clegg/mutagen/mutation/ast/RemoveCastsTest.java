@@ -7,7 +7,7 @@ import tech.clegg.mutagen.TargetSource;
 
 import static org.junit.Assert.*;
 
-public class RemoveCastsTest
+public class RemoveCastsTest extends ASTStrategyTest
 {
     @Test
     public void testMultipleCasts()
@@ -25,7 +25,7 @@ public class RemoveCastsTest
         RemoveCasts removeCasts = new RemoveCasts(targetSource);
         removeCasts.createAllMutants();
         assertEquals(1, removeCasts.getMutants().size());
-        ASTMutant m = (ASTMutant) removeCasts.getMutants().get(0);
-        assertNotEquals(m.getNodePatches().get(0).getOriginal(), m.getNodePatches().get(0).getMutated());
+
+        assertNodePatchesAllModified(removeCasts);
     }
 }
