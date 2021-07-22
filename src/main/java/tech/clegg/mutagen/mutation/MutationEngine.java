@@ -6,10 +6,7 @@ import tech.clegg.mutagen.mutation.ast.exceptions.TargetedStatementDeletionThrow
 import tech.clegg.mutagen.mutation.ast.exceptions.TryStatementExtraction;
 import tech.clegg.mutagen.mutation.ast.identifiernaming.IncorrectIdentifierStyle;
 import tech.clegg.mutagen.mutation.ast.identifiernaming.PoorIdentifierNaming;
-import tech.clegg.mutagen.mutation.ast.logicflow.BranchExtraction;
-import tech.clegg.mutagen.mutation.ast.logicflow.BreakContinueDeletion;
-import tech.clegg.mutagen.mutation.ast.logicflow.StatementTranspose;
-import tech.clegg.mutagen.mutation.ast.logicflow.TargetedExtractionBreakContinue;
+import tech.clegg.mutagen.mutation.ast.logicflow.*;
 import tech.clegg.mutagen.mutation.major.MajorStrategy;
 import tech.clegg.mutagen.mutation.simple.*;
 import tech.clegg.mutagen.mutation.simple.poorindentation.AdditionalIndentation;
@@ -81,6 +78,7 @@ public class MutationEngine
             strategies.add(new StatementCreationIteratorNext(t));
             strategies.add(new TargetedExtractionBreakContinue(t));
             strategies.add(new StatementTranspose(t));
+            strategies.add(new ElseRelocation(t));
         }
     }
 

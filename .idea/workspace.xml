@@ -9,9 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Improved testing of AST mutation strategies">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Generified">
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/ElseRelocation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTVisitorMutationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTVisitorMutationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +101,7 @@
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StatementTransposeTest">
+  <component name="RunManager" selected="JUnit.ElseRelocationTest">
     <configuration name="Generate - Assignment 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
       <module name="mutagen" />
@@ -193,6 +196,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ElseRelocationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mutagen" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.logicflow.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow" />
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow.ElseRelocationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StatementCreationIteratorNextTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mutagen" />
       <extension name="coverage">
@@ -204,23 +223,6 @@
       <option name="PACKAGE_NAME" value="tech.clegg.mutagen.mutation.ast" />
       <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.StatementCreationIteratorNextTest" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StatementCreationIteratorNextTest.testIteratorAssignmentCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mutagen" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tech.clegg.mutagen.mutation.ast" />
-      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.StatementCreationIteratorNextTest" />
-      <option name="METHOD_NAME" value="testIteratorAssignmentCase" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -284,18 +286,18 @@
       <item itemvalue="Application.Generate - FitnessQuestions" />
       <item itemvalue="Application.Generate - DataLoader" />
       <item itemvalue="JUnit.StatementCreationIteratorNextTest" />
-      <item itemvalue="JUnit.StatementCreationIteratorNextTest.testIteratorAssignmentCase" />
       <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
       <item itemvalue="JUnit.All in mutagen" />
       <item itemvalue="JUnit.StatementTransposeTest" />
+      <item itemvalue="JUnit.ElseRelocationTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StatementTransposeTest" />
+        <item itemvalue="JUnit.ElseRelocationTest" />
         <item itemvalue="JUnit.All in mutagen" />
+        <item itemvalue="JUnit.StatementTransposeTest" />
         <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
         <item itemvalue="JUnit.StatementCreationIteratorNextTest" />
-        <item itemvalue="JUnit.StatementCreationIteratorNextTest.testIteratorAssignmentCase" />
       </list>
     </recent_temporary>
   </component>
@@ -395,7 +397,7 @@
       <workItem from="1626868075932" duration="1169000" />
       <workItem from="1626870967938" duration="513000" />
       <workItem from="1626871501569" duration="10820000" />
-      <workItem from="1626951254574" duration="13924000" />
+      <workItem from="1626951254574" duration="16316000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -663,7 +665,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626968238091</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Implemented StatementTranspose, with test">
+      <created>1626970298537</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1626970298537</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -714,7 +723,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Added standard for separator confusion mutation strategy" />
     <MESSAGE value="Partially completed custom prototype for preliminary experiments" />
     <MESSAGE value="Added more features to custom prototype" />
     <MESSAGE value="finished simple custom prototype" />
@@ -739,7 +747,8 @@
     <MESSAGE value="Implemented StatementCreationIteratorNext, with test" />
     <MESSAGE value="Implemented TargetedExtractionBreakContinue, with test" />
     <MESSAGE value="Improved testing of AST mutation strategies" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved testing of AST mutation strategies" />
+    <MESSAGE value="Implemented StatementTranspose, with test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented StatementTranspose, with test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -748,11 +757,6 @@
           <url>file://$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield/customPrototype/model/ExampleAssessment.java</url>
           <line>43</line>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/StatementTransposeTest.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

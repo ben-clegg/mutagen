@@ -6,12 +6,9 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import tech.clegg.mutagen.TargetSource;
 import tech.clegg.mutagen.mutation.ast.ASTMutant;
 import tech.clegg.mutagen.mutation.ast.ASTVisitorMutationStrategy;
-import tech.clegg.mutagen.mutation.ast.NodePatch;
 import tech.clegg.mutagen.properties.MutantFlag;
 import tech.clegg.mutagen.properties.MutantType;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -52,23 +49,23 @@ public class TargetedExtractionBreakContinue extends ASTVisitorMutationStrategy
     {
 
         // Find closest block statement (i.e. block statement to remove from)
-        AtomicReference<BlockStmt> firstBlockStmt = new AtomicReference<>();
-        statement.walk(Node.TreeTraversal.PARENTS, n -> blockStatementChecker(n, firstBlockStmt));
+        AtomicReference<Node> firstBlockStmt = new AtomicReference<>();
+        statement.walk(Node.TreeTraversal.PARENTS, n -> matchesType(n, firstBlockStmt, BlockStmt.class));
 
         if (firstBlockStmt.get() == null)
             return; // Invalid
 
         // Find next closest block statement (i.e. block statement to move to)
-        AtomicReference<BlockStmt> ancestorBlockStmt = new AtomicReference<>();
-        firstBlockStmt.get().walk(Node.TreeTraversal.PARENTS, n -> blockStatementChecker(n, ancestorBlockStmt));
+        AtomicReference<Node> ancestorBlockStmt = new AtomicReference<>();
+        firstBlockStmt.get().walk(Node.TreeTraversal.PARENTS, n -> matchesType(n, ancestorBlockStmt, BlockStmt.class));
 
         if (ancestorBlockStmt.get() == null)
             return; // Invalid
 
         // Generate mutant - before variant
-        generateMutantForAncestor(ancestorBlockStmt.get(), statement, 0);
+        generateMutantForAncestor((BlockStmt) ancestorBlockStmt.get(), statement, 0);
         // Generate mutant - after variant
-        generateMutantForAncestor(ancestorBlockStmt.get(), statement, 1);
+        generateMutantForAncestor((BlockStmt) ancestorBlockStmt.get(), statement, 1);
 
     }
 
@@ -96,32 +93,6 @@ public class TargetedExtractionBreakContinue extends ASTVisitorMutationStrategy
                 this.getType()
         ));
 
-    }
-
-    /**
-     * Check if node is block statement
-     * @param node the node to check
-     * @param referenceToSet set the AtomicReference to the node if it is a BlockStmt
-     */
-    private void blockStatementChecker(Node node, AtomicReference<BlockStmt> referenceToSet)
-    {
-        // Skip if already set
-        if (referenceToSet.get() != null)
-            return;
-
-        // Set if BlockStmt
-        if (node instanceof BlockStmt)
-        {
-            referenceToSet.set((BlockStmt) node);
-        }
-    }
-
-    private boolean leadsToSearched(Node node, Node searched)
-    {
-        if (node.stream(Node.TreeTraversal.BREADTHFIRST).anyMatch(n -> n.equals(searched)))
-            return true;
-
-        return false;
     }
 
 }

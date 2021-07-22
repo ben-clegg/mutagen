@@ -14,6 +14,7 @@ import tech.clegg.mutagen.mutation.MutationStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class ASTVisitorMutationStrategy extends MutationStrategy
 {
@@ -73,4 +74,37 @@ public class ASTVisitorMutationStrategy extends MutationStrategy
     }
 
     protected void visitorSetup(){}
+
+    /**
+     * Check if node matches correct Node type.
+     * @param node the node to check.
+     * @param referenceToSet set the AtomicReference to the node if it matches the type.
+     * @param typeToMatch the Node type to match.
+     */
+    protected void matchesType(Node node, AtomicReference<Node> referenceToSet, Class<? extends Node> typeToMatch)
+    {
+        // Skip if already set
+        if (referenceToSet.get() != null)
+            return;
+
+        // Set if class is typeToMatch
+        if (node.getClass().equals(typeToMatch))
+        {
+            referenceToSet.set(node);
+        }
+    }
+
+    /**
+     * Check if a Node resides in another Node's subtree.
+     * @param subtreeRoot the Node to start searching from.
+     * @param toFind the Node to check exists within the subtree.
+     * @return true if toFind is in subtree; false otherwise.
+     */
+    protected boolean leadsToSearched(Node subtreeRoot, Node toFind)
+    {
+        if (subtreeRoot.stream(Node.TreeTraversal.BREADTHFIRST).anyMatch(n -> n.equals(toFind)))
+            return true;
+
+        return false;
+    }
 }
