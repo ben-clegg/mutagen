@@ -31,5 +31,7 @@ public class ElseRelocationTest extends ASTStrategyTest
         Assert.assertEquals(1, elseRelocation.getMutants().size());
 
         assertNodePatchesAllModified(elseRelocation);
+
+        // TODO Test for precise mutant behaviour
     }
 }

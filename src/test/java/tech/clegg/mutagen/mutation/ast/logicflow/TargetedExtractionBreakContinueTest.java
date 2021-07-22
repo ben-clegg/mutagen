@@ -37,5 +37,7 @@ public class TargetedExtractionBreakContinueTest extends ASTStrategyTest
         Assert.assertEquals(2, targetedExtractionBreakContinue.getMutants().size());
 
         assertNodePatchesAllModified(targetedExtractionBreakContinue);
+
+        // TODO Test for precise mutant behaviour
     }
 }

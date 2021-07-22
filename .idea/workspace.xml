@@ -9,13 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Generified">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/ElseRelocation.java" afterDir="false" />
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented ElseRelocation with test. Generified approach to search for matching ancestors.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTVisitorMutationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTVisitorMutationStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/TargetSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/TargetSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/RemoveCastsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/RemoveCastsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/StatementCreationIteratorNextTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/StatementCreationIteratorNextTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/ElseRelocationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/ElseRelocationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/StatementTransposeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/StatementTransposeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinueTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +102,7 @@
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ElseRelocationTest">
+  <component name="RunManager" selected="JUnit.All in mutagen">
     <configuration name="Generate - Assignment 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
       <module name="mutagen" />
@@ -293,8 +294,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ElseRelocationTest" />
         <item itemvalue="JUnit.All in mutagen" />
+        <item itemvalue="JUnit.ElseRelocationTest" />
         <item itemvalue="JUnit.StatementTransposeTest" />
         <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
         <item itemvalue="JUnit.StatementCreationIteratorNextTest" />
@@ -397,7 +398,7 @@
       <workItem from="1626868075932" duration="1169000" />
       <workItem from="1626870967938" duration="513000" />
       <workItem from="1626871501569" duration="10820000" />
-      <workItem from="1626951254574" duration="16316000" />
+      <workItem from="1626951254574" duration="16874000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -672,7 +673,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626970298537</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Implemented ElseRelocation with test. Generified approach to search for matching ancestors.">
+      <created>1626972845843</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1626972845843</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -723,7 +731,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Partially completed custom prototype for preliminary experiments" />
     <MESSAGE value="Added more features to custom prototype" />
     <MESSAGE value="finished simple custom prototype" />
     <MESSAGE value="changed to allow multiple mutation sources" />
@@ -748,7 +755,8 @@
     <MESSAGE value="Implemented TargetedExtractionBreakContinue, with test" />
     <MESSAGE value="Improved testing of AST mutation strategies" />
     <MESSAGE value="Implemented StatementTranspose, with test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented StatementTranspose, with test" />
+    <MESSAGE value="Implemented ElseRelocation with test. Generified approach to search for matching ancestors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented ElseRelocation with test. Generified approach to search for matching ancestors." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

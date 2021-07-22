@@ -26,5 +26,7 @@ public class StatementTransposeTest extends ASTStrategyTest
         Assert.assertEquals(3, statementTranspose.getMutants().size());
 
         assertNodePatchesAllModified(statementTranspose);
+
+        // TODO Test for precise mutant behaviour
     }
 }

@@ -49,6 +49,12 @@ public class TargetSource
         this.compilationUnit = JavaParser.parse(simpleCode);
     }
 
+    public TargetSource(JavaSource simpleJavaSource)
+    {
+        this.lines = simpleJavaSource;
+        this.compilationUnit = JavaParser.parse(simpleJavaSource.toString());
+    }
+
     public JavaSource getLines()
     {
         return lines;

@@ -31,6 +31,8 @@ public class StatementCreationIteratorNextTest extends ASTStrategyTest
         assertEquals(1, statementCreationIteratorNext.getMutants().size());
 
         assertNodePatchesAllModified(statementCreationIteratorNext);
+
+        // TODO Test for precise mutant behaviour
     }
 
     @Test
@@ -54,6 +56,8 @@ public class StatementCreationIteratorNextTest extends ASTStrategyTest
         assertEquals(1, statementCreationIteratorNext.getMutants().size());
 
         assertNodePatchesAllModified(statementCreationIteratorNext);
+
+        // TODO Test for precise mutant behaviour
     }
     @Test
     public void testIteratorBothCases()
@@ -77,5 +81,7 @@ public class StatementCreationIteratorNextTest extends ASTStrategyTest
         assertEquals(2, statementCreationIteratorNext.getMutants().size());
 
         assertNodePatchesAllModified(statementCreationIteratorNext);
+
+        // TODO Test for precise mutant behaviour
     }
 }

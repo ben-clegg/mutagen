@@ -2,6 +2,7 @@ package tech.clegg.mutagen.mutation.ast;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.expr.CastExpr;
 import org.junit.Test;
 import tech.clegg.mutagen.TargetSource;
 
@@ -27,5 +28,9 @@ public class RemoveCastsTest extends ASTStrategyTest
         assertEquals(1, removeCasts.getMutants().size());
 
         assertNodePatchesAllModified(removeCasts);
+
+        // Test that no cast calls are present
+        TargetSource modified = new TargetSource(removeCasts.getMutants().get(0).getModifiedLines());
+        assertTrue(modified.getCompilationUnit().findAll(CastExpr.class).isEmpty());
     }
 }
