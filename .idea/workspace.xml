@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented RemoveCasts, with test">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented StatementCreationIteratorNext, with test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
@@ -91,14 +91,14 @@
       <recent name="mutagen.mutation.simple.identifiernaming" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="tech.clegg.mutagen.mutation.ast.logicflow" />
       <recent name="tech.clegg.mutagen.mutation.ast" />
       <recent name="tech.clegg.mutagen.mutation.ast.exceptions" />
-      <recent name="tech.clegg.mutagen.mutation.ast.logicflow" />
       <recent name="mutagen.mutation.ast.identifiernaming" />
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StatementCreationIteratorNextTest">
+  <component name="RunManager" selected="JUnit.TargetedExtractionBreakContinueTest">
     <configuration name="Generate - Assignment 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
       <module name="mutagen" />
@@ -200,23 +200,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NameReformatterTest.testWordsToConstant" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="mutagen" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tech.clegg.identifiernaming.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="mutagen.mutation.ast.identifiernaming" />
-      <option name="MAIN_CLASS_NAME" value="tech.clegg.identifiernaming.NameReformatterTest" />
-      <option name="METHOD_NAME" value="testWordsToConstant" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="RemoveCastsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mutagen" />
       <extension name="coverage">
@@ -266,6 +249,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TargetedExtractionBreakContinueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mutagen" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.logicflow.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow" />
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow.TargetedExtractionBreakContinueTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -292,18 +291,18 @@
       <item itemvalue="Application.Generate - FitnessQuestions" />
       <item itemvalue="Application.Generate - DataLoader" />
       <item itemvalue="JUnit.NameReformatterTest" />
-      <item itemvalue="JUnit.NameReformatterTest.testWordsToConstant" />
       <item itemvalue="JUnit.RemoveCastsTest" />
       <item itemvalue="JUnit.StatementCreationIteratorNextTest" />
       <item itemvalue="JUnit.StatementCreationIteratorNextTest.testIteratorAssignmentCase" />
+      <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
         <item itemvalue="JUnit.StatementCreationIteratorNextTest" />
         <item itemvalue="JUnit.StatementCreationIteratorNextTest.testIteratorAssignmentCase" />
         <item itemvalue="JUnit.RemoveCastsTest" />
         <item itemvalue="JUnit.NameReformatterTest" />
-        <item itemvalue="JUnit.NameReformatterTest.testWordsToConstant" />
       </list>
     </recent_temporary>
   </component>
@@ -403,7 +402,7 @@
       <workItem from="1626868075932" duration="1169000" />
       <workItem from="1626870967938" duration="513000" />
       <workItem from="1626871501569" duration="10820000" />
-      <workItem from="1626951254574" duration="6344000" />
+      <workItem from="1626951254574" duration="12282000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -650,7 +649,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626885778277</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Implemented StatementCreationIteratorNext, with test">
+      <created>1626960980634</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1626960980634</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -701,7 +707,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Fully implemented first AST mutant&#10;Disabled summary file to allow this" />
     <MESSAGE value="Reimplemented summary file" />
     <MESSAGE value="Improved change reporting" />
     <MESSAGE value="Added standard for separator confusion mutation strategy" />
@@ -726,7 +731,8 @@
     <MESSAGE value="Implemented TryStatementExtraction" />
     <MESSAGE value="Implemented RemoveVariableInitialValue" />
     <MESSAGE value="Implemented RemoveCasts, with test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented RemoveCasts, with test" />
+    <MESSAGE value="Implemented StatementCreationIteratorNext, with test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented StatementCreationIteratorNext, with test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -735,11 +741,6 @@
           <url>file://$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield/customPrototype/model/ExampleAssessment.java</url>
           <line>43</line>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/StatementCreationIteratorNext.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
