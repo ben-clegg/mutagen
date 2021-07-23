@@ -19,7 +19,7 @@ public class BranchNesting extends ASTVisitorMutationStrategy
     public BranchNesting(TargetSource target)
     {
         super(target);
-        setType(MutantType.STATEMENT_TRANSPOSE);
+        setType(MutantType.BRANCH_NESTING);
         addFlag(MutantFlag.FUNCTIONALITY);
         addFlag(MutantFlag.USES_AST);
         addFlag(MutantFlag.MUTAGEN_UNIQUE);

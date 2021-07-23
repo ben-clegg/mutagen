@@ -8,6 +8,7 @@ import com.github.javaparser.ast.expr.IntegerLiteralExpr;
 import com.github.javaparser.ast.expr.LiteralExpr;
 import com.github.javaparser.ast.expr.SimpleName;
 import com.github.javaparser.ast.nodeTypes.NodeWithSimpleName;
+import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import tech.clegg.mutagen.TargetSource;
 import tech.clegg.mutagen.mutation.MutationStrategy;
@@ -102,9 +103,30 @@ public class ASTVisitorMutationStrategy extends MutationStrategy
      */
     protected boolean leadsToSearched(Node subtreeRoot, Node toFind)
     {
-        if (subtreeRoot.stream(Node.TreeTraversal.BREADTHFIRST).anyMatch(n -> n.equals(toFind)))
+        if (
+                subtreeRoot.stream(Node.TreeTraversal.BREADTHFIRST)
+                        .filter(n -> n.getParentNode().equals(toFind.getParentNode()))
+                        .anyMatch(n -> n.equals(toFind))
+
+        )
             return true;
 
         return false;
+    }
+
+    /**
+     * Get the closest BlockStmt ancestor to a Node.
+     * @param start the Node to search from.
+     * @return the closest ancestor BlockStmt, or null if none exists.
+     */
+    protected BlockStmt getClosestBlockStatementAbove(Node start)
+    {
+        AtomicReference<Node> result = new AtomicReference<>();
+        start.walk(Node.TreeTraversal.PARENTS, n -> matchesType(n, result, BlockStmt.class));
+
+        if (result.get() == null)
+            return null;
+
+        return (BlockStmt) result.get();
     }
 }

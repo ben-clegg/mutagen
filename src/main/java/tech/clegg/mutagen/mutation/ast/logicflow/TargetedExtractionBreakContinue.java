@@ -83,7 +83,7 @@ public class TargetedExtractionBreakContinue extends ASTVisitorMutationStrategy
         // Remove original statement
         modifiedAncestor.findAll(Statement.class, n -> n.equals(original)).forEach(Node::remove);
         // Add to ancestor
-        modifiedAncestor.addStatement(indexOfAncestor + positionOffset, original);
+        modifiedAncestor.addStatement(indexOfAncestor + positionOffset, original.clone());
 
         // Add
         addMutant(new ASTMutant(

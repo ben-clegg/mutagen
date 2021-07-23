@@ -18,7 +18,7 @@ public class TargetedNestingBreakContinue extends ASTVisitorMutationStrategy
     public TargetedNestingBreakContinue(TargetSource target)
     {
         super(target);
-        setType(MutantType.STATEMENT_TRANSPOSE);
+        setType(MutantType.TARGETED_NESTING_BREAK_CONTINUE);
         addFlag(MutantFlag.FUNCTIONALITY);
         addFlag(MutantFlag.USES_AST);
         addFlag(MutantFlag.MUTAGEN_UNIQUE);

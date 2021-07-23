@@ -18,7 +18,7 @@ public class ElseRelocation extends ASTVisitorMutationStrategy
     public ElseRelocation(TargetSource target)
     {
         super(target);
-        setType(MutantType.STATEMENT_TRANSPOSE);
+        setType(MutantType.ELSE_RELOCATION);
         addFlag(MutantFlag.FUNCTIONALITY);
         addFlag(MutantFlag.USES_AST);
         addFlag(MutantFlag.MUTAGEN_UNIQUE);
