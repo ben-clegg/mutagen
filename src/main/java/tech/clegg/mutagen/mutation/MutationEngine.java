@@ -84,6 +84,7 @@ public class MutationEngine
             strategies.add(new VariableReinitialisation(t));
             strategies.add(new CollectionRemovalDeletion(t));
             strategies.add(new ParameterReassignmentDeletion(t));
+            strategies.add(new TransformCopyToReference(t));
         }
     }
 
