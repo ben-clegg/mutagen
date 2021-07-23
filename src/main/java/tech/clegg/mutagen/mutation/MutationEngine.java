@@ -80,6 +80,7 @@ public class MutationEngine
             strategies.add(new StatementTranspose(t));
             strategies.add(new ElseRelocation(t));
             strategies.add(new BranchNesting(t));
+            strategies.add(new TargetedNestingBreakContinue(t));
         }
     }
 

@@ -9,13 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Extended RemoveCastsTest. Added TODOs to other tests.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/BranchNesting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/BranchNestingTest.java" afterDir="false" />
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented BranchNesting">
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedNestingBreakContinue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedNestingBreakContinueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/ASTStrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/ASTStrategyTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,15 +173,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -244,7 +241,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TargetedExtractionBreakContinueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TargetedNestingBreakContinueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mutagen" />
       <extension name="coverage">
         <pattern>
@@ -253,7 +250,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow" />
-      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow.TargetedExtractionBreakContinueTest" />
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow.TargetedNestingBreakContinueTest" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -285,19 +282,19 @@
       <item itemvalue="Application.Generate - Problem Sheet 2 - FitnessTrackerDistance" />
       <item itemvalue="Application.Generate - FitnessQuestions" />
       <item itemvalue="Application.Generate - DataLoader" />
-      <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
       <item itemvalue="JUnit.All in mutagen" />
       <item itemvalue="JUnit.StatementTransposeTest" />
       <item itemvalue="JUnit.ElseRelocationTest" />
       <item itemvalue="JUnit.BranchNestingTest" />
+      <item itemvalue="JUnit.TargetedNestingBreakContinueTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in mutagen" />
+        <item itemvalue="JUnit.TargetedNestingBreakContinueTest" />
         <item itemvalue="JUnit.BranchNestingTest" />
         <item itemvalue="JUnit.ElseRelocationTest" />
         <item itemvalue="JUnit.StatementTransposeTest" />
-        <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
       </list>
     </recent_temporary>
   </component>
@@ -397,7 +394,8 @@
       <workItem from="1626868075932" duration="1169000" />
       <workItem from="1626870967938" duration="513000" />
       <workItem from="1626871501569" duration="10820000" />
-      <workItem from="1626951254574" duration="21894000" />
+      <workItem from="1626951254574" duration="22535000" />
+      <workItem from="1627038902509" duration="3522000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -686,7 +684,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626973346780</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Implemented BranchNesting">
+      <created>1626979245947</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1626979245947</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -737,7 +742,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="finished simple custom prototype" />
     <MESSAGE value="changed to allow multiple mutation sources" />
     <MESSAGE value="preparation for weightgrade's solution derivation from mutants" />
     <MESSAGE value="working towards major mutation" />
@@ -762,7 +766,8 @@
     <MESSAGE value="Implemented StatementTranspose, with test" />
     <MESSAGE value="Implemented ElseRelocation with test. Generified approach to search for matching ancestors." />
     <MESSAGE value="Extended RemoveCastsTest. Added TODOs to other tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Extended RemoveCastsTest. Added TODOs to other tests." />
+    <MESSAGE value="Implemented BranchNesting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented BranchNesting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -773,12 +778,17 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/BranchNestingTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedNestingBreakContinueTest.java</url>
           <line>35</line>
-          <option name="timeStamp" value="44" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="tech.clegg.mutagen.mutation.ast.logicflow.TargetedNestingBreakContinue" memberName="mutants" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/mutagen$New_Func___DataLoader.ic" NAME="New Func - DataLoader Coverage Results" MODIFIED="1626882873733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
