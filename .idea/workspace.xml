@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented VariableReinitialisation, though equivalents are possible. Improved ancestor searching.">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented CollectionRemovalDeletion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
@@ -98,7 +98,7 @@
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in mutagen">
+  <component name="RunManager" selected="JUnit.ParameterReassignmentDeletionTest">
     <configuration name="Generate - Assignment 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
       <module name="mutagen" />
@@ -207,7 +207,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ElseRelocationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ParameterReassignmentDeletionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mutagen" />
       <extension name="coverage">
         <pattern>
@@ -215,8 +215,8 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow" />
-      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow.ElseRelocationTest" />
+      <option name="PACKAGE_NAME" value="tech.clegg.mutagen.mutation.ast" />
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.ParameterReassignmentDeletionTest" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -281,18 +281,18 @@
       <item itemvalue="Application.Generate - FitnessQuestions" />
       <item itemvalue="Application.Generate - DataLoader" />
       <item itemvalue="JUnit.All in mutagen" />
-      <item itemvalue="JUnit.ElseRelocationTest" />
       <item itemvalue="JUnit.BranchNestingTest" />
       <item itemvalue="JUnit.TargetedNestingBreakContinueTest" />
       <item itemvalue="JUnit.VariableReinitialisationTest" />
+      <item itemvalue="JUnit.ParameterReassignmentDeletionTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ParameterReassignmentDeletionTest" />
         <item itemvalue="JUnit.All in mutagen" />
         <item itemvalue="JUnit.VariableReinitialisationTest" />
         <item itemvalue="JUnit.TargetedNestingBreakContinueTest" />
         <item itemvalue="JUnit.BranchNestingTest" />
-        <item itemvalue="JUnit.ElseRelocationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -393,7 +393,7 @@
       <workItem from="1626870967938" duration="513000" />
       <workItem from="1626871501569" duration="10820000" />
       <workItem from="1626951254574" duration="22535000" />
-      <workItem from="1627038902509" duration="10431000" />
+      <workItem from="1627038902509" duration="12639000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -703,7 +703,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627051111436</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Implemented CollectionRemovalDeletion">
+      <created>1627052658191</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1627052658191</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -754,7 +761,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="working towards major mutation" />
     <MESSAGE value="additional work towards major mutation" />
     <MESSAGE value="major mutation implemented" />
     <MESSAGE value="updated gitignore" />
@@ -779,7 +785,8 @@
     <MESSAGE value="Implemented BranchNesting" />
     <MESSAGE value="Implemented TargetedNestingBreakContinue" />
     <MESSAGE value="Implemented VariableReinitialisation, though equivalents are possible. Improved ancestor searching." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented VariableReinitialisation, though equivalents are possible. Improved ancestor searching." />
+    <MESSAGE value="Implemented CollectionRemovalDeletion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented CollectionRemovalDeletion" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -788,16 +795,6 @@
           <url>file://$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield/customPrototype/model/ExampleAssessment.java</url>
           <line>43</line>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedNestingBreakContinueTest.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/CollectionRemovalDeletionTest.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
