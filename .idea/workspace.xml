@@ -9,16 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented TargetedNestingBreakContinue">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/VariableReinitialisation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/VariableReinitialisationTest.java" afterDir="false" />
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented VariableReinitialisation, though equivalents are possible. Improved ancestor searching.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTVisitorMutationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTVisitorMutationStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/BranchNesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/BranchNesting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/ElseRelocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/ElseRelocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedNestingBreakContinue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedNestingBreakContinue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,7 +195,7 @@
       <module name="mutagen" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.logicflow.*" />
+          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -218,7 +211,7 @@
       <module name="mutagen" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.logicflow.*" />
+          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -234,7 +227,7 @@
       <module name="mutagen" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.logicflow.*" />
+          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -400,7 +393,7 @@
       <workItem from="1626870967938" duration="513000" />
       <workItem from="1626871501569" duration="10820000" />
       <workItem from="1626951254574" duration="22535000" />
-      <workItem from="1627038902509" duration="8762000" />
+      <workItem from="1627038902509" duration="10431000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -703,7 +696,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627045309181</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Implemented VariableReinitialisation, though equivalents are possible. Improved ancestor searching.">
+      <created>1627051111436</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1627051111436</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -754,7 +754,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="preparation for weightgrade's solution derivation from mutants" />
     <MESSAGE value="working towards major mutation" />
     <MESSAGE value="additional work towards major mutation" />
     <MESSAGE value="major mutation implemented" />
@@ -779,7 +778,8 @@
     <MESSAGE value="Extended RemoveCastsTest. Added TODOs to other tests." />
     <MESSAGE value="Implemented BranchNesting" />
     <MESSAGE value="Implemented TargetedNestingBreakContinue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented TargetedNestingBreakContinue" />
+    <MESSAGE value="Implemented VariableReinitialisation, though equivalents are possible. Improved ancestor searching." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented VariableReinitialisation, though equivalents are possible. Improved ancestor searching." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -795,21 +795,17 @@
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinueTest.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinue.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="25" />
+          <url>file://$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/CollectionRemovalDeletionTest.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="com.github.javaparser.ast.CompilationUnit" memberName="childNodes" />
         <PinnedItemInfo parentTag="tech.clegg.mutagen.mutation.ast.logicflow.TargetedNestingBreakContinue" memberName="mutants" />
-        <PinnedItemInfo parentTag="tech.clegg.mutagen.mutation.ast.ASTMutant" memberName="nodePatches" />
+        <PinnedItemInfo parentTag="com.github.javaparser.ast.CompilationUnit" memberName="parentNode" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

@@ -82,6 +82,7 @@ public class MutationEngine
             strategies.add(new BranchNesting(t));
             strategies.add(new TargetedNestingBreakContinue(t));
             strategies.add(new VariableReinitialisation(t));
+            strategies.add(new CollectionRemovalDeletion(t));
         }
     }
 
