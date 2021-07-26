@@ -9,10 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented ParameterReassignmentDeletion">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented TransformCopyToReference">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTVisitorMutationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTVisitorMutationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/ASTStrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/ASTStrategyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinueTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +100,7 @@
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.New Func - Cellar">
+  <component name="RunManager" selected="JUnit.TargetedExtractionBreakContinueTest">
     <configuration name="Generate - Assignment 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
       <module name="mutagen" />
@@ -171,13 +173,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -207,16 +211,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TargetedNestingBreakContinueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TargetedExtractionBreakContinueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mutagen" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.*" />
+          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.logicflow.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow" />
-      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow.TargetedNestingBreakContinueTest" />
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow.TargetedExtractionBreakContinueTest" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -281,18 +285,18 @@
       <item itemvalue="Application.Generate - FitnessQuestions" />
       <item itemvalue="Application.Generate - DataLoader" />
       <item itemvalue="JUnit.All in mutagen" />
-      <item itemvalue="JUnit.TargetedNestingBreakContinueTest" />
       <item itemvalue="JUnit.VariableReinitialisationTest" />
       <item itemvalue="JUnit.ParameterReassignmentDeletionTest" />
       <item itemvalue="JUnit.TransformCopyToReferenceTest" />
+      <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
         <item itemvalue="JUnit.All in mutagen" />
         <item itemvalue="JUnit.TransformCopyToReferenceTest" />
         <item itemvalue="JUnit.ParameterReassignmentDeletionTest" />
         <item itemvalue="JUnit.VariableReinitialisationTest" />
-        <item itemvalue="JUnit.TargetedNestingBreakContinueTest" />
       </list>
     </recent_temporary>
   </component>
@@ -393,7 +397,8 @@
       <workItem from="1626870967938" duration="513000" />
       <workItem from="1626871501569" duration="10820000" />
       <workItem from="1626951254574" duration="22535000" />
-      <workItem from="1627038902509" duration="15089000" />
+      <workItem from="1627038902509" duration="15757000" />
+      <workItem from="1627291293995" duration="3416000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -717,7 +722,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627054946631</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Implemented TransformCopyToReference">
+      <created>1627057272676</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1627057272676</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -768,7 +780,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="major mutation implemented" />
     <MESSAGE value="updated gitignore" />
     <MESSAGE value="added indentation operators" />
     <MESSAGE value="Repaired packaging issue" />
@@ -793,7 +804,8 @@
     <MESSAGE value="Implemented VariableReinitialisation, though equivalents are possible. Improved ancestor searching." />
     <MESSAGE value="Implemented CollectionRemovalDeletion" />
     <MESSAGE value="Implemented ParameterReassignmentDeletion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented ParameterReassignmentDeletion" />
+    <MESSAGE value="Implemented TransformCopyToReference" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented TransformCopyToReference" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -804,9 +816,9 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/TransformCopyToReferenceTest.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="47" />
+          <url>file://$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinueTest.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

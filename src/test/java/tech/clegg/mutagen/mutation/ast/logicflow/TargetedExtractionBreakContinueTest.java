@@ -23,8 +23,13 @@ public class TargetedExtractionBreakContinueTest extends ASTStrategyTest
                         "int b = 20; \n" +
                         "while (true) {\n" +
                             "a++; \n" +
-                            "if (a >= b) { \n" +
-                                "break; \n" +
+                            "if (a >= 18) { \n" +
+                                "if (a >= b) { \n" +
+                                    "break; \n" +
+                                "}\n" +
+                                "if (a >= 25) { \n" +
+                                    "break; \n" +
+                                "}\n" +
                             "}\n" +
                         "}\n" +
                     "}\n" +
@@ -34,9 +39,10 @@ public class TargetedExtractionBreakContinueTest extends ASTStrategyTest
         TargetedExtractionBreakContinue targetedExtractionBreakContinue =
                 new TargetedExtractionBreakContinue(targetSource);
         targetedExtractionBreakContinue.createAllMutants();
-        Assert.assertEquals(2, targetedExtractionBreakContinue.getMutants().size());
+        Assert.assertEquals(4, targetedExtractionBreakContinue.getMutants().size());
 
         assertNodePatchesAllModified(targetedExtractionBreakContinue);
+        assertAllMutationsDifferent(targetedExtractionBreakContinue);
 
         // TODO Test for precise mutant behaviour
     }

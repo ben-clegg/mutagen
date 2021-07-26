@@ -2,6 +2,7 @@ package tech.clegg.mutagen.mutation.ast.logicflow;
 
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.stmt.*;
+import com.github.javaparser.ast.visitor.EqualsVisitor;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import tech.clegg.mutagen.TargetSource;
 import tech.clegg.mutagen.mutation.ast.ASTMutant;
@@ -63,25 +64,39 @@ public class TargetedExtractionBreakContinue extends ASTVisitorMutationStrategy
             return; // Invalid
 
         // Generate mutant - before variant
-        generateMutantForAncestor((BlockStmt) ancestorBlockStmt.get(), statement, 0);
+        generateMutantForAncestor((BlockStmt) ancestorBlockStmt.get(),
+                (BlockStmt) firstBlockStmt.get(), statement, 0);
         // Generate mutant - after variant
-        generateMutantForAncestor((BlockStmt) ancestorBlockStmt.get(), statement, 1);
+        generateMutantForAncestor((BlockStmt) ancestorBlockStmt.get(),
+                (BlockStmt) firstBlockStmt.get(), statement, 1);
 
     }
 
-    private void generateMutantForAncestor(BlockStmt ancestor, Statement original, int positionOffset)
+    private void generateMutantForAncestor(BlockStmt ancestor,
+                                           BlockStmt closestBlockStmt,
+                                           Statement original,
+                                           int positionOffset)
     {
         BlockStmt modifiedAncestor = ancestor.clone();
         // Determine which statement leads to original
         Optional<Statement> nextAncestorOfOriginal = modifiedAncestor.getStatements().stream()
                 .filter(n -> leadsToSearched(n, original))
+                .filter(n -> leadsToSearched(n, closestBlockStmt.getParentNode().get()))
                 .findFirst();
         if (!nextAncestorOfOriginal.isPresent())
             return;
         int indexOfAncestor = modifiedAncestor.getStatements().indexOf(nextAncestorOfOriginal.get());
 
         // Remove original statement
-        modifiedAncestor.findAll(Statement.class, n -> n.equals(original)).forEach(Node::remove);
+        modifiedAncestor
+                .findAll(Statement.class, s -> s.equals(original))
+                .stream().filter(s -> {
+                    AtomicReference<Node> firstBlockStmt = new AtomicReference<>();
+                    s.walk(Node.TreeTraversal.PARENTS, n -> matchesType(n, firstBlockStmt, BlockStmt.class));
+                    return (firstBlockStmt.get().equals(closestBlockStmt) &&
+                            firstBlockStmt.get().getParentNode().equals(closestBlockStmt.getParentNode()));
+                })
+                .forEach(Node::remove);
         // Add to ancestor
         modifiedAncestor.addStatement(indexOfAncestor + positionOffset, original.clone());
 

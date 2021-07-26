@@ -129,4 +129,16 @@ public class ASTVisitorMutationStrategy extends MutationStrategy
 
         return (BlockStmt) result.get();
     }
+
+    protected boolean treesEqual(Node a, Node b)
+    {
+        return pathFrom(a).equals(pathFrom(b));
+    }
+
+    protected List<Node> pathFrom(Node start)
+    {
+        List<Node> visited = new ArrayList<>();
+        start.walk(Node.TreeTraversal.PARENTS, visited::add);
+        return visited;
+    }
 }
