@@ -52,7 +52,7 @@ public class ElseRelocation extends ASTVisitorMutationStrategy
         ifStmt.walk(Node.TreeTraversal.PARENTS, n -> {
             matchesType(n, ancestor, IfStmt.class);
         });
-        if (ancestor == null)
+        if (ancestor.get() == null)
             return; // Invalid
         IfStmt modifiedAncestor = (IfStmt) ancestor.get().clone();
 

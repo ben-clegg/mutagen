@@ -9,12 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented TransformCopyToReference">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Improved TargetedExtractionBreakContinue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTVisitorMutationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTVisitorMutationStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/ASTStrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/ASTStrategyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinueTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/ElseRelocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/ElseRelocation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,45 +97,11 @@
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TargetedExtractionBreakContinueTest">
-    <configuration name="Generate - Assignment 1" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
+  <component name="RunManager" selected="Application.New Func - FA-FQs">
+    <configuration name="2021 - Cellar" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.MutaGen" />
       <module name="mutagen" />
-      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../phd-research/data/assignment1_2017_cleaned_fast/model/golden1 -f Assignment1.java -o $PROJECT_DIR$/../../phd-research/data/assignment1_2017_cleaned_fast/mutants" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Generate - Custom Prototype" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
-      <module name="mutagen" />
-      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../autogradingTools/AutoGrader/data/customPrototype/model -f ExampleAssessment.java -o $PROJECT_DIR$/../../autogradingTools/AutoGrader/data/customPrototype/mutants" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Generate - DataLoader" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
-      <module name="mutagen" />
-      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-DataLoader-mutant/modelSolutions/model_a/ -o $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-DataLoader-mutant/studentSolutions/ -c $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-DataLoader-mutant/sourceDependencies/:$PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-DataLoader-mutant/modelSolutions/model_a/ -f assignment2020/dataloading/DataLoader.java -removeCompilabilityMutants -onlyFunctionalityMutants" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Generate - FitnessQuestions" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
-      <module name="mutagen" />
-      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-FQs-mutant/modelSolutions/model_a/ -o $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-FQs-mutant/studentSolutions/ -c $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-FQs-mutant/sourceDependencies/:$PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-FQs-mutant/modelSolutions/model_a/ -f assignment2020/handoutquestions/FitnessQuestions.java -removeCompilabilityMutants -onlyFunctionalityMutants" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Generate - Problem Sheet 2 - FitnessTrackerDistance" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="mutagen.MutaGen" />
-      <module name="mutagen" />
-      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/runtime/mutation_ps2/model_a/ -o $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/runtime/mutation_ps2/generated/ -c $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/runtime/classpaths/ps2:$PROJECT_DIR$/../../Experiments/MutantStudentSolutions/runtime/mutation_ps2/model_a -f uk/ac/sheffield/com1003/problemsheet2/FitnessTrackerDistance.java -removeCompilabilityMutants" />
+      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutagenTesting/Wine-Cellar/model -f assignment2019/WineSampleCellar.java -o $PROJECT_DIR$/../../Experiments/MutagenTesting/Wine-Cellar/_mutants -onlyNewMutaGenMutants" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -146,7 +109,23 @@
     <configuration name="New Func - Cellar" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.MutaGen" />
       <module name="mutagen" />
-      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutagenTesting/Wine-Cellar/model -f assignment2019/WineSampleCellar.java -o $PROJECT_DIR$/../../Experiments/MutagenTesting/Wine-Cellar/_mutants -onlyNewMutaGenMutants" />
+      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/wine-Cellar/modelSolutions/model_a/ -f assignment2019/WineSampleCellar.java -o $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/wine-Cellar/solutions-mutagen-2021 -onlyNewMutaGenMutants" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="New Func - Chess-Board" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.MutaGen" />
+      <module name="mutagen" />
+      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/chess-Board/modelSolutions/model_a/ -f assignment2018/Board.java -o $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/chess-Board/solutions-mutagen-2021 -onlyNewMutaGenMutants" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="New Func - Chess-Queen" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.MutaGen" />
+      <module name="mutagen" />
+      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/chess-Queen/modelSolutions/model_a/ -f assignment2018/Queen.java -o $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/chess-Queen/solutions-mutagen-2021 -onlyNewMutaGenMutants" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -155,6 +134,22 @@
       <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.MutaGen" />
       <module name="mutagen" />
       <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutagenTesting/FA-DataLoader/model/ -f assignment2020/dataloading/DataLoader.java -o $PROJECT_DIR$/../../Experiments/MutagenTesting/FA-DataLoader/_mutants -onlyNewMutaGenMutants" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="New Func - FA-DataLoader" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.MutaGen" />
+      <module name="mutagen" />
+      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-DataLoader/modelSolutions/model_a/ -f assignment2020/dataloading/DataLoader.java -o $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-DataLoader/solutions-mutagen-2021 -onlyNewMutaGenMutants" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="New Func - FA-FQs" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.MutaGen" />
+      <module name="mutagen" />
+      <option name="PROGRAM_PARAMETERS" value="-t $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-FQs/modelSolutions/model_a/ -f assignment2020/handoutquestions/FitnessQuestions.java -o $PROJECT_DIR$/../../Experiments/MutantStudentSolutions/gradeerRuntime/fa-FQs/solutions-mutagen-2021 -onlyNewMutaGenMutants" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -173,22 +168,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in mutagen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in mutagen" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="mutagen" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -277,13 +261,13 @@
     </configuration>
     <list>
       <item itemvalue="Application.New Func - Cellar" />
+      <item itemvalue="Application.New Func - Chess-Board" />
+      <item itemvalue="Application.New Func - Chess-Queen" />
+      <item itemvalue="Application.New Func - FA-DataLoader" />
+      <item itemvalue="Application.New Func - FA-FQs" />
+      <item itemvalue="Application.2021 - Cellar" />
       <item itemvalue="Application.New Func - DataLoader" />
       <item itemvalue="Application.Run" />
-      <item itemvalue="Application.Generate - Custom Prototype" />
-      <item itemvalue="Application.Generate - Assignment 1" />
-      <item itemvalue="Application.Generate - Problem Sheet 2 - FitnessTrackerDistance" />
-      <item itemvalue="Application.Generate - FitnessQuestions" />
-      <item itemvalue="Application.Generate - DataLoader" />
       <item itemvalue="JUnit.All in mutagen" />
       <item itemvalue="JUnit.VariableReinitialisationTest" />
       <item itemvalue="JUnit.ParameterReassignmentDeletionTest" />
@@ -293,7 +277,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
-        <item itemvalue="JUnit.All in mutagen" />
         <item itemvalue="JUnit.TransformCopyToReferenceTest" />
         <item itemvalue="JUnit.ParameterReassignmentDeletionTest" />
         <item itemvalue="JUnit.VariableReinitialisationTest" />
@@ -398,7 +381,8 @@
       <workItem from="1626871501569" duration="10820000" />
       <workItem from="1626951254574" duration="22535000" />
       <workItem from="1627038902509" duration="15757000" />
-      <workItem from="1627291293995" duration="3416000" />
+      <workItem from="1627291293995" duration="4383000" />
+      <workItem from="1627315299098" duration="2183000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -729,7 +713,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627057272676</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Improved TargetedExtractionBreakContinue">
+      <created>1627305147308</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1627305147308</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -780,7 +771,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="updated gitignore" />
     <MESSAGE value="added indentation operators" />
     <MESSAGE value="Repaired packaging issue" />
     <MESSAGE value="Implemented RemovePublicAccessModifier. Updated mutant diff system." />
@@ -805,7 +795,8 @@
     <MESSAGE value="Implemented CollectionRemovalDeletion" />
     <MESSAGE value="Implemented ParameterReassignmentDeletion" />
     <MESSAGE value="Implemented TransformCopyToReference" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented TransformCopyToReference" />
+    <MESSAGE value="Improved TargetedExtractionBreakContinue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved TargetedExtractionBreakContinue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -814,11 +805,6 @@
           <url>file://$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield/customPrototype/model/ExampleAssessment.java</url>
           <line>43</line>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/TargetedExtractionBreakContinueTest.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
