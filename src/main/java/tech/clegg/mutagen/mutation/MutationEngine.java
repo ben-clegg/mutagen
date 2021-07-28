@@ -46,7 +46,6 @@ public class MutationEngine
             strategies.add(new UnbalancedBrackets(t));
             strategies.add(new ConstantToVariable(t));
             strategies.add(new ClassnameReplacement(t));
-            strategies.add(new BranchExtraction(t));
             // Major mutants
             strategies.add(new MajorStrategy(t,"AOR", MutantType.INCORRECT_CALCULATION));
             strategies.add(new MajorStrategy(t,"EVR,LVR",MutantType.INCORRECT_VALUES));
@@ -63,7 +62,6 @@ public class MutationEngine
             strategies.add(new PoorIdentifierNaming(t));
 
             strategies.add(new LiteralValueRepetition(t));
-            strategies.add(new StringMisspelling(t));
 
             // Updated mutant set
             strategies.add(new EarlyExit(t));
@@ -85,6 +83,8 @@ public class MutationEngine
             strategies.add(new CollectionRemovalDeletion(t));
             strategies.add(new ParameterReassignmentDeletion(t));
             strategies.add(new TransformCopyToReference(t));
+            strategies.add(new StringMisspelling(t));
+            strategies.add(new BranchExtraction(t));
         }
     }
 

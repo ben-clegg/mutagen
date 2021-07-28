@@ -9,9 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Improved TargetedExtractionBreakContinue">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Fixed bug in ElseRelocation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/ElseRelocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/ElseRelocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/StringMisspelling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/StringMisspelling.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -383,6 +384,9 @@
       <workItem from="1627038902509" duration="15757000" />
       <workItem from="1627291293995" duration="4383000" />
       <workItem from="1627315299098" duration="2183000" />
+      <workItem from="1627319831501" duration="526000" />
+      <workItem from="1627378196383" duration="653000" />
+      <workItem from="1627462005017" duration="803000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1542121989266</created>
@@ -720,7 +724,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627305147308</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Fixed bug in ElseRelocation">
+      <created>1627320360930</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1627320360930</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -771,7 +782,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="added indentation operators" />
     <MESSAGE value="Repaired packaging issue" />
     <MESSAGE value="Implemented RemovePublicAccessModifier. Updated mutant diff system." />
     <MESSAGE value="(RemovePublicAccessModifier was missing in last commit)" />
@@ -796,7 +806,8 @@
     <MESSAGE value="Implemented ParameterReassignmentDeletion" />
     <MESSAGE value="Implemented TransformCopyToReference" />
     <MESSAGE value="Improved TargetedExtractionBreakContinue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved TargetedExtractionBreakContinue" />
+    <MESSAGE value="Fixed bug in ElseRelocation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug in ElseRelocation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
