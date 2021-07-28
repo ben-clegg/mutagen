@@ -9,6 +9,8 @@ import tech.clegg.mutagen.properties.MutantFlag;
 import tech.clegg.mutagen.properties.MutantType;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -16,6 +18,8 @@ import java.util.function.Predicate;
 
 public class StringMisspelling extends ASTVisitorMutationStrategy
 {
+    private static final int BUDGET = 1; // How many to generate
+
     public StringMisspelling(TargetSource target)
     {
         super(target);
@@ -57,6 +61,23 @@ public class StringMisspelling extends ASTVisitorMutationStrategy
         }
     }
 
+    private List<String> selectMutantsToUse(List<String> replacements)
+    {
+        // Use all
+        if (BUDGET <= 0 || replacements.isEmpty())
+            return replacements;
+
+        // Randomly select
+        List<String> shuffled = new ArrayList<>(replacements);
+        Collections.shuffle(shuffled);
+
+        int limit = replacements.size();
+        if (BUDGET < limit)
+            limit = BUDGET;
+
+        return shuffled.subList(0, limit);
+    }
+
     private List<String> replacementStrings(String original)
     {
         List<String> replacements = new ArrayList<>();
@@ -66,7 +87,9 @@ public class StringMisspelling extends ASTVisitorMutationStrategy
         replacements.addAll(characterReplacements(original));
         // TODO other replacement types
 
-        return replacements;
+
+        // Filter to maintain budget
+        return selectMutantsToUse(replacements);
     }
 
     private List<String> characterDeletions(String original)

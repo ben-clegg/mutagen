@@ -9,9 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Fixed bug in ElseRelocation">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Added String Misspellings as revised operator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/StringMisspelling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/StringMisspelling.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +97,7 @@
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.New Func - FA-FQs">
+  <component name="RunManager" selected="Application.New Func - Cellar">
     <configuration name="2021 - Cellar" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.MutaGen" />
       <module name="mutagen" />
@@ -386,14 +385,7 @@
       <workItem from="1627315299098" duration="2183000" />
       <workItem from="1627319831501" duration="526000" />
       <workItem from="1627378196383" duration="653000" />
-      <workItem from="1627462005017" duration="803000" />
-    </task>
-    <task id="LOCAL-00001" summary="Initial commit">
-      <created>1542121989266</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1542121989266</updated>
+      <workItem from="1627462005017" duration="2015000" />
     </task>
     <task id="LOCAL-00002" summary="Implemented naive eqSyn mutant">
       <created>1542127772281</created>
@@ -731,7 +723,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627320360930</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Added String Misspellings as revised operator">
+      <created>1627463031839</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1627463031839</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -782,7 +781,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Repaired packaging issue" />
     <MESSAGE value="Implemented RemovePublicAccessModifier. Updated mutant diff system." />
     <MESSAGE value="(RemovePublicAccessModifier was missing in last commit)" />
     <MESSAGE value="Implemented StaticModifierIntroduction" />
@@ -807,7 +805,8 @@
     <MESSAGE value="Implemented TransformCopyToReference" />
     <MESSAGE value="Improved TargetedExtractionBreakContinue" />
     <MESSAGE value="Fixed bug in ElseRelocation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug in ElseRelocation" />
+    <MESSAGE value="Added String Misspellings as revised operator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added String Misspellings as revised operator" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
