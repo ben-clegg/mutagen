@@ -44,20 +44,20 @@ public class ParameterReassignmentDeletion extends ASTVisitorMutationStrategy
         };
     }
 
-    private void generateMutants(MethodDeclaration methodCallExpr)
+    private void generateMutants(MethodDeclaration methodDeclaration)
     {
-        for (Parameter p : methodCallExpr.getParameters())
-            generateMutant(methodCallExpr, p);
+        for (Parameter p : methodDeclaration.getParameters())
+            generateMutant(methodDeclaration, p);
     }
 
-    private void generateMutant(MethodDeclaration methodCallExpr, Parameter parameter)
+    private void generateMutant(MethodDeclaration methodDeclaration, Parameter parameter)
     {
-        if (!methodCallExpr.getBody().isPresent())
+        if (!methodDeclaration.getBody().isPresent())
             return;
 
         // Find variable declarations that are assigned to parameter's value
         List<VariableDeclarator> declaratorList = new ArrayList<>();
-        methodCallExpr.getBody().get().walk(Node.TreeTraversal.BREADTHFIRST, n -> {
+        methodDeclaration.getBody().get().walk(Node.TreeTraversal.BREADTHFIRST, n -> {
             if (n instanceof VariableDeclarator)
             {
                 declaratorList.add((VariableDeclarator) n);
@@ -73,14 +73,14 @@ public class ParameterReassignmentDeletion extends ASTVisitorMutationStrategy
             if (init.isPresent())
             {
                 if (init.get() instanceof NameExpr && init.get().asNameExpr().getName().equals(parameter.getName()))
-                    generateMutant(methodCallExpr, parameter, vd);
+                    generateMutant(methodDeclaration, parameter, vd);
             }
         }
     }
 
-    private void generateMutant(MethodDeclaration methodCallExpr, Parameter parameter, VariableDeclarator varDecl)
+    private void generateMutant(MethodDeclaration methodDeclaration, Parameter parameter, VariableDeclarator varDecl)
     {
-        MethodDeclaration modifiedMethod = methodCallExpr.clone();
+        MethodDeclaration modifiedMethod = methodDeclaration.clone();
 
         // Remove declarator's expression
         modifiedMethod.findAll(VariableDeclarator.class).stream().filter(varDecl::equals).forEach(Node::remove);
@@ -93,7 +93,7 @@ public class ParameterReassignmentDeletion extends ASTVisitorMutationStrategy
         // Add mutant
         addMutant(new ASTMutant(
                 this.getOriginal().getCompilationUnit(),
-                methodCallExpr,
+                methodDeclaration,
                 modifiedMethod,
                 this.getType()
         ));

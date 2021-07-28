@@ -96,17 +96,12 @@ public class TransformCopyToReference extends ASTVisitorMutationStrategy
         // Get arg
         Expression arg = objectCreationExpr.getArguments().get(0);
 
-        // Arg must be a NameExpr
-        if (!(arg instanceof NameExpr))
-            return;
-        NameExpr nameExpr = arg.asNameExpr();
-
         // Replace call with nameExpr
         Node parent = objectCreationExpr.getParentNode().get();
         Node modifiedParent = parent.clone();
         modifiedParent.findAll(ObjectCreationExpr.class).stream()
                 .filter(objectCreationExpr::equals)
-                .forEach(n -> n.replace(nameExpr.clone()));
+                .forEach(n -> n.replace(arg.clone()));
 
         // Mutate
         addMutant(new ASTMutant(
