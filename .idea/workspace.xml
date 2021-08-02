@@ -9,11 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Imposed generation limit on StringMisspelling">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Implemented PartialIfElseBlockSwitch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/TransformCopyToReference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/TransformCopyToReference.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/PartialIfElseBlockSwitch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/PartialIfElseBlockSwitch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +97,7 @@
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PartialIfElseBlockSwitchTest">
+  <component name="RunManager" selected="Application.New Func - Chess-Queen">
     <configuration name="2021 - Cellar" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.MutaGen" />
       <module name="mutagen" />
@@ -256,7 +254,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VariableReinitialisationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VariableReinitialisationTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="mutagen" />
       <extension name="coverage">
         <pattern>
@@ -299,10 +297,10 @@
       <item itemvalue="Application.Run" />
       <item itemvalue="JUnit.All in mutagen" />
       <item itemvalue="JUnit.VariableReinitialisationTest" />
+      <item itemvalue="JUnit.PartialIfElseBlockSwitchTest" />
       <item itemvalue="JUnit.ParameterReassignmentDeletionTest" />
       <item itemvalue="JUnit.TransformCopyToReferenceTest" />
       <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
-      <item itemvalue="JUnit.PartialIfElseBlockSwitchTest" />
     </list>
     <recent_temporary>
       <list>
@@ -310,7 +308,6 @@
         <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
         <item itemvalue="JUnit.TransformCopyToReferenceTest" />
         <item itemvalue="JUnit.ParameterReassignmentDeletionTest" />
-        <item itemvalue="JUnit.VariableReinitialisationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -420,14 +417,7 @@
       <workItem from="1627476538159" duration="2205000" />
       <workItem from="1627491518775" duration="21000" />
       <workItem from="1627553348476" duration="23000" />
-      <workItem from="1627905231320" duration="7588000" />
-    </task>
-    <task id="LOCAL-00004" summary="Improved unbalanced brackets strategy">
-      <created>1542294499752</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1542294499752</updated>
+      <workItem from="1627905231320" duration="9178000" />
     </task>
     <task id="LOCAL-00005" summary="Enhanced overall mutation access">
       <created>1542821282053</created>
@@ -765,7 +755,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627478069034</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Implemented PartialIfElseBlockSwitch">
+      <created>1627913871677</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1627913871678</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -816,7 +813,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Implemented StaticModifierIntroduction" />
     <MESSAGE value="BranchExtraction extended to include else case" />
     <MESSAGE value="Added BreakContinueDeletion; added exception handling to BranchExtraction" />
     <MESSAGE value="Implemented NewParameterCreation" />
@@ -841,7 +837,8 @@
     <MESSAGE value="Added String Misspellings as revised operator" />
     <MESSAGE value="Imposed generation limit on StringMisspelling" />
     <MESSAGE value="Fixed issues with two operators" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed issues with two operators" />
+    <MESSAGE value="Implemented PartialIfElseBlockSwitch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented PartialIfElseBlockSwitch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -855,11 +852,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/TransformCopyToReference.java</url>
           <line>52</line>
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/PartialIfElseBlockSwitchTest.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

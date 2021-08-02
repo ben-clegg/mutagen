@@ -49,6 +49,9 @@ public class PartialIfElseBlockSwitch extends ASTVisitorMutationStrategy
         if (!ifStmt.hasElseBlock())
             return;
 
+        // Only works for block statements
+        if (!ifStmt.getThenStmt().isBlockStmt() || !ifStmt.getElseStmt().get().isBlockStmt())
+            return;
         BlockStmt originalThen = (BlockStmt) ifStmt.getThenStmt();
         BlockStmt originalElse = (BlockStmt) ifStmt.getElseStmt().get();
 
