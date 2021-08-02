@@ -9,9 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Added String Misspellings as revised operator">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Imposed generation limit on StringMisspelling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/StringMisspelling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/StringMisspelling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/MutationEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/TransformCopyToReference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/TransformCopyToReference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/properties/MutantType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,14 +92,14 @@
       <recent name="mutagen.mutation.simple.identifiernaming" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="tech.clegg.mutagen.mutation.ast" />
       <recent name="tech.clegg.mutagen.mutation.ast.logicflow" />
+      <recent name="tech.clegg.mutagen.mutation.ast" />
       <recent name="tech.clegg.mutagen.mutation.ast.exceptions" />
       <recent name="mutagen.mutation.ast.identifiernaming" />
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.New Func - Cellar">
+  <component name="RunManager" selected="JUnit.PartialIfElseBlockSwitchTest">
     <configuration name="2021 - Cellar" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.MutaGen" />
       <module name="mutagen" />
@@ -168,6 +170,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in mutagen" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="mutagen" />
       <option name="PACKAGE_NAME" value="" />
@@ -189,6 +202,22 @@
       </extension>
       <option name="PACKAGE_NAME" value="tech.clegg.mutagen.mutation.ast" />
       <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.ParameterReassignmentDeletionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PartialIfElseBlockSwitchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mutagen" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.logicflow.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow" />
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.logicflow.PartialIfElseBlockSwitchTest" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -273,9 +302,11 @@
       <item itemvalue="JUnit.ParameterReassignmentDeletionTest" />
       <item itemvalue="JUnit.TransformCopyToReferenceTest" />
       <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
+      <item itemvalue="JUnit.PartialIfElseBlockSwitchTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PartialIfElseBlockSwitchTest" />
         <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
         <item itemvalue="JUnit.TransformCopyToReferenceTest" />
         <item itemvalue="JUnit.ParameterReassignmentDeletionTest" />
@@ -385,21 +416,11 @@
       <workItem from="1627315299098" duration="2183000" />
       <workItem from="1627319831501" duration="526000" />
       <workItem from="1627378196383" duration="653000" />
-      <workItem from="1627462005017" duration="2015000" />
-    </task>
-    <task id="LOCAL-00002" summary="Implemented naive eqSyn mutant">
-      <created>1542127772281</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1542127772282</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Implemented naive unbalanced brackets strategy">
-      <created>1542293553618</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1542293553618</updated>
+      <workItem from="1627462005017" duration="2721000" />
+      <workItem from="1627476538159" duration="2205000" />
+      <workItem from="1627491518775" duration="21000" />
+      <workItem from="1627553348476" duration="23000" />
+      <workItem from="1627905231320" duration="7588000" />
     </task>
     <task id="LOCAL-00004" summary="Improved unbalanced brackets strategy">
       <created>1542294499752</created>
@@ -730,7 +751,21 @@
       <option name="project" value="LOCAL" />
       <updated>1627463031839</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Imposed generation limit on StringMisspelling">
+      <created>1627465017645</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1627465017646</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Fixed issues with two operators">
+      <created>1627478069034</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1627478069034</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -781,8 +816,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Implemented RemovePublicAccessModifier. Updated mutant diff system." />
-    <MESSAGE value="(RemovePublicAccessModifier was missing in last commit)" />
     <MESSAGE value="Implemented StaticModifierIntroduction" />
     <MESSAGE value="BranchExtraction extended to include else case" />
     <MESSAGE value="Added BreakContinueDeletion; added exception handling to BranchExtraction" />
@@ -806,7 +839,9 @@
     <MESSAGE value="Improved TargetedExtractionBreakContinue" />
     <MESSAGE value="Fixed bug in ElseRelocation" />
     <MESSAGE value="Added String Misspellings as revised operator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added String Misspellings as revised operator" />
+    <MESSAGE value="Imposed generation limit on StringMisspelling" />
+    <MESSAGE value="Fixed issues with two operators" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed issues with two operators" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -815,6 +850,16 @@
           <url>file://$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield/customPrototype/model/ExampleAssessment.java</url>
           <line>43</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/TransformCopyToReference.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/logicflow/PartialIfElseBlockSwitchTest.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

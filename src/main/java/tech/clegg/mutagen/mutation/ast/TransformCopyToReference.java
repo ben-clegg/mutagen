@@ -96,7 +96,7 @@ public class TransformCopyToReference extends ASTVisitorMutationStrategy
         // Get arg
         Expression arg = objectCreationExpr.getArguments().get(0);
 
-        // Replace call with nameExpr
+        // Replace call with arg
         Node parent = objectCreationExpr.getParentNode().get();
         Node modifiedParent = parent.clone();
         modifiedParent.findAll(ObjectCreationExpr.class).stream()

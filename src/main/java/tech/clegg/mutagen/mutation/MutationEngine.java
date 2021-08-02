@@ -85,6 +85,7 @@ public class MutationEngine
             strategies.add(new TransformCopyToReference(t));
             strategies.add(new StringMisspelling(t));
             strategies.add(new BranchExtraction(t));
+            strategies.add(new PartialIfElseBlockSwitch(t));
         }
     }
 
