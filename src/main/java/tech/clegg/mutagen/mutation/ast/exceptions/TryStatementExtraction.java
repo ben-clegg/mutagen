@@ -27,6 +27,7 @@ public class TryStatementExtraction extends ASTVisitorMutationStrategy
         addFlag(MutantFlag.USES_AST);
         addFlag(MutantFlag.MUTAGEN_UNIQUE);
         addFlag(MutantFlag.MUTAGEN_UNIQUE_FUNCTIONALITY);
+        addFlag(MutantFlag.MUTAGEN_THESIS_FINAL);
     }
 
     @Override

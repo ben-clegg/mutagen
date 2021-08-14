@@ -64,7 +64,7 @@ public class MutationEngine
             strategies.add(new LiteralValueRepetition(t));
 
             // Updated mutant set
-            strategies.add(new EarlyExit(t));
+            strategies.add(new MultipleStatementDeletion(t));
             strategies.add(new RemovePublicAccessModifier(t));
             strategies.add(new StaticModifierIntroduction(t));
             strategies.add(new BreakContinueDeletion(t));

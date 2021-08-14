@@ -13,17 +13,18 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class EarlyExit extends ASTVisitorMutationStrategy
+public class MultipleStatementDeletion extends ASTVisitorMutationStrategy
 {
 
-    public EarlyExit(TargetSource target)
+    public MultipleStatementDeletion(TargetSource target)
     {
         super(target);
-        setType(MutantType.EARLY_EXIT);
+        setType(MutantType.MULTIPLE_STATEMENT_DELETION);
         addFlag(MutantFlag.FUNCTIONALITY);
         addFlag(MutantFlag.USES_AST);
         addFlag(MutantFlag.MUTAGEN_UNIQUE);
         addFlag(MutantFlag.MUTAGEN_UNIQUE_FUNCTIONALITY);
+        addFlag(MutantFlag.MUTAGEN_THESIS_FINAL);
     }
 
     @Override
