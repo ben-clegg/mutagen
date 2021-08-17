@@ -1,8 +1,11 @@
 package tech.clegg.mutagen;
 
 import tech.clegg.mutagen.conf.*;
+import tech.clegg.mutagen.mutation.Mutant;
 import tech.clegg.mutagen.mutation.MutationEngine;
 import tech.clegg.mutagen.properties.MutantFlag;
+
+import java.util.Collection;
 
 public class MutaGen
 {
@@ -29,6 +32,11 @@ public class MutaGen
         engine.printEnabledStrategies();
         engine.generateMutants();
         engine.printAllMutants();
+
+        // Show clear equivalent mutants
+        ClearEquivalentMutantsChecker equivMutsChecker = new ClearEquivalentMutantsChecker(engine.getTargets());
+        Collection<Mutant> clearEquivalents = equivMutsChecker.getClearEquivalentMutants(engine.getMutants());
+        equivMutsChecker.printMutantsAsEquivalents(clearEquivalents);
 
         config.getFileOutput().writeMutants(engine.getMutants());
         config.getFileOutput().writeSummary(engine.getMutants());
