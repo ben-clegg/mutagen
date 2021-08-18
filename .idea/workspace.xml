@@ -9,9 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Modified selection of operators">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Added checker for fully equivalent mutants">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/MutaGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/MutaGen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTMutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTMutant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/CollectionRemovalDeletion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/CollectionRemovalDeletion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/ASTStrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/ASTStrategyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/CollectionRemovalDeletionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/CollectionRemovalDeletionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/VariableReinitialisationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/VariableReinitialisationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +101,7 @@
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.New Func - Cellar">
+  <component name="RunManager" selected="Application.New Func - Chess-Board">
     <configuration name="2021 - Cellar" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.MutaGen" />
       <module name="mutagen" />
@@ -168,13 +172,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -185,6 +191,22 @@
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollectionRemovalDeletionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mutagen" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tech.clegg.mutagen.mutation.ast.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tech.clegg.mutagen.mutation.ast" />
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.CollectionRemovalDeletionTest" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -301,9 +323,11 @@
       <item itemvalue="JUnit.ParameterReassignmentDeletionTest" />
       <item itemvalue="JUnit.TransformCopyToReferenceTest" />
       <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
+      <item itemvalue="JUnit.CollectionRemovalDeletionTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CollectionRemovalDeletionTest" />
         <item itemvalue="JUnit.PartialIfElseBlockSwitchTest" />
         <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
         <item itemvalue="JUnit.TransformCopyToReferenceTest" />
@@ -423,14 +447,8 @@
       <workItem from="1628849892294" duration="2071000" />
       <workItem from="1628858201798" duration="4435000" />
       <workItem from="1628949501439" duration="5483000" />
-      <workItem from="1629215181617" duration="3674000" />
-    </task>
-    <task id="LOCAL-00007" summary="Implemented &quot;final&quot; replacement mutant">
-      <created>1543240862703</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1543240862703</updated>
+      <workItem from="1629215181617" duration="3730000" />
+      <workItem from="1629279904762" duration="6167000" />
     </task>
     <task id="LOCAL-00008" summary="Implemented comparator syntax error mutant">
       <created>1543245985534</created>
@@ -768,7 +786,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628960918462</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Added checker for fully equivalent mutants">
+      <created>1629219862964</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1629219862965</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -819,7 +844,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Implemented NewParameterCreation" />
     <MESSAGE value="Implemented TargetedStatementDeletionThrowStatement" />
     <MESSAGE value="Implemented TryStatementExtraction" />
     <MESSAGE value="Implemented RemoveVariableInitialValue" />
@@ -844,7 +868,8 @@
     <MESSAGE value="Implemented PartialIfElseBlockSwitch" />
     <MESSAGE value="Fixed bug in PartialIfElseBlockSwitch" />
     <MESSAGE value="Modified selection of operators" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified selection of operators" />
+    <MESSAGE value="Added checker for fully equivalent mutants" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added checker for fully equivalent mutants" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -854,11 +879,17 @@
           <line>43</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/CollectionRemovalDeletion.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.github.javaparser.ast.CompilationUnit" memberName="childNodes" />
+        <PinnedItemInfo parentTag="com.github.javaparser.ast.CompilationUnit" memberName="packageDeclaration" />
         <PinnedItemInfo parentTag="tech.clegg.mutagen.mutation.ast.logicflow.TargetedNestingBreakContinue" memberName="mutants" />
         <PinnedItemInfo parentTag="com.github.javaparser.ast.CompilationUnit" memberName="parentNode" />
       </pinned-members>

@@ -1,10 +1,14 @@
 package tech.clegg.mutagen.mutation.ast;
 
 import org.junit.Assert;
+import tech.clegg.mutagen.ClearEquivalentMutantsChecker;
+import tech.clegg.mutagen.TargetSource;
 import tech.clegg.mutagen.mutation.Mutant;
 
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.fail;
+import java.util.ArrayList;
+import java.util.Collection;
+
+import static org.junit.Assert.*;
 
 public class ASTStrategyTest
 {
@@ -64,6 +68,19 @@ public class ASTStrategyTest
                 }
             }
         }
+    }
+
+    protected void assertNoClearEquivalents(ASTVisitorMutationStrategy astVisitorMutationStrategy,
+                                            TargetSource targetSource)
+    {
+        Collection<TargetSource> targetSources = new ArrayList<>();
+        targetSources.add(targetSource);
+        ClearEquivalentMutantsChecker clearEquivalentsChecker = new ClearEquivalentMutantsChecker(targetSources);
+
+        assertTrue(
+                clearEquivalentsChecker.getClearEquivalentMutants(astVisitorMutationStrategy.getMutants())
+                .isEmpty()
+        );
     }
 
 

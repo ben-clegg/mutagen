@@ -72,12 +72,24 @@ public class ASTMutant extends Mutant
         CompilationUnit modifiedCU = originalCU.clone();
 
         // Apply every node patch to the cloned AST
+        // TODO Fix : sometimes valid patches are not applied. It is not clear why.
         for (NodePatch nodePatch : nodePatches)
         {
             //modifiedCU
-            modifiedCU.findAll(nodePatch.getNodeType()).stream()
+            modifiedCU.findAll(nodePatch.getOriginal().getClass()).stream()
                     .filter(f -> f.equals(nodePatch.getOriginal()))
                     .forEach(n -> n.replace(nodePatch.getMutated()));
+        }
+
+        if (modifiedCU.equals(originalCU))
+        {
+            System.err.println("Could not apply mutation for " + this.getIdString() + "_" + this.getType());
+            for (NodePatch nodePatch : nodePatches)
+            {
+                modifiedCU.findAll(nodePatch.getOriginal().getClass()).stream()
+                        .filter(n -> n.equals(nodePatch.getOriginal()))
+                        .forEach(n -> System.out.println(n));
+            }
         }
 
         // Prepare a PrettyPrinterConfiguration to use for sourcecode output
