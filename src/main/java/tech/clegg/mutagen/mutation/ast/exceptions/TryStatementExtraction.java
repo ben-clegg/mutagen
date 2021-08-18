@@ -36,13 +36,6 @@ public class TryStatementExtraction extends ASTVisitorMutationStrategy
         visitor = new VoidVisitorAdapter<Void>()
         {
             @Override
-            public void visit(IfStmt n, Void arg)
-            {
-                super.visit(n, arg);
-                generateModifiedIfContentsMutant(n);
-            }
-
-            @Override
             public void visit(TryStmt n, Void arg)
             {
                 super.visit(n, arg);
@@ -72,106 +65,5 @@ public class TryStatementExtraction extends ASTVisitorMutationStrategy
 
         // Generate mutant that replaces try with new block
         addMutant(new ASTMutant(this.getOriginal().getCompilationUnit(), tryStmt, tryReplacement, this.getType()));
-    }
-
-    private void generateModifiedIfContentsMutant(IfStmt ifStmt)
-    {
-        List<Node> ifStmtChildren = ifStmt.getChildNodes();
-        // The contents of the BlockStmt are the lines to be extracted, minus any extra braces
-
-
-        BlockStmt blockStmt = null;
-        for (Node child : ifStmtChildren)
-        {
-            if(child.getClass().equals(BlockStmt.class))
-            {
-                blockStmt = (BlockStmt) child;
-                break;
-            }
-        }
-        generateMutantExtractBlockFromIfStmt(blockStmt, ifStmt);
-
-        // Perform for else statement
-        if(ifStmt.hasElseBlock())
-        {
-            generateMutantExtractBlockFromIfStmt(ifStmt.getElseStmt().get().asBlockStmt(), ifStmt);
-        }
-
-    }
-
-    private void generateMutantExtractBlockFromIfStmt(BlockStmt toExtract, IfStmt originalIfStmt)
-    {
-        if(toExtract == null)
-            return;
-
-        // Children of BlockStmt are loaded
-        List<Node> blockStmtChildren = toExtract.getChildNodes();
-
-        // Generate mutant
-        CompilationUnit mutationCU = getOriginal().getCompilationUnit().clone();
-        IfStmt modifiedIfStmt = mutationCU.findAll(originalIfStmt.getClass())
-                .stream()
-                .filter(n -> n.equals(originalIfStmt)).findFirst().get();
-
-
-        // Remove children from BlockStmt in IfStmt
-        for (Node n : modifiedIfStmt.getChildNodes())
-        {
-            if (n.getClass().equals(BlockStmt.class))
-            {
-                modifiedIfStmt.replace(n, new BlockStmt());
-                break;
-            }
-        }
-
-        // parent should be a block statement
-        Node parent = modifiedIfStmt.getParentNode().get();
-
-        //NodeList siblings = (NodeList) parent.getChildNodes();
-        LinkedList<Node> siblings = new LinkedList<>(parent.getChildNodes());
-
-        // Copy children of BlockStmt to before if statement in separate list
-        for (Node n : siblings)
-        {
-            if (n.equals(modifiedIfStmt))
-            {
-                siblings.addAll(siblings.indexOf(n),
-                        blockStmtChildren);
-                break;
-            }
-        }
-
-        // Construct new siblings with changes
-        //NodeList<Statement> parentContents = new NodeList<>();
-        BlockStmt block = new BlockStmt(new NodeList<>());
-        for (Node n : siblings)
-        {
-            if(n instanceof Statement)
-            {
-                Statement s = (Statement) n;
-                block.addStatement(s);
-            }
-            else if (n instanceof Expression)
-            {
-                Expression e = (Expression) n;
-                block.addStatement(e);
-            }
-            //parentContents.add(s);
-        }
-        //BlockStmt b = new BlockStmt(parentContents);
-
-        try
-        {
-            addMutant(new ASTMutant(getOriginal().getCompilationUnit(),
-                    originalIfStmt.getParentNode().get(),
-                    block,
-                    this.getType()));
-        }
-        catch (ClassCastException classCastException)
-        {
-            System.err.println("Could not generate BranchExtraction mutant on if statement with condition: " +
-                    originalIfStmt.getCondition().toString());
-        }
-
     }
 }
