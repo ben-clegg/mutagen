@@ -9,14 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Attempted fixes for operators that fail to generate, but ultimately untenable. Fortunately, the affected mutants can simply be excluded from the analysis.">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Possible fix for poor generation; likely solved by forcing graph reformat when reading original solution.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/ClearEquivalentMutantsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/ClearEquivalentMutantsChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/JavaSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/JavaSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/TargetSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/TargetSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/Mutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/Mutant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTMutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTMutant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/output/FileOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/output/FileOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/MultipleStatementDeletion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/MultipleStatementDeletion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +208,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParameterReassignmentDeletionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MultipleStatementDeletionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mutagen" />
       <extension name="coverage">
         <pattern>
@@ -222,7 +217,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tech.clegg.mutagen.mutation.ast" />
-      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.ParameterReassignmentDeletionTest" />
+      <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.mutation.ast.MultipleStatementDeletionTest" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -321,18 +316,18 @@
       <item itemvalue="JUnit.All in mutagen" />
       <item itemvalue="JUnit.VariableReinitialisationTest" />
       <item itemvalue="JUnit.PartialIfElseBlockSwitchTest" />
-      <item itemvalue="JUnit.ParameterReassignmentDeletionTest" />
       <item itemvalue="JUnit.TransformCopyToReferenceTest" />
       <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
       <item itemvalue="JUnit.CollectionRemovalDeletionTest" />
+      <item itemvalue="JUnit.MultipleStatementDeletionTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MultipleStatementDeletionTest" />
         <item itemvalue="JUnit.CollectionRemovalDeletionTest" />
         <item itemvalue="JUnit.PartialIfElseBlockSwitchTest" />
         <item itemvalue="JUnit.TargetedExtractionBreakContinueTest" />
         <item itemvalue="JUnit.TransformCopyToReferenceTest" />
-        <item itemvalue="JUnit.ParameterReassignmentDeletionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -451,14 +446,7 @@
       <workItem from="1629215181617" duration="3730000" />
       <workItem from="1629279904762" duration="11131000" />
       <workItem from="1629301221707" duration="267000" />
-      <workItem from="1629301681047" duration="1993000" />
-    </task>
-    <task id="LOCAL-00010" summary="Fully implemented first AST mutant&#10;Disabled summary file to allow this">
-      <created>1544026888287</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1544026888288</updated>
+      <workItem from="1629301681047" duration="6033000" />
     </task>
     <task id="LOCAL-00011" summary="Reimplemented summary file">
       <created>1544101439655</created>
@@ -796,7 +784,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629303190605</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Possible fix for poor generation; likely solved by forcing graph reformat when reading original solution.">
+      <created>1629303861827</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1629303861827</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -847,7 +842,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Implemented RemoveVariableInitialValue" />
     <MESSAGE value="Implemented RemoveCasts, with test" />
     <MESSAGE value="Implemented StatementCreationIteratorNext, with test" />
     <MESSAGE value="Implemented TargetedExtractionBreakContinue, with test" />
@@ -872,7 +866,8 @@
     <MESSAGE value="Added checker for fully equivalent mutants" />
     <MESSAGE value="Attempted fixes for operators that fail to generate, but ultimately untenable. Fortunately, the affected mutants can simply be excluded from the analysis." />
     <MESSAGE value="Fixed issue with TryStatementExtraction operator (also applied BranchExtraction)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed issue with TryStatementExtraction operator (also applied BranchExtraction)" />
+    <MESSAGE value="Possible fix for poor generation; likely solved by forcing graph reformat when reading original solution." />
+    <option name="LAST_COMMIT_MESSAGE" value="Possible fix for poor generation; likely solved by forcing graph reformat when reading original solution." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

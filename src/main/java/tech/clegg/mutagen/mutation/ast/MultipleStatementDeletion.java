@@ -43,70 +43,55 @@ public class MultipleStatementDeletion extends ASTVisitorMutationStrategy
 
     private void generateMutants(ExpressionStmt stmt)
     {
-        List<NodePatch> nodePatches = truncateAfterNode(stmt, new ArrayList<>());
-        ASTMutant m = new ASTMutant(getOriginal().getCompilationUnit(), nodePatches, getType());
-        m.setPreMutation(stmt.toString());
-        m.setPostMutation(stmt.getBegin().toString());
-        addMutant(m);
-    }
-
-    /**
-     * Recursively truncate every node after current node for current "level",
-     * recurses by calling this method on the parent node.
-     * @param node
-     * @param nodePatches
-     * @return
-     */
-    private List<NodePatch> truncateAfterNode(Node node, List<NodePatch> nodePatches)
-    {
-        // Halt if method or class declaration
-        if(node.getClass().equals(MethodDeclaration.class))
-            return nodePatches;
-        if(node.getClass().equals(ClassOrInterfaceDeclaration.class))
-            return nodePatches;
-
         // Halt if no parent
-        if(!node.getParentNode().isPresent())
-            return nodePatches;
+        if(!stmt.getParentNode().isPresent())
+            return;
 
         // generate and add node patches for this level
-        Node mutatedParent = node.getParentNode().get().clone();
-        // Find nodes to remove from parent
-        List<Node> siblingsToRemove = new ArrayList<>();
-        boolean selfFound = false;
-        for (Node sibling : node.getParentNode().get().getChildNodes())
+        Node originalParent = stmt.getParentNode().get();
+        Node mutatedParent = originalParent.clone();
+
+        // Get indexes
+        int index = mutatedParent.getChildNodes().indexOf(stmt);
+        int limit = mutatedParent.getChildNodes().size() - 1;
+
+        // Skip if not enough statements can be removed (must be 2 minimum)
+        if (index == limit)
+            return;
+
+        // Possible nodes to remove
+        List<Node> removalPool = new ArrayList<>();
+        for (int i = index; i <= limit; i++)
+            removalPool.add(mutatedParent.getChildNodes().get(i));
+        // Make a mutant for each combination of limit
+        while (removalPool.size() >= 2)
         {
-            if(selfFound)
-            {
-                siblingsToRemove.add(sibling);
-                continue;
-            }
-
-            if(sibling.equals(node))
-                selfFound = true;
+            // TODO Generate mutant for available nodes in the pool
+            generateMutantWithRemovals(originalParent, removalPool);
+            // Remove last for next iteration
+            removalPool.remove(removalPool.size() - 1);
         }
-
-        LinkedList<Node> siblings = new LinkedList<>();
-        siblings.addAll(node.getParentNode().get().getChildNodes());
-
-
-        for (Node r : siblingsToRemove)
-            siblings.remove(r);
-
-        List<Node> clearing = new ArrayList<>(mutatedParent.getChildNodes());
-        for (Node c : clearing)
-        {
-            mutatedParent.remove(c);
-        }
-
-
-        // Generate node patch
-
-        NodePatch np = new NodePatch(node.getParentNode().get(), mutatedParent);
-        nodePatches.add(np);
-
-
-        // Recurse on parent node
-        return truncateAfterNode(node.getParentNode().get(), nodePatches);
     }
+
+    private void generateMutantWithRemovals(Node originalParent, List<Node> removalPool)
+    {
+        Node modifiedParent = originalParent.clone();
+
+        // Remove every element that's in the pool
+        for (Node r : removalPool)
+        {
+            modifiedParent.findAll(r.getClass()).stream()
+                    .filter(r::equals)
+                    .forEach(Node::remove);
+        }
+
+        // Create mutant
+        addMutant(new ASTMutant(
+                this.getOriginal().getCompilationUnit(),
+                originalParent,
+                modifiedParent,
+                this.getType()
+        ));
+    }
+
 }
