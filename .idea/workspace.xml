@@ -9,13 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Added checker for fully equivalent mutants">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Attempted fixes for operators that fail to generate, but ultimately untenable. Fortunately, the affected mutants can simply be excluded from the analysis.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/ClearEquivalentMutantsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/ClearEquivalentMutantsChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/JavaSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/JavaSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/TargetSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/TargetSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/Mutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/Mutant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTMutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/ASTMutant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/CollectionRemovalDeletion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/CollectionRemovalDeletion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/ASTStrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/ASTStrategyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/CollectionRemovalDeletionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/CollectionRemovalDeletionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/VariableReinitialisationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tech/clegg/mutagen/mutation/ast/VariableReinitialisationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/output/FileOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/output/FileOutput.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +102,7 @@
       <recent name="mutagen.mutation.simple.indentation" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.New Func - Chess-Board">
+  <component name="RunManager" selected="Application.New Func - Chess-Queen">
     <configuration name="2021 - Cellar" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="tech.clegg.mutagen.MutaGen" />
       <module name="mutagen" />
@@ -448,21 +449,9 @@
       <workItem from="1628858201798" duration="4435000" />
       <workItem from="1628949501439" duration="5483000" />
       <workItem from="1629215181617" duration="3730000" />
-      <workItem from="1629279904762" duration="6167000" />
-    </task>
-    <task id="LOCAL-00008" summary="Implemented comparator syntax error mutant">
-      <created>1543245985534</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1543245985534</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Partial simple implementation of the &quot;Incorrect Classname&quot; mutation strategy with JavaParser">
-      <created>1543937631223</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1543937631223</updated>
+      <workItem from="1629279904762" duration="11131000" />
+      <workItem from="1629301221707" duration="267000" />
+      <workItem from="1629301681047" duration="1993000" />
     </task>
     <task id="LOCAL-00010" summary="Fully implemented first AST mutant&#10;Disabled summary file to allow this">
       <created>1544026888287</created>
@@ -793,7 +782,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629219862965</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Attempted fixes for operators that fail to generate, but ultimately untenable. Fortunately, the affected mutants can simply be excluded from the analysis.">
+      <created>1629292363072</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1629292363073</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Fixed issue with TryStatementExtraction operator (also applied BranchExtraction)">
+      <created>1629303190605</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1629303190605</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -844,8 +847,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Implemented TargetedStatementDeletionThrowStatement" />
-    <MESSAGE value="Implemented TryStatementExtraction" />
     <MESSAGE value="Implemented RemoveVariableInitialValue" />
     <MESSAGE value="Implemented RemoveCasts, with test" />
     <MESSAGE value="Implemented StatementCreationIteratorNext, with test" />
@@ -869,7 +870,9 @@
     <MESSAGE value="Fixed bug in PartialIfElseBlockSwitch" />
     <MESSAGE value="Modified selection of operators" />
     <MESSAGE value="Added checker for fully equivalent mutants" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added checker for fully equivalent mutants" />
+    <MESSAGE value="Attempted fixes for operators that fail to generate, but ultimately untenable. Fortunately, the affected mutants can simply be excluded from the analysis." />
+    <MESSAGE value="Fixed issue with TryStatementExtraction operator (also applied BranchExtraction)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed issue with TryStatementExtraction operator (also applied BranchExtraction)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -878,11 +881,6 @@
           <url>file://$PROJECT_DIR$/../../autogradingTools/AutoGrader/src/uk/ac/sheffield/customPrototype/model/ExampleAssessment.java</url>
           <line>43</line>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/CollectionRemovalDeletion.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

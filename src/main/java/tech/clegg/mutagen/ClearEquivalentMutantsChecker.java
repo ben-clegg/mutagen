@@ -4,7 +4,10 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseProblemException;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
+import com.github.javaparser.printer.PrettyPrinterConfiguration;
 import tech.clegg.mutagen.mutation.Mutant;
+import tech.clegg.mutagen.mutation.ast.ASTMutant;
+import tech.clegg.mutagen.mutation.ast.NodePatch;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,6 +32,17 @@ public class ClearEquivalentMutantsChecker
         for (Mutant m : mutants)
         {
             System.err.println(m.getIdString() + "_" + m.getType());
+            if (m instanceof ASTMutant)
+            {
+                ASTMutant astMutant = (ASTMutant) m;
+                for (NodePatch np : astMutant.getNodePatches())
+                {
+                    System.out.println("- Original (" + astMutant.getName() + "):");
+                    System.out.println(np.getOriginal());
+                    System.out.println("- Mutated (" + astMutant.getName() + "):");
+                    System.out.println(np.getMutated());
+                }
+            }
         }
     }
 
@@ -52,15 +66,22 @@ public class ClearEquivalentMutantsChecker
 
     private boolean compilationUnitsEqual(CompilationUnit a, CompilationUnit b)
     {
-        // TODO implement
+        // Simple object check
+        if (a.equals(b))
+            return true;
 
-        //List<Node> aNodes = new ArrayList<>();
-        //List<Node> bNodes = new ArrayList<>();
+        // Printout check
+        return toSourceCode(a).equals(toSourceCode(b));
+    }
 
-
-        return a.equals(b);
-
-        //return false;
+    private JavaSource toSourceCode(CompilationUnit compilationUnit)
+    {
+        // Prepare a PrettyPrinterConfiguration to use for sourcecode output
+        PrettyPrinterConfiguration p = new PrettyPrinterConfiguration();
+        p.setIndentType(PrettyPrinterConfiguration.IndentType.SPACES);
+        p.setIndentSize(2);
+        // Convert the cloned AST to a JavaSource
+        return new JavaSource(compilationUnit.toString(p));
     }
 
     private boolean isClearEquivalent(Mutant mutant)
@@ -73,7 +94,13 @@ public class ClearEquivalentMutantsChecker
         catch (ParseProblemException parseProblemException)
         {
             System.err.println("Could not parse mutant " + mutant.getIdString() + "_" + mutant.getType());
-            return false;
+            return true;
+        }
+        catch (NullPointerException nullPointerException)
+        {
+            System.err.println("Null lines for mutant " + mutant.getIdString() + "_" + mutant.getType() +
+                    "; likely equal to original");
+            return true;
         }
 
         for (TargetSource s : targetSources)

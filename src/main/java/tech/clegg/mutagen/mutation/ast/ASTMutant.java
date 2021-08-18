@@ -16,6 +16,7 @@ import java.util.List;
 public class ASTMutant extends Mutant
 {
     private CompilationUnit originalCU;
+    private CompilationUnit mutatedCU;
 
     private List<NodePatch> nodePatches;
 
@@ -69,27 +70,30 @@ public class ASTMutant extends Mutant
     protected void setupMutatedJavaSource()
     {
         // Clone the AST to begin modifying it
-        CompilationUnit modifiedCU = originalCU.clone();
+        mutatedCU = originalCU.clone();
 
         // Apply every node patch to the cloned AST
         // TODO Fix : sometimes valid patches are not applied. It is not clear why.
         for (NodePatch nodePatch : nodePatches)
         {
             //modifiedCU
-            modifiedCU.findAll(nodePatch.getOriginal().getClass()).stream()
+            mutatedCU.findAll(nodePatch.getOriginal().getClass()).stream()
                     .filter(f -> f.equals(nodePatch.getOriginal()))
                     .forEach(n -> n.replace(nodePatch.getMutated()));
         }
 
-        if (modifiedCU.equals(originalCU))
+        if (mutatedCU.equals(originalCU))
         {
             System.err.println("Could not apply mutation for " + this.getIdString() + "_" + this.getType());
             for (NodePatch nodePatch : nodePatches)
             {
-                modifiedCU.findAll(nodePatch.getOriginal().getClass()).stream()
-                        .filter(n -> n.equals(nodePatch.getOriginal()))
-                        .forEach(n -> System.out.println(n));
+                System.out.println("-Original");
+                System.out.println(nodePatch.getOriginal());
+                System.out.println("-Mutated");
+                System.out.println(nodePatch.getMutated());
             }
+            // Should not generate mutant
+            return;
         }
 
         // Prepare a PrettyPrinterConfiguration to use for sourcecode output
@@ -97,7 +101,7 @@ public class ASTMutant extends Mutant
         p.setIndentType(PrettyPrinterConfiguration.IndentType.SPACES);
         p.setIndentSize(2);
         // Convert the cloned AST to a JavaSource
-        modified = new JavaSource(modifiedCU.toString(p));
+        modified = new JavaSource(mutatedCU.toString(p));
     }
 
     @Override

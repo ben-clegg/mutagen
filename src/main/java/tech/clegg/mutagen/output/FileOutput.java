@@ -42,6 +42,10 @@ public class FileOutput
             System.err.println("Failed to save mutant to " +
                     m.getLocation());
         }
+        catch (NullPointerException npe)
+        {
+            System.err.println("Skipped writing mutant " + m.getName() + "; no lines - likely not a valid mutant.");
+        }
     }
 
     public void writeMutants(List<Mutant> mutants)

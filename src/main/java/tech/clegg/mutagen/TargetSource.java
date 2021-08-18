@@ -26,7 +26,7 @@ public class TargetSource
                         Files.readLines(fullyQualifiedFile, Charset.forName("UTF-8")));
 
             // Parse Abstract Syntax Tree with JavaParser
-            compilationUnit = JavaParser.parse(fullyQualifiedFile);
+            compilationUnit = JavaParser.parse(fullyQualifiedFile).clone();
         }
         catch (IOException ioEx)
         {
@@ -46,13 +46,13 @@ public class TargetSource
     public TargetSource(String simpleCode)
     {
         this.lines = new JavaSource(simpleCode);
-        this.compilationUnit = JavaParser.parse(simpleCode);
+        this.compilationUnit = JavaParser.parse(simpleCode).clone();
     }
 
     public TargetSource(JavaSource simpleJavaSource)
     {
         this.lines = simpleJavaSource;
-        this.compilationUnit = JavaParser.parse(simpleJavaSource.toString());
+        this.compilationUnit = JavaParser.parse(simpleJavaSource.toString()).clone();
     }
 
     public JavaSource getLines()

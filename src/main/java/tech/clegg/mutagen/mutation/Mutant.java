@@ -71,7 +71,6 @@ public abstract class Mutant
         }
     }
 
-
     public int getId()
     {
         return id;
@@ -111,5 +110,10 @@ public abstract class Mutant
     public JavaSource getModifiedLines()
     {
         return modified;
+    }
+
+    public String getName()
+    {
+        return getIdString() + "_" + getType();
     }
 }
