@@ -9,9 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Fixed issues with MultipleStatementDeletion">
+    <list default="true" id="11b00994-83c7-467c-a641-4bf32335bf7e" name="Default" comment="Tweaked BranchExtraction">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/BranchExtraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/mutation/ast/logicflow/BranchExtraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/MutaGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/clegg/mutagen/MutaGen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -446,14 +446,7 @@
       <workItem from="1629215181617" duration="3730000" />
       <workItem from="1629279904762" duration="11131000" />
       <workItem from="1629301221707" duration="267000" />
-      <workItem from="1629301681047" duration="9673000" />
-    </task>
-    <task id="LOCAL-00012" summary="Improved change reporting">
-      <created>1544102620682</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1544102620682</updated>
+      <workItem from="1629301681047" duration="9969000" />
     </task>
     <task id="LOCAL-00013" summary="Added standard for separator confusion mutation strategy">
       <created>1544107460439</created>
@@ -791,7 +784,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629309451286</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Tweaked BranchExtraction">
+      <created>1629312796297</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1629312796297</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -842,7 +842,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Implemented StatementCreationIteratorNext, with test" />
     <MESSAGE value="Implemented TargetedExtractionBreakContinue, with test" />
     <MESSAGE value="Improved testing of AST mutation strategies" />
     <MESSAGE value="Implemented StatementTranspose, with test" />
@@ -867,7 +866,8 @@
     <MESSAGE value="Fixed issue with TryStatementExtraction operator (also applied BranchExtraction)" />
     <MESSAGE value="Possible fix for poor generation; likely solved by forcing graph reformat when reading original solution." />
     <MESSAGE value="Fixed issues with MultipleStatementDeletion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed issues with MultipleStatementDeletion" />
+    <MESSAGE value="Tweaked BranchExtraction" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tweaked BranchExtraction" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

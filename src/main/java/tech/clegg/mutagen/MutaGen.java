@@ -5,7 +5,9 @@ import tech.clegg.mutagen.mutation.Mutant;
 import tech.clegg.mutagen.mutation.MutationEngine;
 import tech.clegg.mutagen.properties.MutantFlag;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class MutaGen
 {
@@ -33,13 +35,20 @@ public class MutaGen
         engine.generateMutants();
         engine.printAllMutants();
 
+        // Get generated mutants
+        Collection<Mutant> generatedMutants = engine.getMutants();
+
         // Show clear equivalent mutants
         ClearEquivalentMutantsChecker equivMutsChecker = new ClearEquivalentMutantsChecker(engine.getTargets());
-        Collection<Mutant> clearEquivalents = equivMutsChecker.getClearEquivalentMutants(engine.getMutants());
+        Collection<Mutant> clearEquivalents = equivMutsChecker.getClearEquivalentMutants(generatedMutants);
         equivMutsChecker.printMutantsAsEquivalents(clearEquivalents);
 
-        config.getFileOutput().writeMutants(engine.getMutants());
-        config.getFileOutput().writeSummary(engine.getMutants());
+        // Remove clear equivalents from generated pool
+        List<Mutant> filteredPool = new ArrayList<>(generatedMutants);
+        filteredPool.removeAll(clearEquivalents);
+
+        config.getFileOutput().writeMutants(filteredPool);
+        config.getFileOutput().writeSummary(filteredPool);
     }
 
     public static void main(String[] args)
