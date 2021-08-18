@@ -51,7 +51,7 @@ public class BranchExtraction extends ASTVisitorMutationStrategy
         List<Node> ifStmtChildren = ifStmt.getChildNodes();
         // The contents of the BlockStmt are the lines to be extracted, minus any extra braces
 
-
+        // Check if target is a blockStmt
         BlockStmt blockStmt = null;
         for (Node child : ifStmtChildren)
         {
@@ -61,7 +61,13 @@ public class BranchExtraction extends ASTVisitorMutationStrategy
                 break;
             }
         }
-        generateMutantExtractBlockFromIfStmt(blockStmt, ifStmt);
+
+        // Use strategy appropriate to statement type
+        if (blockStmt != null)
+            generateMutantExtractBlockFromIfStmt(blockStmt, ifStmt);
+        else
+            generateNonBlockExtractionMutant(ifStmt);
+
 
         // Perform for else statement
         if(ifStmt.hasElseBlock())
@@ -69,6 +75,54 @@ public class BranchExtraction extends ASTVisitorMutationStrategy
             generateMutantExtractBlockFromIfStmt(ifStmt.getElseStmt().get().asBlockStmt(), ifStmt);
         }
 
+    }
+
+    /**
+     * Inline case
+     * @param originalIfStmt original if statement ot extract then from
+     */
+    private void generateNonBlockExtractionMutant(IfStmt originalIfStmt)
+    {
+        Statement then = originalIfStmt.getThenStmt();
+
+        if (!originalIfStmt.getParentNode().isPresent())
+            return;
+
+        Node parent = originalIfStmt.getParentNode().get();
+
+        // Must be blockstmt
+        if (!(parent instanceof BlockStmt))
+            return;
+
+        BlockStmt parentBlock = ((BlockStmt) parent).asBlockStmt();
+        int ifIndex = parentBlock.getChildNodes().indexOf(originalIfStmt);
+        BlockStmt modifiedParentBlock = parentBlock.clone();
+        modifiedParentBlock.addStatement(ifIndex - 1, then.clone());
+
+        // Two possibilities: no else stmt; else statement
+        if (originalIfStmt.hasElseBranch())
+        {
+            // Has else, must replace if stmt's then stmt with an empty BlockStmt
+            IfStmt modifiedIfStmt = originalIfStmt.clone();
+            modifiedIfStmt.setThenStmt(new BlockStmt());
+            modifiedParentBlock.findAll(IfStmt.class).stream()
+                    .filter(originalIfStmt::equals)
+                    .forEach(n -> n.replace(modifiedIfStmt));
+        }
+        else
+        {
+            // No else, just remove the if itself
+            modifiedParentBlock.findAll(IfStmt.class).stream()
+                    .filter(originalIfStmt::equals)
+                    .forEach(Node::remove);
+        }
+
+        addMutant(new ASTMutant(
+                getOriginal().getCompilationUnit(),
+                parentBlock,
+                modifiedParentBlock,
+                this.getType()
+        ));
     }
 
     private void generateMutantExtractBlockFromIfStmt(BlockStmt toExtract, IfStmt originalIfStmt)
